@@ -1,0 +1,704 @@
+/*
+  David Cacorovski, Jeremy Thummel, Sohail Meghani
+  1/6/21
+  ICS3U Styles
+  This is the styles for of our game and webpage.
+*/
+body
+{
+  background-color: #5ed18e;
+  background-image: url(images/bg.png);
+  background-size: 120% 120%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+/* ***************************DAVID CACOROVSKI 1/8/2021 9:00 PM Added dropdown styles *****************************************/
+/* Code taken from https://www.w3schools.com/howto/howto_js_dropdown.asp */
+/* Dropdown Button */
+.dropbtn
+{
+  background-color: rgba(99,201,255,0.4);
+  color: #db6440;
+  padding: 16px;
+  font-size: 16px;
+  border: 2px solid #db6440;
+  border-radius: 20%;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus
+{
+  background-color: #FFFFFF;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown
+{
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content
+{
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a
+{
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  background-color: rgba(99,201,255,0.4);
+  color: white;
+  font-size: 24px;
+  border: 2px solid black;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  text-shadow: 3px 3px #db6440;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #db6440}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+#logo
+{
+  position: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(66,135,245,0.5);
+  border-radius: 2em;
+  border-style: ridge;
+  border-color: black;
+  border-width: 3px;
+}
+
+h2
+{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;;
+}
+
+/* ***************************JEREMY THUMMEL 1/13/2021 11:16 AM Added headers and imgDiv and background styles.*****************************************/
+h2, #avatar
+{
+  border-style: solid;
+  border-radius: 10px;
+  color: white;
+  text-shadow: 3px 3px #db6440;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  background-color: rgba(89,183,255,0.2);
+  border-color: #0087b8;
+  border-style: outset;
+  border-width: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 7px;
+  position: relative;
+  line-height: 40px;
+}
+
+#avatar
+{
+  position: relative;
+  left: 37.5%;
+}
+
+#avatarInGame
+{
+  position: absolute;
+  display: inline-block;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: rgba(89,183,255,0.2);
+  border-color: #0087b8;
+  border-style: outset;
+  border-width: 10px;
+  padding: 7px;
+  z-index: 6;
+  width: 5%;
+  left: 1200px;
+  top: 250px;
+}
+/* ***************************SOHAIL MEGHANI 1/13/2021 11:19 AM Added headers and paragraph and titleDiv styles*****************************************/
+
+h3
+{
+  color: white;
+  text-shadow: 3px 3px #db6440;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+h1
+{
+  color: white;
+  text-shadow: 3px 3px #db6440;
+  text-align: center;
+  font-size: 46px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+p
+{
+  border-style: outset;
+  border-radius: 10px;
+  color: #db6440;
+  text-shadow: 3px 3px black;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.5);
+  border-color: #eb5426;
+  border-width: 6px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  line-height: 40px;
+}
+
+#imgDiv
+{
+  position: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#imgDiv2
+{
+  position: absolute;
+  z-index: 100px;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 15%;
+  left: 41.5%;
+  top: 26.5%;
+}
+
+#titleDiv
+{
+  position: center;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(66,135,245,0.5);
+  border-radius: 2em;
+  border-style: ridge;
+  border-color: black;
+  border-width: 3px;
+  width: 40%;
+  padding-bottom: 125px;
+}
+
+/* ***************************DAVID CACOROVSKI 1/14/2021 10:21 AM Added fade in styles *****************************************/
+/* This code is a cool fade in I learned in this youtube video: https://www.youtube.com/watch?v=UInN6O_nMKs&ab_channel=CodeRookie */
+/* START OF FADE CODE */
+.fade-in
+{
+  animation: fadeIn 3s;
+}
+@keyframes fadeIn
+{
+  from
+  {
+    opacity: 0;
+  }
+
+  to
+  {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn-2
+{
+  from
+  {
+    opacity: 0;
+  }
+
+  to
+  {
+    opacity: 0.95;
+  }
+}
+
+.fade-out
+{
+  animation: fadeOut 3s;
+}
+@keyframes fadeOut
+{
+  from
+  {
+    opacity: 1;
+  }
+
+  to
+  {
+    opacity: 0;
+  }
+}
+
+/* END OF FADE CODE. */
+
+/* ***************************DAVID CACOROVSKI 1/17/2021 10:58 AM Added towardsCave and towardsMine in styles *****************************************/
+@keyframes towardsCave
+{
+  from
+  {
+    background-size: 200%;
+    background-position-x: -640px;
+    background-position-y: -360px;
+  }
+
+  to
+  {
+    background-size: 350%;
+    background-position-x: -2000px;
+    background-position-y: -800px;
+  }
+}
+
+@keyframes towardsMine
+{
+  from
+  {
+    background-size: 200%;
+    background-position-x: -640px;
+  }
+
+  to
+  {
+    background-size: 300%;
+    background-position-x: -610px;
+  }
+}
+
+#whiteBackground, #greyBackground, #blackBackground
+{
+  width: 1280px;
+  height: 720px;
+  position: absolute;
+  top: 75px;
+}
+
+/* ***************************DAVID CACOROVSKI 1/24/2021 5:58 PM Added towardsCave2 in styles *****************************************/
+@keyframes towardsCave2
+{
+  from
+  {
+    background-size: 200%;
+    background-position-x: -640px;
+  }
+
+  to
+  {
+    background-size: 300%;
+    background-position-x: -610px;
+  }
+}
+
+/* ***************************DAVID CACOROVSKI 1/26/2021 8:21 PM Added towardsCave3, towardsCave4 in styles *****************************************/
+@keyframes towardsCave3
+{
+  from
+  {
+    background-size: 200%;
+  }
+
+  to
+  {
+    background-size: 400%;
+  }
+}
+
+@keyframes towardsCave4
+{
+  from
+  {
+    background-size: 200%;
+    background-position-x: -640px;
+    background-position-y: -360px;
+  }
+
+  to
+  {
+    background-size: 400%;
+    background-position-x: -2200px;
+    background-position-y: -800px;
+  }
+}
+
+/* ***************************SOHAIL MEGHANI 1/13/2021 11:19 AM Added audioCentering, canvas, gameBackground and more styles*****************************************/
+
+.audioCentering
+{
+  width: 20%;
+  left: 350%;
+  border-style: ridge;
+  border-color: black;
+  border-width: thick;
+  box-shadow: inset 0 0 10px rgba(0,0,0,.5);
+  border-radius: 30px;
+  background-color: White;
+  padding: 5px;
+  margin: 60px;
+  color: #fc8c03;
+  position: relative;
+}
+
+#gameBackground
+{
+  background-image: url("images/gameBG.png");
+  height: 720px;
+  width: 1280px;
+  display: inline-block;
+  margin-left: 17%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 10px;
+}
+
+canvas
+{
+  display: block;
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 10px;
+  margin-left: 16.86%;
+  position: absolute;
+  z-index: 7;
+  top: 6.95%;
+}
+
+#gameLogo
+{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 30%;
+  border-radius: 10%;
+  background-color: rgba(158, 0, 97, 0.2);
+  position: relative;
+  top: 20%;
+}
+
+#gameTwo
+{
+  position: absolute;
+  top: 400px;
+  left: 25px;
+  width: 15%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#playButton{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 25%;
+  position: relative;
+  top: 22%;
+  z-index: 4;
+}
+
+.exitButton
+{
+  position: absolute;
+  left: 1400px;
+}
+
+#moveOne, #moveTwo
+{
+  position: absolute;
+}
+
+.hover:hover{
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+.videoCentering
+{
+  position: absolute;
+  left: 332px;
+  top: 65px;
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 10px;
+}
+
+#enemyStraw, #enemyFrosty, #enemySnake, #attackHit, #enemyHiveo,  #enemyPengu
+{
+  display: block;
+  left: 39%;
+  top: 24%;
+  width: 22%;
+  position: absolute;
+}
+
+#enemyCovered, #enemyZyborgus
+{
+  display: block;
+  left: 35%;
+  top: 12%;
+  width: 33%;
+  position: absolute;
+}
+
+#shopKeeper
+{
+  display: block;
+  left: 40%;
+  top: 24%;
+  width: 22%;
+  position: absolute;
+  z-index: 6;
+}
+
+#woodSpearBuy, #lblWoodSpear
+{
+  left: 60.5%;
+  top: 30%;
+  width: 18%;
+  position: absolute;
+  z-index: 6;
+}
+
+#potion2, #lblPotion
+{
+  left: 24.5%;
+  top: 30%;
+  z-index: 6;
+}
+
+#potion3, #lbl5Potions, #lblAmountOfGold, #lblCurrent
+{
+  left: 24.5%;
+  top: 40%;
+  z-index: 6;
+}
+
+#skipButton
+{
+  width: 10%;
+  position: absolute;
+  left: 74.5%;
+  z-index: 5;
+  top: 77%;
+}
+
+label
+{
+  position: absolute;
+  color: white;
+  text-shadow: 3px 3px #db6440;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+}
+
+#lblArea, #lblEncounter, #lblLost, #lblContinue, #lblLevelUp, #lblDouble, #lblShop
+{
+  left: 38%;
+  top: 17.5%;
+}
+
+#lblShop
+{
+  z-index: 6;
+}
+
+#lblEnemyHealth
+{
+  left: 17%;
+  top: 25%;
+}
+
+#lblEnemyLeft
+{
+  left: 38%;
+  top: 10%;
+}
+
+#noContinue
+{
+  position: absolute;
+  left: 65%;
+}
+
+#yesContinue
+{
+  position: absolute;
+  left: 23%;
+}
+
+#lblPlayerHealth
+{
+  left: 59%;
+  top: 25%;
+}
+
+/* ***************************JEREMY THUMMEL 1/16/2021 9:36 AM Added hand labels.*****************************************/
+.hands
+{
+  position: absolute;
+  top: 63.5%;
+  left: 32%;
+}
+
+.handsSpear
+{
+  position: absolute;
+  top: 54.10%;
+  left: 32%;
+}
+
+.rough
+{
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  border-style: outset;
+  border-color: black;
+  border-width: 10px;
+  border-radius: 20px;
+}
+
+#bag
+{
+  display: inline-block;
+  position: absolute;
+  top: 76%;
+  left: 71%;
+}
+
+#items, #stats, #atkButton, #defButton, #hpButton, #spdButton, #weapons
+{
+  display: inline-block;
+  position: absolute;
+  z-index: 6;
+}
+
+#namePlayer
+{
+  position: absolute;
+}
+
+#attack, #buy
+{
+  display: inline-block;
+  position: absolute;
+  top: 74%;
+  left: 41.5%;
+  z-index: 5;
+}
+
+#shop, #run
+{
+  display: inline-block;
+  position: absolute;
+  top: 75%;
+}
+
+#mines
+{
+  display: inline-block;
+  position: absolute;
+  top: 40%;
+  left: 22%;
+}
+
+#enterBattle
+{
+  display: inline-block;
+  position: absolute;
+  top: 30%;
+  left: 55%;
+}
+/* ***************************SOHAIL MEGHANI 1/14/2021 10:42 AM Added intro, submitBTN, potion and more styles*****************************************/
+
+#intro, #neo, #bossIntro, #bossPhase
+{
+  z-index: 4;
+
+}
+.potion
+{
+  position: absolute;
+  z-index: 6;
+}
+
+#submitBTN
+{
+  height: 5%;
+  width: 8%;
+  left: 1450px;
+  top: 52%;
+}
+
+.functionTitle
+{
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+#function
+{
+  width: 25%;
+  height: 50%;
+}
+
+#function:hover
+{
+  width: 35%;
+  height: 60%;
+}
+
+#functionSnippet
+{
+  width: 35%;
+  height: 60%;
+}
+
+#functionSnippet:hover
+{
+  width: 50%;
+  height: 75%;
+}

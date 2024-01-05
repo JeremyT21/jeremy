@@ -1,0 +1,5234 @@
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/6/21
+	ICS3U Summative Homepage
+	This is the homepage of our game this year.
+-->-
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="images/web_logo.png">
+		<title>Abyss Below: Home</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script type="text/javascript" src="code.js"></script>
+	</head>
+	<!-- This class has a fade-in. Something a little extra for our webpage. -->
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown">
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="">Home</a>
+ 			   <a href="finalGame/index.html">Play Game</a>
+ 			   <a href="code.txt">Code</a>
+				 <a href="roughSketches/index.html">Rough Sketches</a>
+				 <a href="codeSnippets/index.html">Code Snippets</a>
+				 <a href="functions/index.html">New Functions</a>
+				 <a href="helpPage/index.html">Help</a>
+ 			 </div>
+		</div>
+		<br>
+		<img src="images/logo.png" id="imgDiv">
+		<br>
+		<img src="images/frosty_the_ice_man.gif" id="imgDiv2">
+		<br>
+		<br>
+		<!-- JEREMY THUMMEL 1/6/21 10:39 AM Added the paragraph -->
+		<p>
+			In a normal world filled with normal people, there is one thing bothering those who live in the town of Bellowsville. A deep mysterious cave that travels beyond the bottom of the Earth itself, those who enter, never come out. One man who seeks to discover the secrets of this cavern, sets out on an adventure to traverse the ins and outs of this rocky shelter. What secrets does this cave hold? Is it truly endless? Do monsters really exist in this quiet town of Bellowsville? Find out, in The Abyss Below!
+		</p>
+		<h2>Work Distribution</h2>
+		<p>
+			Overall we will all help each other and work on every aspect of the game together as a team, though there is some work that will be distributed more specifically. David is in charge of a website development and incorporating special effects into the website pages (e.g. using new styles for aesthetic purposes), and is also one of the lead programmers in charge of creating the jQuery aspect of our game (the turn based combat segments). Jeremy is the lead artist and is responsible for the graphic design of the website layout, as well as the graphic design for the video game itself. Jeremy also will be the lead programmer on the phaser aspect of our game (the 2D platforming portion of the game). Sohail is in charge of programming everything inbetween, he will not only be working on the jQuery part of the game, but the phaser as well, and is overall the lead summative programmer, and also acts as a main "debugger" of sorts.
+			<br>
+		</p>
+		<!-- SOHAIL MEGHANI 1/6/21 10:43 AM Added the images for our webpage -->
+		<img src="images/avatar1.png" id="avatar">
+		<div>
+			<h3>David Cacorovski: Lead Website Developer, Lead programmer (JQUERY),</h3>
+		</div>
+		<img src="images/avatar2.png" id="avatar">
+		<div>
+			<h3>Jeremy Thummel: Lead Artist, Lead Programmer (Phaser)</h3>
+		</div>
+		<img src="images/avatar3.png" id="avatar">
+		<div>
+			<h3>Sohail Meghani: Lead Summative Programmer, Debugger</h3>
+		</div>
+		<h2>Possible Challenges</h2>
+		<p>
+			We will implement string functions by creating a function that will act as a battle, with parameters which will decide the enemy health and type of enemy (e.g. function battle(enemyID,health)). We will implement arrays by creating random list of numbers. Each position of the array will decide something different. For example, position 2 in the array will always decide the gold you get from defeating an enemy, but position 1 will always decide the enemies health. To do this we will create a for loop, but depending on the value of x, a random number with a specific range will be created. This way we can neatly store all our randomly generated numbers inside of an array. An acception to that rule of storing all the random numbers in that array, is the experience points you get from defeating enemies. We will create random numbers for an exclusive experience point array, and we will sort it using bubble sort, so that the experience points given to the player will match with their game progress (since the bubble sorting will sort numbers least to greatest, it will make sense for the player's experience points to be greater later in the game).
+		</p>
+		<h2>Screens</h2>
+		<p>
+			The first screen of our game is the title screen, which you must press enter to play. The second screen of our game is the turn based part of our game (RPG Screen), where you traverse through a cave, and are constantly tasked with fighting a newly encountered enemy. The third screen of our game is the 2D platforming part of our game (Mining Screen), where you can travel through the mines as a sort of minigame which will help you gain gold faster to buy special items from the shop. The last screen of our game is the shop screen which the player will purchase items from that will help them battle enemies in during the RPG Screens.
+		</p>
+		<h2>Concerns</h2>
+		<p>
+			One of our greatest challenges will be to combine the jQuery game segments, with the phaser game segments, in a way that will make it feel seamless like it's one whole game experience. Another challenge will be to create a function that will start battles just by entering the enemy and health parameters with the use of arrays. Another challenge will be to make this game endless, as making the game endless would mean we would have to make use of lots of nested for loops.
+		</p>
+		<!-- DAVID CACOROVSKI 1/6/21 10:36 AM Added the audio for our webpage -->
+		<!-- Background Music for the webpage, also something a little extra. -->
+		<audio controls autoplay="true" loop="true" class="audioCentering" hidden="true">
+			<source src="audio/webpageBackground.mp3" type="audio/mp3">
+		</audio>
+	</body>
+</html>
+
+
+/*
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/8/2021
+	Summative Website Code JS
+	This is the JS Code for our Assignment
+*/
+//**** David Cacorovski 1/8/2021 Added dropdown JS code
+//Code taken from https://www.w3schools.com/howto/howto_js_dropdown.asp
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+/*
+  David Cacorovski, Jeremy Thummel, Sohail Meghani
+  1/6/21
+  ICS3U Styles
+  This is the styles for of our game and webpage.
+*/
+body
+{
+  background-color: #5ed18e;
+  background-image: url(images/bg.png);
+  background-size: 120% 120%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+/* ***************************DAVID CACOROVSKI 1/8/2021 9:00 PM Added dropdown styles *****************************************/
+/* Code taken from https://www.w3schools.com/howto/howto_js_dropdown.asp */
+/* Dropdown Button */
+.dropbtn
+{
+  background-color: rgba(99,201,255,0.4);
+  color: #db6440;
+  padding: 16px;
+  font-size: 16px;
+  border: 2px solid #db6440;
+  border-radius: 20%;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus
+{
+  background-color: #FFFFFF;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown
+{
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content
+{
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a
+{
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  background-color: rgba(99,201,255,0.4);
+  color: white;
+  font-size: 24px;
+  border: 2px solid black;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  text-shadow: 3px 3px #db6440;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #db6440}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+#logo
+{
+  position: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(66,135,245,0.5);
+  border-radius: 2em;
+  border-style: ridge;
+  border-color: black;
+  border-width: 3px;
+}
+
+h2
+{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;;
+}
+
+/* ***************************JEREMY THUMMEL 1/13/2021 11:16 AM Added headers and imgDiv and background styles.*****************************************/
+h2, #avatar
+{
+  border-style: solid;
+  border-radius: 10px;
+  color: white;
+  text-shadow: 3px 3px #db6440;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  background-color: rgba(89,183,255,0.2);
+  border-color: #0087b8;
+  border-style: outset;
+  border-width: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 7px;
+  position: relative;
+  line-height: 40px;
+}
+
+#avatar
+{
+  position: relative;
+  left: 37.5%;
+}
+
+#avatarInGame
+{
+  position: absolute;
+  display: inline-block;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: rgba(89,183,255,0.2);
+  border-color: #0087b8;
+  border-style: outset;
+  border-width: 10px;
+  padding: 7px;
+  z-index: 6;
+  width: 5%;
+  left: 1200px;
+  top: 250px;
+}
+/* ***************************SOHAIL MEGHANI 1/13/2021 11:19 AM Added headers and paragraph and titleDiv styles*****************************************/
+
+h3
+{
+  color: white;
+  text-shadow: 3px 3px #db6440;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+h1
+{
+  color: white;
+  text-shadow: 3px 3px #db6440;
+  text-align: center;
+  font-size: 46px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+p
+{
+  border-style: outset;
+  border-radius: 10px;
+  color: #db6440;
+  text-shadow: 3px 3px black;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.5);
+  border-color: #eb5426;
+  border-width: 6px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  line-height: 40px;
+}
+
+#imgDiv
+{
+  position: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#imgDiv2
+{
+  position: absolute;
+  z-index: 100px;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 15%;
+  left: 41.5%;
+  top: 26.5%;
+}
+
+#titleDiv
+{
+  position: center;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(66,135,245,0.5);
+  border-radius: 2em;
+  border-style: ridge;
+  border-color: black;
+  border-width: 3px;
+  width: 40%;
+  padding-bottom: 125px;
+}
+
+/* ***************************DAVID CACOROVSKI 1/14/2021 10:21 AM Added fade in styles *****************************************/
+/* This code is a cool fade in I learned in this youtube video: https://www.youtube.com/watch?v=UInN6O_nMKs&ab_channel=CodeRookie */
+/* START OF FADE CODE */
+.fade-in
+{
+  animation: fadeIn 3s;
+}
+@keyframes fadeIn
+{
+  from
+  {
+    opacity: 0;
+  }
+
+  to
+  {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn-2
+{
+  from
+  {
+    opacity: 0;
+  }
+
+  to
+  {
+    opacity: 0.95;
+  }
+}
+
+.fade-out
+{
+  animation: fadeOut 3s;
+}
+@keyframes fadeOut
+{
+  from
+  {
+    opacity: 1;
+  }
+
+  to
+  {
+    opacity: 0;
+  }
+}
+
+/* END OF FADE CODE. */
+
+/* ***************************DAVID CACOROVSKI 1/17/2021 10:58 AM Added towardsCave and towardsMine in styles *****************************************/
+@keyframes towardsCave
+{
+  from
+  {
+    background-size: 200%;
+    background-position-x: -640px;
+    background-position-y: -360px;
+  }
+
+  to
+  {
+    background-size: 350%;
+    background-position-x: -2000px;
+    background-position-y: -800px;
+  }
+}
+
+@keyframes towardsMine
+{
+  from
+  {
+    background-size: 200%;
+    background-position-x: -640px;
+  }
+
+  to
+  {
+    background-size: 300%;
+    background-position-x: -610px;
+  }
+}
+
+#whiteBackground, #greyBackground
+{
+  width: 1280px;
+  height: 720px;
+  position: absolute;
+  top: 75px;
+}
+
+/* ***************************DAVID CACOROVSKI 1/17/2021 10:58 AM Added towardsCave2 in styles *****************************************/
+@keyframes towardsCave2
+{
+  from
+  {
+    background-size: 200%;
+    background-position-x: -640px;
+  }
+
+  to
+  {
+    background-size: 300%;
+    background-position-x: -610px;
+  }
+}
+
+/* ***************************SOHAIL MEGHANI 1/13/2021 11:19 AM Added audioCentering, canvas, gameBackground and more styles*****************************************/
+
+.audioCentering
+{
+  width: 20%;
+  left: 350%;
+  border-style: ridge;
+  border-color: black;
+  border-width: thick;
+  box-shadow: inset 0 0 10px rgba(0,0,0,.5);
+  border-radius: 30px;
+  background-color: White;
+  padding: 5px;
+  margin: 60px;
+  color: #fc8c03;
+  position: relative;
+}
+
+#gameBackground
+{
+  background-image: url("images/gameBG.png");
+  height: 720px;
+  width: 1280px;
+  display: inline-block;
+  margin-left: 17%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 10px;
+}
+
+canvas
+{
+  display: block;
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 10px;
+  margin-left: 16.86%;
+  position: absolute;
+  z-index: 7;
+  top: 6.95%;
+}
+
+#gameLogo
+{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 30%;
+  border-radius: 10%;
+  background-color: rgba(158, 0, 97, 0.2);
+  position: relative;
+  top: 20%;
+}
+
+#gameTwo
+{
+  position: absolute;
+  top: 400px;
+  left: 25px;
+  width: 15%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#playButton{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 25%;
+  position: relative;
+  top: 22%;
+  z-index: 4;
+}
+
+.exitButton
+{
+  position: absolute;
+  left: 1400px;
+}
+
+#moveOne, #moveTwo
+{
+  position: absolute;
+}
+
+.hover:hover{
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+.videoCentering
+{
+  position: absolute;
+  left: 332px;
+  top: 65px;
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 10px;
+}
+
+#enemyStraw, #enemyFrosty, #enemySnake, #attackHit, #enemyHiveo,  #enemyPengu
+{
+  display: block;
+  left: 39%;
+  top: 24%;
+  width: 22%;
+  position: absolute;
+}
+
+#enemyCovered
+{
+  display: block;
+  left: 35%;
+  top: 12%;
+  width: 33%;
+  position: absolute;
+}
+
+#shopKeeper
+{
+  display: block;
+  left: 40%;
+  top: 24%;
+  width: 22%;
+  position: absolute;
+  z-index: 6;
+}
+
+#woodSpearBuy, #lblWoodSpear
+{
+  left: 60.5%;
+  top: 30%;
+  width: 18%;
+  position: absolute;
+  z-index: 6;
+}
+
+#potion2, #lblPotion
+{
+  left: 24.5%;
+  top: 30%;
+  z-index: 6;
+}
+
+#potion3, #lbl5Potions, #lblAmountOfGold, #lblCurrent
+{
+  left: 24.5%;
+  top: 40%;
+  z-index: 6;
+}
+
+#skipButton
+{
+  width: 10%;
+  position: absolute;
+  left: 74.5%;
+  z-index: 5;
+  top: 77%;
+}
+
+label
+{
+  position: absolute;
+  color: white;
+  text-shadow: 3px 3px #db6440;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+}
+
+#lblArea, #lblEncounter, #lblLost, #lblContinue, #lblLevelUp, #lblDouble, #lblShop
+{
+  left: 38%;
+  top: 15%;
+}
+
+#lblShop
+{
+  z-index: 6;
+}
+
+#lblEnemyHealth
+{
+  left: 17%;
+  top: 25%;
+}
+
+#lblEnemyLeft
+{
+  left: 38%;
+  top: 10%;
+}
+
+#noContinue
+{
+  position: absolute;
+  left: 65%;
+}
+
+#yesContinue
+{
+  position: absolute;
+  left: 23%;
+}
+
+#lblPlayerHealth
+{
+  left: 59%;
+  top: 25%;
+}
+
+/* ***************************JEREMY THUMMEL 1/16/2021 9:36 AM Added hand labels.*****************************************/
+.hands
+{
+  position: absolute;
+  top: 63.5%;
+  left: 32%;
+}
+
+.handsSpear
+{
+  position: absolute;
+  top: 54.10%;
+  left: 32%;
+}
+
+.rough
+{
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  border-style: outset;
+  border-color: black;
+  border-width: 10px;
+  border-radius: 20px;
+}
+
+#bag
+{
+  display: inline-block;
+  position: absolute;
+  top: 76%;
+  left: 71%;
+}
+
+#items, #stats, #atkButton, #defButton, #hpButton, #spdButton, #weapons
+{
+  display: inline-block;
+  position: absolute;
+  z-index: 6;
+}
+
+#namePlayer
+{
+  position: absolute;
+}
+
+#attack, #buy
+{
+  display: inline-block;
+  position: absolute;
+  top: 74%;
+  left: 41.5%;
+  z-index: 5;
+}
+
+#shop, #run
+{
+  display: inline-block;
+  position: absolute;
+  top: 75%;
+}
+
+#mines
+{
+  display: inline-block;
+  position: absolute;
+  top: 40%;
+  left: 22%;
+}
+
+#enterBattle
+{
+  display: inline-block;
+  position: absolute;
+  top: 30%;
+  left: 55%;
+}
+/* ***************************SOHAIL MEGHANI 1/14/2021 10:42 AM Added intro, submitBTN, potion and more styles*****************************************/
+
+#intro
+{
+  z-index: 4;
+
+}
+.potion
+{
+  position: absolute;
+  z-index: 6;
+}
+
+#submitBTN
+{
+  height: 5%;
+  width: 8%;
+  left: 1450px;
+  top: 52%;
+}
+
+.functionTitle
+{
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+#function
+{
+  width: 25%;
+  height: 50%;
+}
+
+#function:hover
+{
+  width: 35%;
+  height: 60%;
+}
+
+#functionSnippet
+{
+  width: 35%;
+  height: 60%;
+}
+
+#functionSnippet:hover
+{
+  width: 50%;
+  height: 75%;
+}
+
+#noPhaser
+{
+  position: absolute;
+  right: 480px;
+  top: 300px;
+}
+
+#yesPhaser
+{
+  position: absolute;
+  left: 480px;
+  top: 300px;
+}
+
+
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/22/21
+	ICS3U Summative Snippets
+  This is the code snippets page
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="../images/web_logo.png">
+		<title>Abyss Below: Code Snippets</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<script type="text/javascript" src="../finalGame/jquery-3.5.1.slim.min.js"></script>
+		<script type="text/javascript" src="../code.js"></script>
+	</head>
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown"><!-- Dropdown code. -->
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="../index.html">Home</a>
+ 			   <a href="../finalGame/index.html">Play Game</a>
+ 			   <a href="../code.txt">Code</a>
+				 <a href="../roughSketches/index.html">Rough Sketches</a>
+         <a href="index.html">Code Snippets</a>
+         <a href="../functions/index.html">New Functions</a>
+				 <a href="../helpPage/index.html">Help</a>
+ 			 </div>
+		</div>
+
+		<!-- DAVID CACOROVSKI 1/19/21 10:39 AM Added the code snippets for all of our custom code -->
+
+		<h1 style="text-decoration: underline;">Code Snippets / Screen Shots</h1> <!-- The title of the webpage. -->
+
+    <h2 class="functionTitle">Functions Without Parameters</h2> <!-- The secondary title. -->
+		<h3>battle() Function</h3> <!-- The sub-title. -->
+		<p>
+			This function does not have parameters, since its main purpose is to decide the enemy that the player will battle each time an enemy is defeated,
+			<br>
+			<img src="../images/battleSnippet.PNG" id="functionSnippet"> <!-- The image is in the paragraph to give this page more of a theme. -->
+			<br>
+			as well as starting off each battle. For example, this function will fade in the cave area, along with the first enemy you will face.<br>
+			It will decide base enemy stats (e.g. the enemy's health), but not as in depth as the enemyAttack() function. The function also starts off<br>
+			the battle visually by creating a fade in transition, as well as showing how many enemies you have left to fight in each wave using a label<br>
+			in the top center of the screen. Overall this functions main purpose is to decide the enemy's the player will face on a case by case basis<br>
+			by selecting a random enemy from an array, which will depend on the enemy wave the player is fighting.
+		</p>
+
+		<h3>enemyAttack() Function</h3>
+		<p>
+			This function does not have parameters, since its main purpose is to create the enemy's attack phase. This function will look to see<br>
+			which enemy has been selected to fight the player (from the battle function) and will create random stats with a specific range based on<br>
+			that enemy. This function also process the player's move choice, and will change the enemy's health based on the player's move.<br>
+			This function will also change a label to communicate to the player what is going on in the battle (e.g. how much damage the enemy did to you, etc.).<br>
+			In conclusion, this function makes up the base of the turn based battles.
+			<br>
+			<img src="../images/enemyAttackSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Functions With Parameters</h2>
+		<h3>walking() Function</h3>
+		<p>
+			This function has a parameter that will tell the function how many seconds for the walking animation to be active. This walking<br>
+			animation consists of the background zooming in to give the illusion of movement, as well as changing the hands from a static image to a<br>
+			moving gif. This function also must decide if the player has bought the wooden spear or not, so that if they have the game can change all<br>
+			of the hand's appearences to be holding the wooden spear.
+			<br>
+			<img src="../images/walkingSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Functions Without Parameters With a Return</h2>
+		<h3>nameGet() Function</h3>
+		<p>
+			This function will accept a string from the player through a text input box, and will return a version of that user's name which will be<br>
+			trimmed as well as the first letter being turned into an uppercase letter (if not already done so). This is so that the name can<br>
+			be displayed in the player's "BAG" along with their stats (e.g. health, attack, etc.).
+			<br>
+			<img src="../images/nameGetSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Functions With Parameters With a Return</h2>
+		<h3>upperCaseName() Function</h3>
+		<p>
+			This function will take the string returned from the nameGet() function (as the parameter), and will captalize all the words in the name. For instance,<br>
+			instead of "the king christoph" being turned into "The king christoph", it will be turned into "The King Christoph" with capitals at each<br>
+			of the seperate word's beginnings. Thus the new version of the name will then be returned.
+			<br>
+			<img src="../images/nameGetSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h3>shopping() Function</h3>
+		<p>
+			This function has a parameter named currency which will enable the function to either use the player's gold (through the global gold variable),<br>
+			or for testing purposes this function could also use a specific set number of currency (to help test this game easier). This function<br>
+			will use that amount of currency and create a scene for the player to shop and buy items or weapons that they may want to prepare them<br>
+			for battle. Once the player has bought what they wanted and exited the shop, this function will also return the amount of gold (or currency)<br>
+			that the player has left so that they don't have an infinite amount of gold.
+			<br>
+			<img src="../images/shoppingSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">String Functions</h2>
+		<h3>String Functions in the nameGet() & upperCaseName() Function</h3>
+		<p>
+			Most of the string functions are used in these two functions. In the first function nameGet(), we make use of the trim() function so<br>
+			the layout of scenes in our game won't we distrupted by a player name with a large amount of spaces at the end. We also use the charAt()<br>
+			function to specify that the first character of the string is what we want to capatilize using the toUpperCase()function so the player's name is written and<br>
+			displayed properly. Once we have the captalized first letter, we add it to the rest of the string using slice().<br>
+			The next function upperCaseName() not only uses most of the previous string functions, but also uses substr() so that we can add the newly<br>
+			capatilized words to the player's name string (nameOfPlayer).
+			<br>
+			<img src="../images/nameGetSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Arrays</h2>
+		<h3>Enemy Array</h3>
+		<p>
+			Since we wanted to have a list of enemies that you are able to fight, our group decided to store the enemy IDs in an array, so that<br>
+			we could create a random number generator which would randomly pick an enemy from the array for you to fight.
+			<br>
+			<img src="../images/enemyArraySnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Array + Bubble Sorting</h2>
+		<h3>Spear Strike Array</h3>
+		<p>
+			We wanted to implement a move in our game which would do more damage the more you used it and reset once it reached a high number<br>
+			of damage. To code this, we decided we would create a random list of numbers (an array) and then bubble sort them. Since they are bubble sorted, we<br>
+			would then create a counter which would keep track of how many times you've used the move, and would have the attack do the amount of damage<br>
+			as whatever the array's element value is at the position of the counter's value (e.g. array[counter]). Thus, the damage output of the<br>
+			spear strike would steadily increase as we intended combining bubble sorting with an array.
+			<br>
+			<img src="../images/bubbleSortSnippet.PNG" id="functionSnippet">
+		</p>
+	</body>
+</html>
+
+
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/22/21
+	ICS3U Summative Functions
+  This is the code custom functions page
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="../images/web_logo.png">
+		<title>Abyss Below: New Functions</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<script type="text/javascript" src="jquery-3.5.1.slim.min.js"></script>
+		<script type="text/javascript" src="../code.js"></script>
+	</head>
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown"> <!-- Dropdown functionality. -->
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="../index.html">Home</a>
+ 			   <a href="../finalGame/index.html">Play Game</a>
+ 			   <a href="../code.txt">Code</a>
+				 <a href="../roughSketches/index.html">Rough Sketches</a>
+         <a href="../codeSnippets/index.html">Code Snippets</a>
+         <a href="index.html">New Functions</a>
+				 <a href="../helpPage/index.html">Help</a>
+ 			 </div>
+		</div>
+		<!-- SOHAIL MEGHANI 1/22/21 10:14 AM Added paragraphs and images -->
+		<h1 style="text-decoration: underline;">New Functions</h1>
+    <h3>Explanation</h3>
+    <p>
+      The purpose of this webpage is to showcase the functions that we have used within our code that have not been taught to us via our teacher, Mr. Krnic
+      and that our team has found to be beneficial and even crucial to our work on this game and its many parts.
+    </p>
+    <h3>Pause Function</h3><!-- h3 identifies the function. -->
+    <p>
+      Similar to the play function that was previously explained, this function also gives users the power over which audio track or video file
+      is playing at a certain time. Furthermore, like the play function as well, it is used multiple times in the code for our game which allows
+      us to toggle the music and the video depending on the conditions that the player has or has not fulfilled. It is also like the play function
+      in the sense that it can be assigned to anything from an element via jQuery and even a variable.
+      <br>
+      <img src="../images/pauseFunction.PNG" id="function"><!-- image is inside of the paragraph to give more of a theme and uniqueness. -->
+      <br>
+      Once again, this function is assigned to a variable which allows us to toggle on or off the title screen music (as the variable name suggests)
+      to the liking of the programmers.
+    </p>
+    <br><!-- Several br tags to create more of a space between texts. -->
+    <br>
+    <br>
+    <br>
+    <h3>setTimeout Function</h3>
+    <p>
+      This function was crucial to many parts of our code and if we had not found this piece of code, we would have much harder time pulling off
+      certain aspects of our game. The way that this function acts is that you have a body that executes after a time that has been set by the
+      programmer, in milliseconds. Once that amount of time has passed, then the code will then execute and it will only execute once rather than the
+      multiple times that some other functions have been documented to do. Additionally, the time that can be set can also be the parameter that has
+      been specified within a function. For example, if there were a function in which the parameter was a certain time, the time value for the setTimeout
+      function can be that value.
+      <br>
+      <img src="../images/setTimeoutFunction.PNG" id="function">
+    </p>
+		<br>
+    <br>
+    <br>
+    <br>
+    <h3>setAttribute Function</h3>
+    <p>
+      This function enabled us to add a specific attribute once a certain event in our game occured. For example, we used this function to loop a piece
+			of music once you enter a battle, so that there's always music playing to keep the player engaged in our game.
+      <br>
+      <img src="../images/setAttributeFunction.PNG" id="function">
+    </p>
+		<br>
+    <br>
+    <br>
+    <br>
+    <h3>location Function</h3>
+    <p>
+      This function allows our game to direct the player to a different webpage. For example, we use this function to send the player back to the home webpage
+			if they decide they no longer want to play the game.
+      <br>
+      <img src="../images/locationFunction.PNG" id="function">
+    </p>
+		<br>
+    <br>
+    <br>
+    <br>
+    <h3>Math.floor Function</h3>
+    <p>
+      This function allows us to round down random numbers we generate so that we can avoid decimals. We chose floor instead of round, since
+			we wanted to take as many measures as possible to make the player's random damage numbers smaller, so that we could make our game harder,
+			though this adjustment is just a small step to making this game a bit more unfavouring to the player.
+      <br>
+      <img src="../images/mathFloorFunction.PNG" id="function">
+    </p>
+	</body>
+</html>
+
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/6/21
+	Summative Rough Sketches
+	This is the rough sketches for our summative
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="../images/web_logo.png">
+		<title>Abyss Below: Rough Sketches</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<script type="text/javascript" src="../code.js"></script>
+	</head>
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown"><!-- Dropdown code -->
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="../index.html">Home</a>
+ 			   <a href="../finalGame/index.html">Play Game</a>
+ 			   <a href="../code.txt">Code</a>
+ 			   <a href="index.html">Rough Sketches</a>
+				 <a href="../codeSnippets/index.html">Code Snippets</a>
+				 <a href="../functions/index.html">New Functions</a>
+				 <a href="../helpPage/index.html">Help</a>
+ 			 </div>
+		</div>
+		<br>
+		<h1>Rough Sketches</h1> <!-- Title -->
+		<img class="rough" src="../images/roughSketch1.png"> <!-- The rough sketch -->
+		<!-- JEREMY THUMMEL 1/11/21 11:32 AM Added paragraphs and images -->
+		<p> <!-- The <p> explains the rough sketch -->
+			The above rough sketch represents the screen that appears whenever you encounter a monster. The first thing you'll see after a monster appears on your screen, is the menu below the monster. You can choose between those options, which could also lead to a sub menu. For example, choosing attack will bring up a sub menu of different attacks you can choose. However, picking run will enable you to run and will not lead to a sub menu. This screen also shows the player's health, so the player can use their health to strategize which option to choose.
+		</p>
+		<br>
+		<br>
+		<img class="rough" src="../images/roughSketch2.png">
+		<p>
+			The above rough sketch represents the screen that appears whenever you select the attack option when you first encounter a monster. The sub menu (to the right of the screen) will show a list of moves you can choose from, which will each have a unique way of damaging the enemy you are currently  fighting. This screen also shows the player's health, so the player can use their health to strategize which attack to use.
+		</p>
+		<br>
+		<br>
+		<img class="rough" src="../images/roughSketch3.png">
+		<p>
+			The above rough sketch represents the screen that appears whenever you select the items option when you first encounter a monster. The sub menu (to the left of the screen) will show a list of items you can choose from, which will each have a unique way of aiding you in battle against the different monsters. This screen also shows the player's health, so the player can use their health to strategize which item to use depending on your situation.
+		</p>
+		<br>
+		<br>
+		<img class="rough" src="../images/roughSketch4.png">
+		<p>
+			The above rough sketch represents the screen that appears whenever you are not fighting an enemy, and are just adventuring deeper and deeper into the cave. This screen acts as a way to transition battles with different monsters, as well as give the player a break from fighting. The screen also shows the player's health in the top right, so that the player can strategize their next monster fight in advance (e.g. using a potion at the beginning of the fight so they don't die).
+		</p>
+		<br>
+		<br>
+		<img class="rough" src="../images/roughSketch5.png">
+		<p>
+			The above screen appears when the game is first being played, and acts as a title screen. It informs the player what the game's name is, as well as gives the player an idea of what the game their about to play is about.
+		</p>
+		<br>
+		<br>
+		<img class="rough" src="../images/roughSketch6.png">
+		<p>
+			The above screen appears after the player decides to attack or use an item. The left side of the screen informs the player how much damage the player did to the enemy (if any), and the right side of the screen informs how much damage the enemy did to the player. Your health is also shown in the top right of the screen, so that you not only know how much health you lost (if any), but also what your total health is.
+		</p>
+		<br>
+		<br>
+		<img class="rough" src="../images/roughSketch7.png">
+		<p>
+			The above screen appears if the player encounters a shop instead of a monster (which is decided through random number generation). The text of the Shop Keeper appears on the left side of the screen, whereas the items you can buy (through clicking them) are on the right side of the screen along with their prices for how much gold currency you will need to buy them. You can see your total gold when you're on the shop screen as well, so you can spend your money wisely.
+		</p>
+		<br>
+		<br>
+		<h2> <!-- This is the secondary title -->
+			Objects
+		</h2>
+		<p>
+			There are enemies you can encounter named Strawburry, Frosty the Ice Man, and Boulder Snake. You can also encounter the Shop Keeper who will sell you stuff. There are also images of hands to give the game a first person perspective. There is also a standard cave background for assets to be used on. There is a logo to let the player know the title of the game. There are also different texts, one form of texts are the images of texts that look nice and are used as buttons. The other is more standard looking text that we use for text we need to update since we can use them as labels, whereas we can't create nice looking images as labels. The labels are the white text in the rough sketches, whereas the images are the gold coloured texts.
+		</p>
+	</body>
+</html>
+
+
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/6/21
+	ICS3U Summative Homepage
+	This is the homepage of our game this year.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="../images/web_logo.png">
+		<title>Abyss Below: Final Game</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<script type="text/javascript" src="phaser.min.js"></script>
+		<script type="text/javascript" src="jquery-3.5.1.slim.min.js"></script>
+		<script type="text/javascript" src="code.js"></script>
+		<script type="text/javascript" src="../code.js"></script>
+	</head>
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown">
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="../index.html">Home</a>
+ 			   <a href="index.html">Play Game</a>
+ 			   <a href="../code.txt">Code</a>
+				 <a href="../roughSketches/index.html">Rough Sketches</a>
+				 <a href="../codeSnippets/index.html">Code Snippets</a>
+				 <a href="../functions/index.html">New Functions</a>
+				 <a href="../helpPage/index.html">Help</a>
+ 			 </div>
+		</div>
+		<br>
+		<!-- This div tag is used as our game box. This will make putting images and labels from JQUERY easier to do. -->
+		<div id="gameBackground">
+			<!-- SOHAIL MEGHANI 1/14/21 9:59 PM Added the video and some labels -->
+			<!-- We are using a video in our game as some sort of cutscene in our game. -->
+			<video width="1280" height="720" id="intro" class="videoCentering">
+	  		<source src="../video/opening.mp4" type="video/mp4">
+			</video>
+			<!-- This is the label for our JQUERY part of the game. -->
+			<label id="lblEncounter" style="width: 25%;">You encountered</label>
+			<label id="lblGoldCounter" style="width: 25%; top: 10%; left: 37.5%; z-index: 11;">Gold Amount: </label>
+			<label id="lblArea" style="width: 25%;"></label>
+			<label id="lblShop" style="width: 25%;"></label>
+			<label id="lblWoodSpear" style="width: 25%; top: 50%; left: 56.5%;">40 Gold</label>
+			<label id="lblPotion" style="width: 25%; top: 39%; left: 21%;">x1: 10 Gold</label>
+			<label id="lbl5Potions" style="width: 25%; top: 50%; left: 21%;">x5: 40 Gold</label>
+			<label id="lblAmountOfGold" style="width: 20%; top: 79.5%; left: 1075px;">Gold Amount: </label>
+			<label id="lblCurrent" style="width: 25%; top: 79.5%; left: 435px;">Current Amount: </label>
+			<label id="lblMultipleAmount1" style="z-index: 6; width: 10%; top: 400px; left: 550px;">Potion: x</label>
+			<label id="lblPotionHP" style="z-index: 6; width: 15%; top: 650px; left: 500px;">You can't use potion at full HP!</label>
+			<label id="lblEnemyHealth" style="width: 25%;">Enemy HP: </label>
+			<label id="lblEnemyLeft" style="width: 25%;">Enemies Left: </label>
+			<label id="lblPlayerHealth" style="width: 25%;">Player HP: </label>
+			<!-- JEREMY THUMMEL 1/15/21 11:03 AM Added the some more labels and some images-->
+			<label id="lblDon" style="position: absolute; left: 1030px; top: 500px; width: 25%; z-index: 6;">Name: </label>
+			<input type="text" id="namePlayer" style="position: absolute; left: 1330px; top: 500px; width: 5%; z-index: 6;"></input>
+			<label id="lblXP" style="position: absolute; left: 1030px; top: 550px; width: 25%; z-index: 6;">XP: </label>
+			<label id="lblHP" style="position: absolute; left: 900px; top: 625px; width: 25%; z-index: 6;">HP: </label>
+			<label id="lblATK" style="position: absolute; left: 900px; top: 700px; width: 25%; z-index: 6;">ATK: </label>
+			<label id="lblDEF" style="position: absolute; left: 1160px; top: 700px; width: 25%; z-index: 6;">DEF: </label>
+			<label id="lblSPD" style="position: absolute; left: 1160px; top: 625px; width: 25%; z-index: 6;">SPD: </label>
+			<label id="lblLost" style="width: 25%; z-index: 6;">It would appear that you have lost your gold running back to the hideout...</label>
+			<label id="lblContinue" style="width: 25%; z-index: 6; top: 50%;">Would you like to continue playing?</label>
+			<label id="lblLevelUp" style="width: 25%; z-index: 6;">You have leveled up! Giving you a stat boost!</label>
+			<label id="lblDouble" style="width: 25%; z-index: 6; top: 40%;">Please select what stat to double upgrade.</label>
+			<!-- This is the images for our JQUERY part of the game. -->
+			<img src="../images/logo.png" id="gameLogo">
+			<img src="../images/play.png" id="playButton" class="hover" style="cursor: pointer;">
+			<img src="../images/strawburry.gif" id="enemyStraw">
+			<img src="../images/frosty_the_ice_man.gif" id="enemyFrosty">
+			<img src="../images/hiveo.gif" id="enemyHiveo">
+			<img src="../images/theCoveredKing.gif" id="enemyCovered">
+			<img src="../images/buffPengu.gif" id="enemyPengu">
+			<img src="../images/boulderSnake.gif" id="enemySnake">
+			<img src="../images/shopKeeper.gif" id="shopKeeper">
+			<img src="../images/shop.png" id="shop" class="hover">
+			<img src="../images/run.png" id="run" class="hover">
+			<img src="../images/items.png" id="items" style="left: 500px; top: 175px;">
+			<img src="../images/stats.png" id="stats" style="left: 1125px; top: 175px;">
+			<img src="../images/atk.png" id="atkButton" class="hover" style="left: 500px; top: 45%;">
+			<img src="../images/def.png" id="defButton" class="hover" style="left: 1275px; top: 45%;">
+			<img src="../images/hp.png" id="hpButton" class="hover" style="left: 500px; top: 60%;">
+			<img src="../images/spd.png" id="spdButton" class="hover" style="left: 1275px; top: 60%;">
+			<img src="../images/donCloseUp.png" id="avatarInGame">
+			<img src="../images/bag.png" id="bag" class="hover">
+			<img src="../images/potionIcon.png" id="potion1" class="hover" style="position: absolute; height: 154px; width: 154px; left: 575px; top: 250px; z-index: 6;">
+			<img src="../images/potion.png" id="potion2" class="hover potion">
+			<img src="../images/potion.png" id="potion3" class="hover potion">
+			<img src="../images/woodSpear.png" id="woodSpearBuy" class="hover">
+			<img src="../images/spearStrike.png" id="moveTwo" class="hover" style="z-index: 6; top: 30%;">
+			<img src="../images/weapons.png" id="weapons" style="left: 1075px; top: 175px;">
+			<img src="../images/buy.png" id="buy" class="hover" style="left: 45%;">
+			<img src="../images/attack.png" id="attack" class="hover">
+			<!-- DAVID CACOROVSKI 1/15/21 11:49 AM Added more images and audio-->
+			<img src="../images/hands.gif" class="hands" id="movingHands">
+			<img src="../images/hands.png" class="hands" id="staticHands">
+			<img src="../images/handsSpear.gif" class="handsSpear" id="movingHandsSpear">
+			<img src="../images/handsSpear.png" class="handsSpear" id="staticHandsSpear">
+			<img src="../images/skip.png" id="skipButton" class="hover">
+			<img src="../images/enter.png" id="enterBattle" class="hover">
+			<img src="../images/mines.png" id="mines" class="hover">
+			<img src="../images/white.png" id="whiteBackground" style="z-index: 6;">
+			<img src="../images/exitButton.png" id="exitButton" class="hover exitButton" style="z-index: 6;">
+			<img src="../images/exitButton.png" id="exitButton2" class="hover exitButton">
+			<img src="../images/superPunch.png" id="moveOne" class="hover" style="z-index: 6;">
+			<img src="../images/yes.png" id="yesContinue" class="hover" style="z-index: 6; top: 60%;">
+			<img src="../images/no.png" id="noContinue" class="hover" style="z-index: 6; top: 60%;">
+			<img src="../images/attack.gif" id="attackHit">
+			<img src="../images/grey.png" id="greyBackground" style="z-index: 5;">
+			<img src="../images/submit.png" id="submitBTN"  style="z-index: 5; position: absolute;" class="hover">
+		</div>
+		<audio controls autoplay="true" loop="true" class="audioCentering" hidden="true" id="titleScreenMusic">
+			<source src="../audio/menu.mp3" type="audio/mp3">
+		</audio>
+		<img src="../images/logo.png" id="gameTwo">
+	</body>
+</html>
+
+
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/6/21
+	ICS3U Summative Help Page
+	This is the Help Page of our game this year.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="../images/web_logo.png">
+		<title>Abyss Below: Help</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<script type="text/javascript" src="../code.js"></script>
+	</head>
+	<!-- This class has a fade-in. Something a little extra for our webpage. -->
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown">
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="../index.html">Home</a>
+ 			   <a href="../finalGame/index.html">Play Game</a>
+ 			   <a href="../code.txt">Code</a>
+				 <a href="../roughSketches/index.html">Rough Sketches</a>
+				 <a href="../codeSnippets/index.html">Code Snippets</a>
+				 <a href="../functions/index.html">New Functions</a>
+				 <a href="index.html">Help</a>
+ 			 </div>
+		</div>
+
+    <h1>Help</h1>
+
+    <h2>Hiding Out</h2>
+
+    <img src="../images/helpFour.png" class="rough">
+
+    <p>
+      This is the main screen that the player is greeted with and shown upon the introductory video concluding. The top shows a label which tells the player/user the
+      location that they are in (the Hideout). There are also 4 buttons that lead the user to certain locations or open certain menus upon them being clicked.
+    </p>
+
+    <h2>Battling Enemies</h2>
+
+    <img src="../images/helpOne.png" class="rough">
+
+    <p>
+      This is the area that the player arrives in when they have clicked the ENTER button in the Hideout. The main input keys for this section of our game are: Left Mouse Button. This section is the first part of the core of our game. In this section, you can battle enemies
+      to your heart's content. There are three main buttons during any fight sequence. The RUN button, the ATTACK button and the BAG button. The function of the RUN button
+      is to allow you, the user, to escape from the battle to purchase items and/or rejuvenate your health! The ATTACK button is the button that you will be using the most. This
+      button allows you to directly fight the enemy that is in front of you, clear the wave that you are in and (hopefully) beat the game! Finally, the BAG button is there
+      in order for you to access the potions that you purchase in the shop and view your statistics!
+    </p>
+
+    <h2>Attacking Enemies</h2>
+
+    <img src="../images/helpFive.png" class="rough">
+    <br>
+    <br>
+    <img src="../images/helpSix.png" class="rough">
+
+    <p>
+      This is the ATTACK menu. Here, you can choose from a slightly-small list of attacks, but don't worry, the devs are adding more!
+      <br>
+      <br>
+      Image A: Here, you can see the default attack, SUPER PUNCH, on the left-hand side of the screen. This attack deals a certain amount of damage to the enemy that you are facing.
+      It's good for use in the short term, but try not to rely on it too much. In the top right, there is an EXIT button that allows the user to return to the menu in which they face the
+      enemy head on.
+      <br>
+      <br>
+      Image B: This image is very similar to Image A, however, there is a new attack that has been added due to a purchase made by the player. Buying the WOOD SPEAR not only changes the hands
+      of the player and equips the SPEAR by default, it also unlocks SPEAR STRIKE that can be used in battle. This attack is similar to SUPER PUNCH, but instead, it does variable damage instead
+      of a fixed amount.
+    </p>
+
+    <h2>Buying Items</h2>
+
+    <img src="../images/helpTwo.png" class="rough">
+    <br>
+    <br>
+    <img src="../images/helpThree.png" class="rough">
+
+    <p>
+      Image A: This is the screen that you are greeted with when you click the SHOP button from the Hideout. This screen brings up the Shop Keeper. In the top right, there is a button that
+      will allow you to return to the hideout once you have purchased an item or items. The button at the bottom labelled BUY brings up the menu where you can buy items to
+      enhance your attacks and restore your HP. However, these items cost gold! So, make sure that you don't die in battle or in the mines!
+      <br>
+      <br>
+      Image B: This is the menu where the player can purchase items depending on the gold that they have in their wallet. The WOOD SPEAR increases the attack damage
+      by unlocking a new move called SPEAR STRIKE. The POTION items can be bought individually for 10 gold a piece or in bulk for 20% off. These items allow the player
+      to increase their HP by 20 when in dire need during battle.
+    </p>
+
+    <h2>Packing Your Bags</h2>
+
+    <img src="../images/helpSeven.png" class="rough">
+
+    <p>
+			This is where you can see your stats and overall progression in the game. On the left side of the BAG, you'll see your items. For example, if you've bought any potions,
+			a potion image will appear in the items menu along with a label that shows the amount of potions you have. Using the text box on the right,
+			you can type in a name you wish to be identified as in the game, and then press SUBMIT for your name to be saved. Below the portrait of the player are the player's
+			statistics. For example, the amount of damage your attack does (ATK), your defence (DEF), your health (HP), and your speed (SPD). You can also see your XP (short for Experience Points),
+			which identifies the amount of points you need to get from defeating enemies in order to level up. This will allow you to increase your previously mentioned player statistics. In the bottom
+			right, you can see the amount of gold you have, in case you forgot and need to plan out if you're going to the shop or not.
+    </p>
+
+    <h2>Digging For Gold</h2>
+
+    <img src="../images/helpEight.png" class="rough">
+
+    <p>
+      This is the area that many players will overlook. However, these mines are filled with extra goodies for those who pay attention. Filled with moving platforms,
+      obstacles and parkour, the MINES will surely be a challenge for all players. Control your character using the A, D, S and SPACE keys on your keyboard and run, slide and jump
+      away to get that gold coin! Who knows, maybe this will help you with getting that WOODEN SPEAR that you want so bad! BUT, THERE IS A CATCH!!! If you die in the MINES section
+      by falling into the gaps between the platforms, you will lose ALL of your progress and must restart the game FROM THE HIDEOUT! Safe travels into the mines of Bellowville, O Player!
+    </p>
+
+		<h2>General Tips to Play Our Game</h2>
+
+		<p>
+			Tip #1: All buttons on any screen in the game must be accessed through clicking them with your cursor.
+			<br>
+      <br>
+			Tip #2: You can use a potion to heal health and attack an enemy during the same turn, so don't worry about choosing one over the other.
+			<br>
+      <br>
+			Tip #3: If you name yourself using the BAG, don't worry about capitalizing any words, as that will be done for you (e.g. entering, "the king of cool" will output your name as, "The King Of Cool").
+			<br>
+      <br>
+			Tip #4: You can ledge grab in the MINES. In simpler terms, if you are close to jumping on a platform but end up falling, as long as you keep moving in the direction towards the platform that is closest to you, you will be able to perform a small movement boost and successfully travel to the top of the desired platform.
+			<br>
+      <br>
+			Tip #5: If you want to buy potions at the shop, you can get a deal and buy 5 of them for the price of 4!
+			<br>
+      <br>
+			Tip #6: If your speed is higher than the enemy's, you will attack first!
+		</p>
+
+	</body>
+</html>
+
+
+/*
+  Jeremy Thummel, David Cacorovski, Sohail Meghani
+  1/11/2021
+  Game Page
+  This is the code for our game
+*/
+
+//GLOBAL GENERAL VARIABLES
+
+// Global: skipTrue is a global variable because it is being used in: skipButton click, and setTimeout in doc ready.
+let skipTrue=false;
+// Global: waves is a global variable because it is being used in: attacking(); battle(); and yescontinue click.
+let waves=1;
+// Global: enemy is a global variable because it is being used in: attacking(); enemyAttack(); battle(); run click, and yesContinue click.
+let enemy="";
+// Global: enemyHealth is a global variable because it is being used in: attacking(); enemyAttack(); battle(); run click, and yesContinue click.
+let enemyHealth=0;
+// Global: enemyLeft is a global variable because it is being used in: enemyAttack(); battle();
+let enemyLeft=5;
+// Global: damageOutput is a global variable because it is being used in: attacking(); and moveOne click, and moveTwo click.
+let damageOutput;
+// Global: gold is a global variable because it is being used in: shopping(); attacking();
+let gold=0;
+// Global: currentgold is a global variable because it is being used in: skipVid(); attacking(); bag click, buy click, and yescontinue click.
+let currentGold=0;
+// Global: name is a global variable because it is being used in: nameGet(); and submitBTN click.
+let name="";
+// Global: nameDeclared is a global variable because it is being used in: nameGet(); and submitBTN click, and bag click.
+let nameDeclared=false;
+// Global: enemySPD is a global variable as it is being used in: attacking(); and enemyAttack();
+let enemySPD=0;
+// Global: wave1True is a global variable as it is being used in: attacking(); battle(); run click, and yesContinue click.
+let wave1True=true;
+// Global: wave2True is a global variable as it is being used in: attacking(); battle(); run click, and yesContinue click.
+let wave2True=false;
+// Global: wave3True is a global variable as it is being used in: attacking(); battle(); run click, and yesContinue click.
+let wave3True=false;
+// Global: neoWaves is a global variable as it is being used in: attacking(); enemyAttack(); battle(); playvid(); skipvid(); run click, and yescontinue click
+let neoWaves=false;
+// Global: bossWave is a global variable as it is being used in: attacking(); battle(); run click, and yesContinue click.
+let bossWave=false;
+// Global: bossPhased is a global variable as it is being used in: attacking(); battle(); run click, and yesContinue click.
+let bossPhased=false;
+// Global: bossFirst is a global variable as it is being used in: attacking(); battle(); run click, and yesContinue click.
+let bossFirst=true;
+// Global: finalWave is a global variable as it is being used in: attacking(); battle(); run click, and yesContinue click.
+let finalWave=false;
+// Global: neoCutsceneFirst is a global variable as it is being used in: playVid(); The reason it is global is because we dont want to make neoCutsceneFirst = true everytime we go into that function.
+let neoCutsceneFirst=true;
+// Global: bossCutsceneFirst is a global variable as it is being used in: playVid();
+let bossCutsceneFirst=true;
+// Global: phaseCutsceneFirst is a global variable as it is being used in: playVid();
+let phaseCutsceneFirst=true;
+// Global: neoEndless is a global variable as it is being used in: attacking(); battle(); skipVid(); run click, yescontinue click, and walking();
+let neoEndless=false;
+// Global: neoEndlessCheck is a global variable as it is being used in: attacking(); battle(); run click, and yescontinue click.
+let neoEndlessCheck=false;
+// Global: shopKeeperChange is a global variable as it is being used in: battle(); The reason it is global is because we dont want to make shopKeeperChange = false everytime we go into that function.
+let shopKeeperChange=false;
+
+//MOVE VARIABLES (Needed so that you can use this in mutiple functions.)
+
+// Global: woodSpearMove is a global variable because it is being used in: shopping(); and attack click.
+let woodSpearMove=false;
+// Global: spearStrikeCounter is a global variable because it is being used in: bubbleSort(); and and moveOne click, and moveTwo click.
+let spearStrikeCounter=0;
+// Global: newDamage is a global variable/array because it is being used in: bubbleSort(); and and moveOne click, and moveTwo click.
+let newDamage=[];
+
+//STAT VARIABLES, (Needs to be used globally so the numbers can function properly.)
+
+// Global: experience is a global variable because it is being used in: attacking(); levelUp(); and bag click.
+let experience=0;
+// Global: experienceCap is a global variable because it is being used in: levelUp(); and bag click.
+let experienceCap=15;
+// Global: level1 is a global variable because it is being used in: levelUp(); and atkButton, and defButton, and spdButton, and hpButton,
+let level1=true;
+// Global: level2 is a global variable as it is being used in: levelUp(); levelCheck(); and experienceCheck();
+let level2=true;
+// Global: level3 is a global variable as it is being used in: levelUp(); levelCheck(); and experienceCheck();
+let level3=true;
+// Global: level4 is a global variable as it is being used in: levelUp(); levelCheck(); and experienceCheck();
+let level4=true;
+// Global: level5 is a global variable as it is being used in: levelUp(); levelCheck(); and experienceCheck();
+let level5=true;
+// Global: level6 is a global variable as it is being used in: levelUp(); levelCheck(); and experienceCheck();
+let level6=true;
+// Global: level7 is a global variable as it is being used in: levelUp(); levelCheck(); and experienceCheck();
+let level7=true;
+// Global: level8 is a global variable as it is being used in:levelUp(); levelCheck(); and experienceCheck();
+let level8=true;
+// Global: level9 is a global variable as it is being used in: levelUp(); levelCheck(); and experienceCheck();
+let level9=true;
+// Global: level10 is a global variable as it is being used in: levelUp(); levelCheck(); and experienceCheck();
+let level10=true;
+// Global: maxLevel is a global variable as it is being used in: levelUp(); levelCheck(); and experienceCheck();
+let maxLevel=false;
+// Global: atkStat is a global variable because it is being used in: levelup(); bubbleSort(); atkButton click, and bag click, and moveOne.
+let atkStat=10;
+// Global: defStat is a global variable because it is being used in: levelUp(); enemyAttack(); defButton click, and bag click.
+let defStat=8;
+// Global: spdStat is a global variable because it is being used in: levelUp(); attacking(); enemyAttack(); spdButton click, and bag click.
+let spdStat=15;
+// Global: playerHealth is a global variable because it is being used in: enemyAttack(); battle(); levelUp(); run click, bag click, yesContinue click, and hpButton click.
+let playerHealth=25;
+// Global: hpStat is a global variable because it is being used in: levelUp(); yesContinue click, run click, bag click, hpButton click.
+let hpStat=25;
+// Global: spdTrue is a global variable because it is being used in: attacking(); enemyAttack(); levelUp(); gameOver(); atkButton(); defButton(); hpButton(); spdButton();
+let spdTrue=false;
+// Global: firstMove is a global variable because it is being used in: attacking(); enemyAttack();
+let firstMove=true;
+// Global: atkLevel is a global variable because it is being used in: levelUp(); atkButton click.
+let atkLevel=0;
+// Global: defLevel is a global variable because it is being used in: levelUp(); defButton click.
+let defLevel=0;
+// Global: hpLevel is a global variable because it is being used in: levelUp(); hpButton click.
+let hpLevel=0;
+// Global: spdLevel is a global variable because it is being used in: levelUp(); spdButton click.
+let spdLevel=0;
+
+//GLOBAL ITEM VARIABLES (Needs to be used globally since the item variables are used in multiple functions.)
+
+// Global: woodSpear is a global variable because it is being used in: walking(); woodSpearBuy click, shopping(); and attack click.
+let woodSpear=false;
+// Global: potion is a global variable because it is being used in: potion2 click, and potion3 click
+let potion=0;
+
+//MUSIC GLOBAL VARIABLES
+
+// Global: firstWaves is a global variable because it is being used in: battle(); run click, and yesContinue.
+var firstWaves=new Audio("../audio/firstWaves.mp3");
+// Global: secondWaves is a global variable as it is being used in: battle(); run click, and yesContinue.
+var secondWaves=new Audio("../audio/secondWaves.mp3");
+// Global: thirdWaves is a global variable as it is being used in: battle(); run click, and yesContinue.
+var thirdWaves=new Audio("../audio/thirdWaves.mp3");
+// Global: neoWavesMusic is a global variable as it is being used in: battle(); run click, and yesContinue.
+var neoWavesMusic=new Audio("../audio/neoWaves.mp3");
+// Global: bossWavesMusic is a global variable as it is being used in: battle(); run click, and yesContinue.
+var bossWavesMusic=new Audio("../audio/bossWaves.mp3");
+// Global: finalBossPhase is a global variable as it is being used in: battle(); run click, and yesContinue.
+var finalBossPhase=new Audio("../audio/finalBossPhase.mp3");
+// Global: transition is a global variable because it is being used in: battle(); run click, and yesContinue.
+var transition=new Audio("../audio/transition.mp3");
+// Global:  levelUpSound is a global variable because it is being used in: enterBattle click, and run click, and yesContinue.
+var levelUpSound=new Audio("../audio/levelUp.mp3");
+
+/*************** JEREMY THUMMEL 1/8/21 11:54 AM Made the attacking(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITHOUT PARAMETER WITHOUT RETURN**************************/
+function attacking()
+{
+  var attackSound=new Audio("../audio/slash.mp3");
+  // randomCrit is a variable that randomizes a number between 1-20 and if it rolls a 1 it activates a critical hit.
+  let randomCrit=(Math.round(Math.random()*19)+1);
+  if(enemy=="Strawburry")
+  {
+    if(neoWaves==true)
+    {
+      if(neoEndless==true)
+      {
+        enemySPD=50;
+      }
+      else
+      {
+        enemySPD=35;
+      }
+    }
+    else
+    {
+      enemySPD=10;
+    }
+  }
+
+  else if(enemy=="Frosty")
+  {
+    if(neoWaves==true)
+    {
+      if(neoEndless==true)
+      {
+        enemySPD=50;
+      }
+      else
+      {
+        enemySPD=10;
+      }
+    }
+    else
+    {
+      enemySPD=20;
+    }
+  }
+
+  else if(enemy=="Hiveo")
+  {
+    if(neoWaves==true)
+    {
+      if(neoEndless==true)
+      {
+        enemySPD=50;
+      }
+      else
+      {
+        enemySPD=12.5;
+      }
+    }
+    else
+    {
+      enemySPD=25;
+    }
+  }
+
+  else if(enemy=="Boulder Snake")
+  {
+    if(neoWaves==true)
+    {
+      if(neoEndless==true)
+      {
+        enemySPD=50;
+      }
+      else
+      {
+        enemySPD=35;
+      }
+    }
+    else
+    {
+      enemySPD=15;
+    }
+  }
+
+  else if(enemy=="Covered King")
+  {
+    if(neoWaves==true)
+    {
+      if(neoEndless==true)
+      {
+        enemySPD=49;
+      }
+      else
+      {
+        enemySPD=50;
+      }
+    }
+    else
+    {
+      enemySPD=15;
+    }
+  }
+
+  else if(enemy=="Buff Pengu")
+  {
+    if(neoWaves==true)
+    {
+      if(neoEndless==true)
+      {
+        enemySPD=49;
+      }
+      else
+      {
+        enemySPD=50;
+      }
+    }
+    else
+    {
+      enemySPD=30;
+    }
+  }
+
+  else if(enemy=="Zyborgus")
+  {
+    if(neoWaves==true)
+    {
+      enemySPD=5000;
+    }
+    else
+    {
+      if(finalWave==true)
+      {
+        enemySPD=500;
+      }
+      else
+      {
+        enemySPD=50;
+      }
+    }
+  }
+
+  if(spdTrue==true)
+  {
+    enemySPD=0;
+  }
+
+  if(enemySPD==spdStat)
+  {
+    // coinFlip is a variable that does a 50/50 chance the the enemy and player speed happens to be the same.
+    let coinFlip=0;
+    coinFlip=(Math.round(Math.random()*1)+1);
+    if(coinFlip==1)
+    {
+      enemySPD+=1;
+    }
+    else
+    {
+      enemySPD-=1;
+    }
+  }
+
+  if(enemySPD>spdStat)
+  {
+    $("#greyBackground").css('opacity', '0');
+    $("#greyBackground").hide();
+    $("#exitButton").hide();
+    $("#moveOne").hide();
+    $("#moveTwo").hide();
+    $("#attack").hide();
+    $("#run").hide();
+    $("#bag").hide();
+    enemyAttack();
+  }
+  else
+  {
+    // Lexical: Used here to make a attack sound when the attacking gif shows up.
+    attackSound.play();
+    $("#attackHit").show();
+    $("#greyBackground").css('opacity', '0');
+    $("#greyBackground").hide();
+    $("#exitButton").hide();
+    $("#moveOne").hide();
+    $("#moveTwo").hide();
+    $("#attack").hide();
+    $("#run").hide();
+    $("#bag").hide();
+    setTimeout(function(){
+      // Used here because we want a hit sound to activate after this setTimeout has happened.
+      var hitSound=new Audio("../audio/hit.mp3");
+      hitSound.play();
+      $("#attackHit").hide();
+      // Lexical: randomCrit is used here if the randomCrit lands a 1 to execute the critical strike code.
+      if(randomCrit==1)
+      {
+        damageOutput*=2;
+        $("#lblEncounter").text("You dealt a CRITICAL STRIKE OF " + damageOutput + " DAMAGE!");
+        enemyHealth-=damageOutput;
+        if(enemyHealth<1)
+        {
+          enemyHealth=0;
+        }
+        $("#lblEnemyHealth").text('Enemy HP: ' + enemyHealth);
+      }
+      else
+      {
+        $("#lblEncounter").text("You dealt a strike of " + damageOutput + " damage!");
+        enemyHealth-=damageOutput;
+        if(enemyHealth<1)
+        {
+          enemyHealth=0;
+        }
+        $("#lblEnemyHealth").text('Enemy HP: ' + enemyHealth);
+      }
+      if(enemyHealth<1)
+      {
+        setTimeout(function(){
+          $("#lblEncounter").text("The enemy has been defeated!");
+
+          if(enemy=="Strawburry")
+          {
+            currentGold+=(Math.round(Math.random()*4)+2);
+            experience+=(Math.round(Math.random()*1)+5);
+            $("#enemyStraw").css('animation', 'fadeOut 1s');
+            $("#enemyStraw").css('opacity', '0');
+            waves+=1;
+            experienceCheck();
+          }
+
+          else if(enemy=="Frosty")
+          {
+            currentGold+=(Math.round(Math.random()*5)+5);
+            experience+=(Math.round(Math.random()*2)+4);
+            $("#enemyFrosty").css('animation', 'fadeOut 1s');
+            $("#enemyFrosty").css('opacity', '0');
+            waves+=1;
+            experienceCheck();
+          }
+
+          else if(enemy=="Hiveo")
+          {
+            currentGold+=(Math.round(Math.random()*6)+4);
+            experience+=(Math.round(Math.random()*1)+4);
+            $("#enemyHiveo").css('animation', 'fadeOut 1s');
+            $("#enemyHiveo").css('opacity', '0');
+            waves+=1;
+            experienceCheck();
+          }
+
+          else if(enemy=="Covered King")
+          {
+            currentGold+=(Math.round(Math.random()*5)+10);
+            experience+=(Math.round(Math.random()*5)+5);
+            $("#enemyCovered").css('animation', 'fadeOut 1s');
+            $("#enemyCovered").css('opacity', '0');
+            waves+=1;
+            experienceCheck();
+          }
+
+          else if(enemy=="Buff Pengu")
+          {
+            currentGold+=(Math.round(Math.random()*5)+12);
+            experience+=(Math.round(Math.random()*5)+5);
+            $("#enemyPengu").css('animation', 'fadeOut 1s');
+            $("#enemyPengu").css('opacity', '0');
+            waves+=1;
+            experienceCheck();
+          }
+
+          else if(enemy=="Boulder Snake")
+          {
+            currentGold+=(Math.round(Math.random()*3)+2);
+            experience+=(Math.round(Math.random()*2)+3);
+            $("#enemySnake").css('animation', 'fadeOut 1s');
+            $("#enemySnake").css('opacity', '0');
+            waves+=1;
+            experienceCheck();
+          }
+
+          else if(enemy=="Zyborgus")
+          {
+            if(bossFirst==true)
+            {
+              bossPhased=true;
+              bossFirst=false;
+            }
+            if(finalWave==true)
+            {
+              wave3True=false;
+              wave2True=false;
+              wave1True=false
+              bossWave=false;
+              finalWave=false;
+              neoEndless=true;
+              neoEndlessCheck=true;
+              $("#avatarInGame").attr('src', '../images/neoDonCloseUp.png');
+            }
+            currentGold+=(Math.round(Math.random()*0)+50);
+            experience+=(Math.round(Math.random()*0)+0);
+            $("#enemyZyborgus").css('animation', 'fadeOut 1s');
+            $("#enemyZyborgus").css('opacity', '0');
+            waves+=1;
+            experienceCheck();
+          }
+        }, 1500);
+      }
+      else
+      {
+        if(firstMove==true)
+        {
+          setTimeout(function(){
+            enemyAttack();
+          }, 1000);
+        }
+        else
+        {
+            enemyAttack();
+        }
+      }
+    }, 750);
+  }
+}
+
+/*************** JEREMY THUMMEL 1/9/21 5:43 PM Made the enemyAttack(); function ***************/
+/*************** DAVID CACOROVSKI 1/9/21 5:49 PM Added more stats to different enemies to enemyAttack(); functions***************/
+/*************** SOHAIL MEGHANI 1/9/21 6:17 PM Added labels to enemyAttack(); function***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITHOUT PARAMETER WITHOUT RETURN**************************/
+function enemyAttack()
+{
+  // enemyCrit is a variable that is the same as randomCrit execpt for the enemy.
+  let enemyCrit=(Math.round(Math.random()*19)+1);
+  // enemyDamage is a variable that the enemy uses as their source of damage.
+  let enemyDamage=0;
+  if(enemy=="Strawburry")
+  {
+    if(neoWaves==true)
+    {
+      enemyDamage=(Math.round(Math.random()*6)+8);
+    }
+    else
+    {
+      // Lexical: used here if enemy is Strawburry will roll that randomized amount of damage that a Strawburry can do.
+      enemyDamage=(Math.round(Math.random()*3)+4);
+    }
+    defStat/=4;
+    enemyDamage-=defStat;
+    defStat*=4;
+  }
+
+  else if(enemy=="Frosty")
+  {
+    if(neoWaves==true)
+    {
+      enemyDamage=(Math.round(Math.random()*2)+16);
+    }
+    else
+    {
+      enemyDamage=(Math.round(Math.random()*5)+8);
+    }
+    defStat/=4;
+    enemyDamage-=defStat;
+    defStat*=4;
+  }
+
+  else if(enemy=="Zyborgus")
+  {
+    if(neoWaves==true)
+    {
+      enemyDamage=(Math.round(Math.random()*10)+15);
+    }
+    else
+    {
+      if(finalWave==true)
+      {
+        enemyDamage=(Math.round(Math.random()*5)+30);
+      }
+      else
+      {
+        enemyDamage=(Math.round(Math.random()*10)+15);
+      }
+    }
+    defStat/=4;
+    enemyDamage-=defStat;
+    defStat*=4;
+  }
+
+  else if(enemy=="Hiveo")
+  {
+    if(neoWaves==true)
+    {
+      enemyDamage=(Math.round(Math.random()*4)+12);
+    }
+    else
+    {
+      enemyDamage=(Math.round(Math.random()*8)+5);
+    }
+    defStat/=4;
+    enemyDamage-=defStat;
+    defStat*=4;
+  }
+
+  else if(enemy=="Covered King")
+  {
+    if(neoWaves==true)
+    {
+      enemyDamage=(Math.round(Math.random()*10)+20);
+    }
+    else
+    {
+      enemyDamage=(Math.round(Math.random()*10)+10);
+    }
+    defStat/=4;
+    enemyDamage-=defStat;
+    defStat*=4;
+  }
+
+  else if(enemy=="Buff Pengu")
+  {
+    if(neoWaves==true)
+    {
+      enemyDamage=(Math.round(Math.random()*6)+24);
+    }
+    else
+    {
+      enemyDamage=(Math.round(Math.random()*3)+12);
+    }
+    defStat/=4;
+    enemyDamage-=defStat;
+    defStat*=4;
+  }
+
+  else if(enemy=="Boulder Snake")
+  {
+    if(neoWaves==true)
+    {
+      enemyDamage=(Math.round(Math.random()*8)+8);
+    }
+    else
+    {
+      enemyDamage=(Math.round(Math.random()*4)+4);
+    }
+    defStat/=4;
+    enemyDamage-=defStat;
+    defStat*=4;
+  }
+  if(spdTrue==false)
+  {
+    $("#lblEncounter").text("The " + enemy + " Attacks!");
+    setTimeout(function(){
+      $("#lblEncounter").text("The " + enemy + " Attacks!");
+      var attackSound=new Audio("../audio/slash.mp3");
+      attackSound.play();
+      setTimeout(function(){
+        var hitSound=new Audio("../audio/hit.mp3");
+        hitSound.play();
+        // Lexical: enemyCrit is used here if the enemyCrit lands a 1 to execute the critical strike code. Basically does same thing as randomCrit
+        if(enemyCrit==1)
+        {
+          enemyDamage*=2;
+          enemyDamage=(Math.round(enemyDamage));
+          $("#lblEncounter").text("The " + enemy + " dealt a CRITICAL STRIKE OF " + enemyDamage + " DAMAGE!");
+          playerHealth-=enemyDamage;
+          if(playerHealth < 1)
+          {
+            playerHealth=0;
+            $("#lblPlayerHealth").text('Player HP: ' + playerHealth);
+            gameOver();
+          }
+          $("#lblPlayerHealth").text('Player HP: ' + playerHealth);
+        }
+        else
+        {
+          enemyDamage=(Math.round(enemyDamage));
+          $("#lblEncounter").text("The " + enemy + " dealt a strike of " + enemyDamage + " damage!");
+          playerHealth-=enemyDamage;
+          if(playerHealth < 1)
+          {
+            playerHealth=0;
+            $("#lblPlayerHealth").text('Player HP: ' + playerHealth);
+            gameOver();
+          }
+          $("#lblPlayerHealth").text('Player HP: ' + playerHealth);
+        }
+        if(playerHealth>0)
+        {
+          if(enemySPD < spdStat)
+          {
+            setTimeout(function(){
+              spdTrue=false;
+              $("#lblEncounter").text('What will you do?');
+              $("#lblEnemyHealth").show();
+              $("#lblEnemyHealth").text('Enemy HP: ' + enemyHealth);
+              $("#lblEnemyLeft").show();
+              $("#lblEnemyLeft").text('Enemies Left: ' + enemyLeft);
+              $("#lblPlayerHealth").show();
+              $("#lblPlayerHealth").text('Player HP: ' + playerHealth);
+              $("#bag").show();
+              $("#attack").show();
+              $("#attack").css('opacity', '1');
+              $("#run").show();
+              $("#run").css('opacity', '1');
+            }, 1500);
+          }
+          else
+          {
+            setTimeout(function(){
+              spdTrue=true;
+              firstMove=false;
+              attacking();
+            }, 1000);
+          }
+        }
+      }, 750);
+    }, 750);
+  }
+  else
+  {
+    setTimeout(function(){
+      spdTrue=false;
+      firstMove=true;
+      $("#lblEncounter").text('What will you do?');
+      $("#lblEnemyHealth").show();
+      $("#lblEnemyHealth").text('Enemy HP: ' + enemyHealth);
+      $("#lblEnemyLeft").show();
+      $("#lblEnemyLeft").text('Enemies Left: ' + enemyLeft);
+      $("#lblPlayerHealth").show();
+      $("#lblPlayerHealth").text('Player HP: ' + playerHealth);
+      $("#bag").show();
+      $("#attack").show();
+      $("#attack").css('opacity', '1');
+      $("#run").show();
+      $("#run").css('opacity', '1');
+    }, 1250);
+  }
+}
+
+/*************** JEREMY THUMMEL 1/12/21 10:27 PM Made the walking(); function ***************/
+/*************** DAVID CACOROVSKI 1/12/21 10:59 PM Added wood spear to the walking(); function ***************/
+/*************** SOHAIL MEGHANI 1/13/21 12:11 AM Added background animation to the walking(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITH PARAMETER WITHOUT RETURN**************************/
+function walking(seconds)
+{
+  if(neoEndless==true)
+  {
+    $("#gameBackground").css('animation', 'towardsCave ease 4.25s');
+  }
+  else if(waves<5)
+  {
+    $("#gameBackground").css('animation', 'towardsCave ease 4.25s');
+  }
+  else if(waves>4 && waves<10)
+  {
+    $("#gameBackground").css('animation', 'towardsCave2 ease 4.25s');
+  }
+  else if(waves>9 && waves<16)
+  {
+    $("#gameBackground").css('animation', 'towardsCave3 ease 4.25s');
+  }
+  else if(waves>15 && waves<21)
+  {
+    $("#gameBackground").css('animation', 'towardsCave4 ease 4.25s');
+  }
+  // time is a variable that convert miliseconds to seconds so in other lines of code when you call the walking function you just have to put a number with the amount of seconds instead of miliseconds.
+  let time=+(seconds*1000);
+  if(woodSpear==true)
+  {
+    $("#movingHands").hide();
+    $("#staticHands").hide();
+    $("#movingHandsSpear").show();
+    $("#staticHandsSpear").hide();
+  }
+  else
+  {
+    $("#movingHands").show();
+    $("#staticHands").hide();
+    $("#movingHandsSpear").hide();
+    $("#staticHandsSpear").hide();
+  }
+  $("#enterBattle").hide();
+  $("#lblArea").hide();
+  $("#bag").hide();
+  $("#shop").hide();
+  $("#mines").hide();
+  setTimeout(function(){ //Start of setTimeout
+
+    $("#gameBackground").css('animation', 'none');
+    $("#staticHands").css('animation', 'none');
+
+    if(woodSpear==true)
+    {
+      $("#staticHandsSpear").show();
+      $("#movingHandsSpear").hide();
+    }
+    else
+    {
+      $("#staticHands").show();
+      $("#movingHands").hide();
+    }
+
+    titleScreenMusic.pause();
+
+    setTimeout(function(){
+      if(waves>15 && waves<21)
+      {
+        playVid();
+      }
+      else if(waves>20 && waves<22)
+      {
+        playVid();
+      }
+      else if(neoEndlessCheck==true)
+      {
+        neoEndlessCheck=false;
+        $("#gameBackground").css('background-image', 'url(../images/hideoutBackground2.png)');
+        $("#gameBackground").css('background-size', '200%');
+        skipVid();
+      }
+      else
+      {
+        battle();
+      }
+    }, 1000);
+
+  }, time);// End of setTimeout
+
+}
+
+/*************** DAVID CACOROVSKI 1/13/21 4:23 PM Added the battle(); function ***************/
+/*************** JEREMY THUMMEL 1/13/21 4:29 PM Added labels to the battle(); function ***************/
+/*************** JEREMY THUMMEL 1/13/21 5:00 PM Added waves to the battle(); function ***************/
+/*************** SOHAIL MEGHANI 1/13/21 5:19 PM Added fade in animations to the battle(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITHOUT PARAMETER WITHOUT RETURN*************************
+                                            WITH ARRAY*/
+function battle()
+{
+  // enemyNumber is a variable that we use if it rolls that number you encounter that enemy.
+  let enemyNumber=0;
+  // enemyID is a array that we use to store all of the enemyID's for the game.
+  let enemyID=[];
+  enemyID.unshift("Strawburry", "Boulder Snake", "Frosty", "Hiveo", "Covered King", "Buff Pengu", "Zyborgus");
+  if(waves<5 && wave1True == true)
+  {
+    enemyLeft=5;
+    firstWaves.pause();
+    firstWaves.play();
+    if(waves==1)
+    {
+      firstWaves.currentTime = 0;
+    }
+    firstWaves.setAttribute('loop', 'true');
+    $("#gameBackground").css('background-image', 'url(../images/firstWavesNew.png)');
+    $("#gameBackground").css('background-size', '200%');
+    $("#whiteBackground").css('animation', 'fadeOut ease 1s');
+    $("#whiteBackground").css('opacity', '0');
+    setTimeout(function(){
+      $("#whiteBackground").hide();
+    }, 1000);
+    // Lexical: enemyNumber used here to determine if they are in a low wave to only make the Strawburry and Snake pop up.
+    enemyNumber=(Math.round(Math.random()*1)+1);
+  }
+  else if(waves>4 && waves<10 && wave2True == true)
+  {
+    firstWaves.pause();
+    enemyLeft=10;
+    secondWaves.pause();
+    secondWaves.play();
+    if(waves==5)
+    {
+      secondWaves.currentTime = 0;
+    }
+    secondWaves.setAttribute('loop', 'true');
+    $("#gameBackground").css('background-image', 'url(../images/secondWaves.png)');
+    $("#gameBackground").css('background-size', '200%');
+    $("#whiteBackground").css('animation', 'fadeOut ease 1s');
+    $("#whiteBackground").css('opacity', '0');
+    setTimeout(function(){
+      $("#whiteBackground").hide();
+    }, 1000);
+    // Lexical: enemyNumber used here to determine if they are in the 2nd wave to only make Frosty and Hiveo pop up.
+    enemyNumber=(Math.round(Math.random()*1)+3);
+  }
+  else if(waves>9 && waves<16 && wave3True == true)
+  {
+    secondWaves.pause();
+    enemyLeft=16;
+    thirdWaves.pause();
+    thirdWaves.play();
+    if(waves==10)
+    {
+      thirdWaves.currentTime = 0;
+    }
+    thirdWaves.setAttribute('loop', 'true');
+    $("#gameBackground").css('background-image', 'url(../images/thirdWaves.png)');
+    $("#gameBackground").css('background-size', '200%');
+    $("#whiteBackground").css('animation', 'fadeOut ease 1s');
+    $("#whiteBackground").css('opacity', '0');
+    setTimeout(function(){
+      $("#whiteBackground").hide();
+    }, 1000);
+    // Lexical: enemyNumber used here to determine if they are in the 3rd wave to only make the King and Pengu pop up.
+    enemyNumber=(Math.round(Math.random()*1)+5);
+  }
+  else if(waves>15 && waves<21 && neoWaves == true && neoEndless == false)
+  {
+    $("#skipButton").css('animation', 'fadeOut ease 1s');
+    $("#skipButton").css('opacity', '0');
+    $("#skipButton").hide();
+    thirdWaves.pause();
+    enemyLeft=21;
+    neoWavesMusic.pause();
+    neoWavesMusic.play();
+    if(waves==16)
+    {
+      neoWavesMusic.currentTime = 0;
+    }
+    neoWavesMusic.setAttribute('loop', 'true');
+    $("#gameBackground").css('background-image', 'url(../images/neoDimension.gif)');
+    $("#gameBackground").css('background-size', '100.01%');
+    $("#neo").css('animation', 'fadeOut ease 1s');
+    $("#neo").css('opacity', '0');
+    setTimeout(function(){
+      $("#neo").hide();
+    }, 1000);
+    // Lexical: enemyNumber used here to determine if they are in the 3rd wave to only make the King and Pengu pop up.
+    enemyNumber=(Math.round(Math.random()*5)+1);
+  }
+  else if(waves>20 && waves<22 && bossWave == true)
+  {
+    $("#skipButton").css('animation', 'fadeOut ease 1s');
+    $("#skipButton").css('opacity', '0');
+    $("#skipButton").hide();
+    neoWavesMusic.pause();
+    enemyLeft=22;
+    bossWavesMusic.pause();
+    bossWavesMusic.play();
+    if(waves==21)
+    {
+      bossWavesMusic.currentTime = 0;
+    }
+    bossWavesMusic.setAttribute('loop', 'true');
+    $("#gameBackground").css('background-image', 'url(../images/finalBackground.gif)');
+    $("#gameBackground").css('background-size', '140%');
+    $("#bossIntro").css('animation', 'fadeOut ease 1s');
+    $("#bossIntro").css('opacity', '0');
+    setTimeout(function(){
+      $("#bossIntro").hide();
+    }, 1000);
+    // Lexical: enemyNumber used here to determine if they are in the 3rd wave to only make the King and Pengu pop up.
+    enemyNumber=(Math.round(Math.random()*0)+7);
+  }
+  else if(waves>21 && waves<23 && finalWave == true)
+  {
+    $("#skipButton").css('animation', 'fadeOut ease 1s');
+    $("#skipButton").css('opacity', '0');
+    $("#skipButton").hide();
+    bossWavesMusic.pause();
+    enemyLeft=23;
+    finalBossPhase.pause();
+    finalBossPhase.play();
+    if(waves==22)
+    {
+      finalBossPhase.currentTime = 0;
+    }
+    finalBossPhase.setAttribute('loop', 'true');
+    $("#gameBackground").css('background-image', 'url(../images/finalBackground.gif)');
+    $("#gameBackground").css('background-size', '140%');
+    $("#bossPhase").css('animation', 'fadeOut ease 1s');
+    $("#bossPhase").css('opacity', '0');
+    setTimeout(function(){
+      $("#bossPhase").hide();
+    }, 1000);
+    // Lexical: enemyNumber used here to determine if they are in the 3rd wave to only make the King and Pengu pop up.
+    enemyNumber=(Math.round(Math.random()*0)+7);
+  }
+  else if(neoEndless == true && neoWaves == true)
+  {
+    $("#whiteBackground").css('animation', 'fadeOut ease 1s');
+    $("#whiteBackground").css('opacity', '0');
+    if(neoEndlessCheck==false)
+    {
+      enemyLeft=0;
+      neoEndlessCheck=true;
+    }
+    neoWavesMusic.pause();
+    neoWavesMusic.play();
+    if(enemyLeft==0)
+    {
+      neoWavesMusic.currentTime = 0;
+    }
+    neoWavesMusic.setAttribute('loop', 'true');
+    if(enemyLeft==24 || enemyLeft==49 || enemyLeft==74 || enemyLeft==99)
+    {
+      $("#gameBackground").css('background-image', 'url(../images/neoFinalBackground.gif)');
+      $("#gameBackground").css('background-size', '140%');
+      enemyNumber=(Math.round(Math.random()*0)+7);
+    }
+    else
+    {
+      $("#gameBackground").css('background-image', 'url(../images/neoDimension.gif)');
+      $("#gameBackground").css('background-size', '100.01%');
+      enemyNumber=(Math.round(Math.random()*5)+1);
+    }
+    setTimeout(function(){
+      $("#whiteBackground").hide();
+    }, 1000);
+  }
+
+  if(neoEndless==true && neoWaves==true)
+  {
+    enemyLeft++;
+  }
+  else
+  {
+    enemyLeft-=waves;
+  }
+
+  if(enemyNumber==1)
+  {
+    // Lexical: enemyID used here because to we need to assign the position from the array to each enemy.
+    enemy=enemyID[0];
+  }
+
+  else if(enemyNumber==2)
+  {
+    enemy=enemyID[1];
+  }
+
+  else if(enemyNumber==3)
+  {
+    enemy=enemyID[2];
+  }
+
+  else if(enemyNumber==4)
+  {
+    enemy=enemyID[3];
+  }
+
+  else if(enemyNumber==5)
+  {
+    enemy=enemyID[4];
+  }
+
+  else if(enemyNumber==6)
+  {
+    enemy=enemyID[5];
+  }
+
+  else if(enemyNumber==7)
+  {
+    enemy=enemyID[6];
+  }
+
+  if(enemyLeft > 0)
+  {
+    if(neoWaves==true)
+    {
+      // https://stackoverflow.com/questions/554273/changing-the-image-source-using-jquery - I got this code from this website. - David Cacorovski
+      $("#staticHands").attr("src","../images/neoHands.png");
+      $("#staticHandsSpear").attr("src","../images/neoHandsSpear.png");
+      $("#movingHands").attr("src","../images/neoHands.gif");
+      $("#movingHandsSpear").attr("src","../images/neoHandsSpear.gif");
+      $("#enemyStraw").attr("src","../images/neoStrawburry.gif");
+      $("#enemyFrosty").attr("src","../images/neo_frosty_the_ice_man2.gif");
+      $("#enemyZyborgus").attr("src","../images/neoShopKeeperBoss.gif");
+      $("#enemyHiveo").attr("src","../images/neoHiveo.gif");
+      $("#enemyCovered").attr("src","../images/neoCoveredKing.gif");
+      $("#enemyPengu").attr("src","../images/neoBuffPengu.gif");
+      $("#enemySnake").attr("src","../images/neoBoulderSnake.gif");
+    }
+    else
+    {
+      $("#staticHands").attr("src","../images/hands.png");
+      $("#staticHandsSpear").attr("src","../images/handsSpear.png");
+      $("#movingHands").attr("src","../images/hands.gif");
+      $("#movingHandsSpear").attr("src","../images/handsSpear.gif");
+      $("#enemyStraw").attr("src","../images/strawburry.gif");
+      $("#enemyFrosty").attr("src","../images/frosty_the_ice_man.gif");
+      $("#enemyHiveo").attr("src","../images/hiveo.gif");
+      $("#enemyCovered").attr("src","../images/theCoveredKing.gif");
+      $("#enemyPengu").attr("src","../images/buffPengu.gif");
+      $("#enemySnake").attr("src","../images/boulderSnake.gif");
+      if(finalWave==true)
+      {
+        $("#enemyZyborgus").attr("src", "../images/shopKeeperBoss.gif");
+      }
+      else
+      {
+        $("#enemyZyborgus").attr("src","../images/boss.gif");
+      }
+    }
+
+    if(enemy=="Strawburry")
+    {
+      if(neoWaves==true)
+      {
+        if(neoEndless==true)
+        {
+          enemyHealth=50;
+        }
+        else
+        {
+          enemyHealth=40;
+        }
+      }
+      else
+      {
+        enemyHealth=40;
+      }
+      $("#enemyStraw").show();
+      $("#enemyStraw").css('animation', 'fadeIn 1s');
+      $("#enemyStraw").css('opacity', '1');
+      $("#lblEncounter").text("You encountered\nStrawburry!");
+    }
+
+    else if(enemy=="Frosty")
+    {
+      if(neoWaves==true)
+      {
+        enemyHealth=60;
+      }
+      else
+      {
+        enemyHealth=30;
+      }
+      $("#enemyFrosty").show();
+      $("#enemyFrosty").css('animation', 'fadeIn 1s');
+      $("#enemyFrosty").css('opacity', '1');
+      $("#lblEncounter").text("You encountered\nFrosty the Ice Man!");
+    }
+
+    else if(enemy=="Hiveo")
+    {
+      if(neoWaves==true)
+      {
+        if(neoEndless==true)
+        {
+          enemyHealth=50;
+        }
+        else
+        {
+          enemyHealth=40;
+        }
+      }
+      else
+      {
+        enemyHealth=20;
+      }
+      $("#enemyHiveo").show();
+      $("#enemyHiveo").css('animation', 'fadeIn 1s');
+      $("#enemyHiveo").css('opacity', '1');
+      $("#lblEncounter").text("You encountered\nHiveo!");
+    }
+
+    else if(enemy=="Covered King")
+    {
+      if(neoWaves==true)
+      {
+        if(neoEndless==true)
+        {
+          enemyHealth=50;
+        }
+        else
+        {
+          enemyHealth=30;
+        }
+      }
+      else
+      {
+        enemyHealth=60;
+      }
+      $("#enemyCovered").show();
+      $("#enemyCovered").css('animation', 'fadeIn 1s');
+      $("#enemyCovered").css('opacity', '1');
+      $("#lblEncounter").text("You encountered\nThe Covered King!");
+    }
+
+    else if(enemy=="Buff Pengu")
+    {
+      if(neoWaves==true)
+      {
+        if(neoEndless==true)
+        {
+          enemyHealth=50;
+        }
+        else
+        {
+          enemyHealth=25;
+        }
+      }
+      else
+      {
+        enemyHealth=50;
+      }
+      $("#enemyPengu").show();
+      $("#enemyPengu").css('animation', 'fadeIn 1s');
+      $("#enemyPengu").css('opacity', '1');
+      $("#lblEncounter").text("You encountered\nBuff Pengu!");
+    }
+
+    else if(enemy=="Boulder Snake")
+    {
+      if(neoWaves==true)
+      {
+        if(neoEndless==true)
+        {
+          enemyHealth=50;
+        }
+        else
+        {
+          enemyHealth=25;
+        }
+      }
+      else
+      {
+        enemyHealth=25;
+      }
+      $("#enemySnake").show();
+      $("#enemySnake").css('animation', 'fadeIn 1s');
+      $("#enemySnake").css('opacity', '1');
+      $("#lblEncounter").text("You encountered\nBoulder Snake!");
+    }
+
+    else if(enemy=="Zyborgus")
+    {
+      if(neoWaves==true)
+      {
+        enemyHealth=500;
+      }
+      else
+      {
+        if(finalWave==true)
+        {
+          enemyHealth=250;
+        }
+        else
+        {
+          enemyHealth=100;
+        }
+      }
+      $("#enemyZyborgus").show();
+      $("#enemyZyborgus").css('animation', 'fadeIn 1s');
+      $("#enemyZyborgus").css('opacity', '1');
+      $("#lblEncounter").text("You encountered\nZyborgus!");
+      if(finalWave==true)
+      {
+        setTimeout(function(){
+          $("#lblEncounter").text("Wait,\nZyborgus is the Shop Keeper?!?");
+        }, 2000);
+      }
+    }
+
+    $("#lblEncounter").show();
+
+    setTimeout(function(){
+      if(finalWave==true)
+      {
+        setTimeout(function(){
+          $("#lblEncounter").text('What will you do?');
+          $("#lblEnemyHealth").show();
+          $("#lblEnemyHealth").text('Enemy HP: ' + enemyHealth);
+          $("#lblEnemyLeft").show();
+          $("#lblEnemyLeft").text('Enemies Left: ' + enemyLeft);
+          $("#lblPlayerHealth").show();
+          $("#lblPlayerHealth").text('Player HP: ' + playerHealth);
+          $("#bag").show();
+          $("#attack").show();
+          $("#attack").css('opacity', '1');
+          if(bossWave==false)
+          {
+            $("#run").show();
+            $("#run").css('opacity', '1');
+          }
+        }, 1500);
+      }
+      else
+      {
+        $("#lblEncounter").text('What will you do?');
+        $("#lblEnemyHealth").show();
+        $("#lblEnemyHealth").text('Enemy HP: ' + enemyHealth);
+        $("#lblEnemyLeft").show();
+        if(neoEndless==true)
+        {
+          $("#lblEnemyLeft").text('Enemies Encountered: ' + enemyLeft);
+        }
+        else
+        {
+          $("#lblEnemyLeft").text('Enemies Left: ' + enemyLeft);
+        }
+        $("#lblPlayerHealth").show();
+        $("#lblPlayerHealth").text('Player HP: ' + playerHealth);
+        $("#bag").show();
+        $("#attack").show();
+        $("#attack").css('opacity', '1');
+        if(bossWave==false)
+        {
+          $("#run").show();
+          $("#run").css('opacity', '1');
+        }
+      }
+    }, 2500);
+  }
+  else
+  {
+    if(bossPhased==true)
+    {
+      if(phaseCutsceneFirst==true)
+      {
+        phaseCutsceneFirst=false;
+        bossPhased=false;
+        finalWave=true;
+        $("#blackBackground").show();
+        $("#blackBackground").css('animation', 'fadeIn ease 1s');
+        $("#blackBackground").css('opacity', '1');
+        setTimeout(function(){
+          bossWavesMusic.pause();
+          setTimeout(function(){
+            skipTrue=false;
+            $("#blackBackground").css('animation', 'fadeOut 1s');
+            $("#blackBackground").css('opacity', '0');
+            $("#bossPhase").show();
+            $("#bossPhase").css('opacity', '1');
+            $("#skipButton").show();
+            $("#skipButton").css('animation', 'fadeIn ease 1s');
+            $("#skipButton").css('opacity', '1');
+            shopKeeperChange=true;
+            bossPhase.play();
+            setTimeout(function(){
+              $("#blackBackground").hide();
+              setTimeout(function(){
+                if(skipTrue==false)
+                {
+                  battle();
+                }
+              }, 21000);
+            }, 2000);
+          }, 1000);
+        }, 1000);
+      }
+      else
+      {
+        bossPhased=false;
+        finalWave=true;
+        $("#blackBackground").show();
+        $("#blackBackground").css('animation', 'fadeIn ease 1s');
+        $("#blackBackground").css('opacity', '1');
+        setTimeout(function(){
+          bossWavesMusic.pause();
+          setTimeout(function(){
+            $("#blackBackground").css('animation', 'fadeOut 1s');
+            $("#blackBackground").css('opacity', '0');
+            $("#blackBackground").hide();
+            battle();
+          }, 1000);
+        }, 1000);
+      }
+    }
+    else
+    {
+      // Lexical: Being used here as It only needs to be used here. This is to make the win music play when you defeat all enemies in a wave.
+      var winWave=new Audio("../audio/win.mp3");
+      firstWaves.pause();
+      secondWaves.pause();
+      thirdWaves.pause();
+      neoWavesMusic.pause();
+      bossWavesMusic.pause();
+      finalBossPhase.pause();
+      winWave.play();
+      enemyLeft=0;
+      $("#lblEnemyLeft").text('Enemies Left: ' + enemyLeft);
+      $("#lblEncounter").text("You have defeated the last remaining enemies in this area!");
+      if(waves>4 && waves<10)
+      {
+        wave2True=true;
+        setTimeout(function(){
+          $("#lblPlayerHealth").hide();
+          $("#lblEnemyHealth").hide();
+          $("#lblEnemyLeft").hide();
+          $("#lblEncounter").hide();
+          var footstepsMedium=new Audio("../audio/footstepsMedium.mp3");
+          footstepsMedium.play();
+          enemiesLeft=10;
+          walking(4);
+          setTimeout(function(){ //Start of setTimeout
+            transition.play();
+            $("#whiteBackground").show();
+            $("#whiteBackground").css('animation', 'fadeIn ease 1s');
+            $("#whiteBackground").css('opacity', '1');
+          }, 2500);
+        }, 4000);
+      }
+      else if(waves>9 && waves<16)
+      {
+        wave3True=true;
+        setTimeout(function(){
+          $("#lblPlayerHealth").hide();
+          $("#lblEnemyHealth").hide();
+          $("#lblEnemyLeft").hide();
+          $("#lblEncounter").hide();
+          var footstepsMedium=new Audio("../audio/footstepsMedium.mp3");
+          footstepsMedium.play();
+          enemiesLeft=17;
+          walking(4);
+          setTimeout(function(){ //Start of setTimeout
+            transition.play();
+            $("#whiteBackground").show();
+            $("#whiteBackground").css('animation', 'fadeIn ease 1s');
+            $("#whiteBackground").css('opacity', '1');
+          }, 2500);
+        }, 4000);
+      }
+      else if(waves>15 && waves<21)
+      {
+        neoWaves=true;
+        setTimeout(function(){
+          $("#lblPlayerHealth").hide();
+          $("#lblEnemyHealth").hide();
+          $("#lblEnemyLeft").hide();
+          $("#lblEncounter").hide();
+          var footstepsMedium=new Audio("../audio/footstepsMedium.mp3");
+          footstepsMedium.play();
+          enemiesLeft=21;
+          walking(4);
+          setTimeout(function(){ //Start of setTimeout
+            transition.play();
+            $("#whiteBackground").show();
+            $("#whiteBackground").css('animation', 'fadeIn ease 1s');
+            $("#whiteBackground").css('opacity', '1');
+          }, 2500);
+        }, 4000);
+      }
+      else if(waves>20 && waves<22)
+      {
+        neoWaves=false;
+        bossWave=true;
+        setTimeout(function(){
+          $("#lblPlayerHealth").hide();
+          $("#lblEnemyHealth").hide();
+          $("#lblEnemyLeft").hide();
+          $("#lblEncounter").hide();
+          transition.play();
+          $("#whiteBackground").show();
+          $("#whiteBackground").css('animation', 'fadeIn ease 1s');
+          $("#whiteBackground").css('opacity', '1');
+          enemiesLeft=22;
+          walking(2);
+        }, 4000);
+      }
+      if(neoEndless==true)
+      {
+        setTimeout(function(){
+          neoWaves=true;
+          waves=0;
+          $("#lblPlayerHealth").hide();
+          $("#lblEnemyHealth").hide();
+          $("#lblEnemyLeft").hide();
+          $("#lblEncounter").hide();
+          transition.play();
+          $("#whiteBackground").show();
+          $("#whiteBackground").css('animation', 'fadeIn ease 1s');
+          $("#whiteBackground").css('opacity', '1');
+          walking(2);
+        }, 4000);
+      }
+    }
+  }
+}
+
+/*************** SOHAIL MEGHANI 1/13/21 7:53 PM Added the playVid(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITHOUT PARAMETER WITHOUT RETURN**************************/
+function playVid()
+{
+  if(waves>15 && waves<21)
+  {
+    if(neoCutsceneFirst==true)
+    {
+      neoCutsceneFirst=false;
+      skipTrue=false;
+      $("#whiteBackground").hide();
+      $("#neo").show();
+      $("#neo").css('opacity', '1');
+      $("#skipButton").show();
+      $("#skipButton").css('animation', 'fadeIn ease 1s');
+      $("#skipButton").css('opacity', '1');
+      neo.play();
+      setTimeout(function(){ //Start of setTimeout
+        if(skipTrue==false)
+        {
+          battle();
+        }
+      }, 17010);
+    }
+    else
+    {
+      $("#whiteBackground").hide();
+      battle();
+    }
+  }
+  else if(waves>20 && waves<22)
+  {
+    if(bossCutsceneFirst==true)
+    {
+      bossCutsceneFirst=false;
+      skipTrue=false;
+      $("#whiteBackground").css('animation', 'fadeOut 1s');
+      $("#whiteBackground").css('opacity', '0');
+      $("#bossIntro").show();
+      $("#bossIntro").css('opacity', '1');
+      $("#skipButton").show();
+      $("#skipButton").css('animation', 'fadeIn ease 1s');
+      $("#skipButton").css('opacity', '1');
+      bossIntro.play();
+      setTimeout(function(){
+        $("#whiteBackground").hide();
+        setTimeout(function(){
+          if(skipTrue==false)
+          {
+            $("#skipButton").css('animation', 'fadeOut ease 1s');
+            $("#skipButton").css('opacity', '0');
+            $("#skipButton").hide();
+            setTimeout(function(){
+              if(skipTrue==false)
+              {
+                battle();
+              }
+            }, 10000);
+          }
+        }, 21000);
+      }, 2000);
+    }
+    else
+    {
+      bossPhased=false;
+      neoWaves=false;
+      bossWave=true;
+      $("#whiteBackground").hide();
+      battle();
+    }
+  }
+  else
+  {
+    intro.play();
+    titleScreenMusic.pause();
+  }
+}
+
+/*************** JEREMY THUMMEL 1/13/21 8:14 PM Added the skipVid(); function ***************/
+/*************** DAVID CACOROVSKI 1/13/21 8:56 AM Edited the skipVid(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITHOUT PARAMETER WITHOUT RETURN**************************/
+function skipVid()
+{
+  if(neoWaves==true && neoEndless!=true)
+  {
+    skipTrue=true;
+    neo.pause();
+    battle();
+  }
+  else if(waves>20 && waves<22)
+  {
+    skipTrue=true;
+    bossIntro.pause();
+    battle();
+  }
+  else if(waves>21 && waves<23)
+  {
+    skipTrue=true;
+    bossPhase.pause();
+    battle();
+  }
+  else
+  {
+    if(neoEndless==true)
+    {
+      $("#staticHands").attr("src","../images/neoHands.png");
+      $("#staticHandsSpear").attr("src","../images/neoHandsSpear.png");
+      $("#movingHands").attr("src","../images/neoHands.gif");
+      $("#movingHandsSpear").attr("src","../images/neoHandsSpear.gif");
+      $("#enemyStraw").attr("src","../images/neoStrawburry.gif");
+      $("#enemyFrosty").attr("src","../images/neo_frosty_the_ice_man2.gif");
+      $("#enemyZyborgus").attr("src","../images/neoShopKeeperBoss.gif");
+      $("#enemyHiveo").attr("src","../images/neoHiveo.gif");
+      $("#enemyCovered").attr("src","../images/neoCoveredKing.gif");
+      $("#enemyPengu").attr("src","../images/neoBuffPengu.gif");
+      $("#enemySnake").attr("src","../images/neoBoulderSnake.gif");
+    }
+    if(shopKeeperChange==true)
+    {
+      $("#shopKeeper").attr("src","../images/newShopKeeper.gif");
+    }
+    $("#whiteBackground").css('animation', 'fadeOut ease 1s');
+    $("#whiteBackground").css('opacity', '0');
+    $("#whiteBackground").hide();
+    titleScreenMusic.play();
+    $("#intro").css('animation', 'fadeOut ease 4s');
+    $("#intro").css('opacity', '0');
+    intro.pause();
+    $("#intro").hide();
+    $("#lblArea").show();
+    $("#lblArea").css('opacity', '1');
+    $("#shop").show();
+    $("#shop").css('opacity', '1');
+    $("#mines").show();
+    $("#mines").css('opacity', '1');
+    $("#bag").show();
+    $("#bag").css('opacity', '1');
+    $("#enterBattle").show();
+    $("#enterBattle").css('opacity', '1');
+    gold+=currentGold;
+    currentGold=0;
+    if(woodSpear==true)
+    {
+      $("#staticHandsSpear").show();
+      $("#staticHandsSpear").css('opacity', '1');
+      $("#staticHands").hide();
+    }
+    else
+    {
+      $("#staticHands").show();
+      $("#staticHands").css('opacity', '1');
+    }
+    $("#skipButton").css('opacity', '0');
+    $("#skipButton").hide();
+    $("#lblArea").text("Hideout Entrance");
+  }
+}
+/*************** SOHAIL MEGHANI 1/14/21 11:09 AM Added the levelUp(); function ***************/
+/*************** DAVID CACOROVSKI 1/14/21 11:16 AM Added experience points to the levelUp(); function ***************/
+/*************** JEREMY THUMMEL 1/14/21 7:24 PM Added the ability to change stats in the levelUp(); function ***************/
+/*************** SOHAIL MEGHANI 1/14/21 7:25 PM Added animation to the levelUp(); function ***************/
+/*************** JEREMY THUMMEL 1/14/21 7:47 PM Positioned the levelUp(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITHOUT PARAMETER WITHOUT RETURN**************************/
+function levelUp()
+{
+  if(level1==true)
+  {
+    setTimeout(function(){
+      experienceCap=30;
+      atkLevel=2;
+      hpLevel=3;
+      defLevel=2;
+      spdLevel=2.5;
+      atkStat+=atkLevel;
+      hpStat+=hpLevel;
+      defStat+=defLevel;
+      spdStat+=spdLevel;
+      playerHealth=hpStat;
+      levelUpShowUp();
+    }, 1000);
+  }
+  else if(level2==true)
+  {
+    setTimeout(function(){
+      experienceCap=45;
+      atkLevel=3;
+      hpLevel=4;
+      defLevel=3;
+      spdLevel=5;
+      atkStat+=atkLevel;
+      hpStat+=hpLevel;
+      defStat+=defLevel;
+      spdStat+=spdLevel;
+      playerHealth=hpStat;
+      levelUpShowUp();
+    }, 1000);
+  }
+  else if(level3==true)
+  {
+    setTimeout(function(){
+      experienceCap=90;
+      atkLevel=3;
+      hpLevel=5;
+      defLevel=3;
+      spdLevel=1.5;
+      atkStat+=atkLevel;
+      hpStat+=hpLevel;
+      defStat+=defLevel;
+      spdStat+=spdLevel;
+      playerHealth=hpStat;
+      levelUpShowUp();
+    }, 1000);
+  }
+  else if(level4==true)
+  {
+    setTimeout(function(){
+      experienceCap=135;
+      level4AndUp();
+    }, 1000);
+  }
+  else if(level5==true)
+  {
+    setTimeout(function(){
+      experienceCap=180;
+      level4AndUp();
+    }, 1000);
+  }
+  else if(level6==true)
+  {
+    setTimeout(function(){
+      experienceCap=225;
+      level4AndUp();
+    }, 1000);
+  }
+  else if(level7==true)
+  {
+    setTimeout(function(){
+      experienceCap=270;
+      level4AndUp();
+    }, 1000);
+  }
+  else if(level8==true)
+  {
+    setTimeout(function(){
+      experienceCap=315;
+      level4AndUp();
+    }, 1000);
+  }
+  else if(level9==true)
+  {
+    setTimeout(function(){
+      experienceCap=350;
+      level4AndUp();
+    }, 1000);
+  }
+  else if(level10==true)
+  {
+    setTimeout(function(){
+      level4AndUp();
+    }, 1000);
+  }
+
+  function levelUpShowUp()
+  {
+    $("#lblEncounter").hide();
+    $("#greyBackground").show();
+    $("#greyBackground").css('animation', 'fadeIn-2 1s');
+    $("#greyBackground").css('opacity', '0.95');
+    levelUpSound.play();
+    $("#lblLevelUp").show();
+    $("#lblLevelUp").css('animation', 'fadeIn 1s');
+    $("#lblLevelUp").css('opacity', '1');
+    setTimeout(function(){
+      $("#lblEncounter").hide();
+      $("#lblDouble").show();
+      $("#lblDouble").css('animation', 'fadeIn 1s');
+      $("#lblDouble").css('opacity', '1');
+      setTimeout(function(){
+        $("#lblEncounter").hide();
+        $("#atkButton").show();
+        $("#atkButton").css('animation', 'fadeIn 1s');
+        $("#atkButton").css('opacity', '1');
+        $("#defButton").show();
+        $("#defButton").css('animation', 'fadeIn 1s');
+        $("#defButton").css('opacity', '1');
+        $("#hpButton").show();
+        $("#hpButton").css('animation', 'fadeIn 1s');
+        $("#hpButton").css('opacity', '1');
+        $("#spdButton").show();
+        $("#spdButton").css('animation', 'fadeIn 1s');
+        $("#spdButton").css('opacity', '1');
+        return;
+      }, 1500);
+    }, 1500);
+  }
+  //This function is also here to prevent copy and paste spam - David Cacorovski 1/27/2021 4:01 PM
+  function level4AndUp()
+  {
+    atkLevel=1.5;
+    hpLevel=2;
+    defLevel=1.5;
+    spdLevel=1.5;
+    atkStat+=atkLevel;
+    hpStat+=hpLevel;
+    defStat+=defLevel;
+    spdStat+=spdLevel;
+    playerHealth=hpStat;
+    if(maxLevel==true)
+    {
+      if(atkStat<30)
+      {
+        atkStat=(Math.round(atkStat));
+        atkStat=30;
+      }
+      if(defStat<30)
+      {
+        defStat=(Math.round(defStat));
+        defStat=30;
+      }
+      if(hpStat<60)
+      {
+        hpStat=(Math.round(hpStat));
+        hpStat=60;
+      }
+      if(spdStat<50)
+      {
+        spdStat=(Math.round(spdStat));
+        spdStat=50;
+      }
+    }
+    levelUpShowUp();
+  }
+}
+
+/*************** DAVID CACOROVSKI 1/15/21 10:32AM Added the gamerOver(); function ***************/
+/*************** SOHAIL MEGHANI 1/15/21 10:32 AM Added animation to the gamerOver(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITHOUT PARAMETER WITHOUT RETURN**************************/
+function gameOver()
+{
+  setTimeout(function()
+  {
+     spdTrue=false;
+     $("#lblEncounter").hide();
+     $("#greyBackground").show();
+     $("#greyBackground").css('animation', 'fadeIn-2 1s');
+     $("#greyBackground").css('opacity', '0.95');
+     $("#lblLost").show();
+     $("#lblLost").css('animation', 'fadeIn 1s');
+     $("#lblLost").css('opacity', '1');
+     setTimeout(function(){
+       $("#greyBackground").show();
+       $("#lblContinue").show();
+       $("#lblContinue").css('animation', 'fadeIn 1s');
+       $("#lblContinue").css('opacity', '1');
+       setTimeout(function(){
+         $("#greyBackground").show();
+         $("#yesContinue").show();
+         $("#yesContinue").css('animation', 'fadeIn 1s');
+         $("#yesContinue").css('opacity', '1');
+         $("#noContinue").show();
+         $("#noContinue").css('animation', 'fadeIn 1s');
+         $("#noContinue").css('opacity', '1');
+       }, 1000);
+     }, 1000);
+   }, 1000);
+}
+
+/*************** SOHAIL MEGHANI 1/16/21 1:27 PM Added the nameGet(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITHOUT PARAMETER WITH RETURN**************************/
+function nameGet()
+
+{
+ name=$("#namePlayer").val();
+ nameDeclared=true;
+ name=name.trim().charAt(0).toUpperCase()+name.trim().slice(1);
+ name=upperCaseName(name);
+ return name;
+}
+
+/*************** JEREMY THUMMEL 1/6/21 4:16 PM Added the upperCaseName(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITH PARAMETER WITH RETURN**************************/
+function upperCaseName(nameOfPlayer)
+{
+  let currentLetter="";
+  let nextLetter="";
+ for(let x=0;x<nameOfPlayer.length;x++)
+ {
+   // Lexical: currentLetter is a variable that is used to take the current letter of the players name and compares it to the next letter.
+   currentLetter=nameOfPlayer.charAt(x);
+   // Lexical: nextLetter is a variable that takes the position of the next letter in the string.
+   nextLetter=nameOfPlayer.charAt(x+1);
+   if(currentLetter==" ")
+   {
+     nextLetter=nextLetter.toUpperCase();
+     nameOfPlayer=nameOfPlayer.substr(0,x)+" "+nextLetter+nameOfPlayer.substr(x+2);
+   }
+ }
+ return nameOfPlayer;
+}
+
+/*************** DAVID CACOROVSKI 1/17/21 4:39 PM Added the bubbleSort(); function ***************/
+/*************************************************************************************************************
+          ******************FUNCTION WITHOUT PARAMETER WITH RETURN NULL*************************
+                            WITH BUBBLE SORTING AND ARRAY*/
+function bubbleSort()
+{
+  if(spearStrikeCounter==5)
+  {
+    spearStrikeCounter=0;
+  }
+  if(spearStrikeCounter==0)
+  {
+    newDamage=[];
+    for(let x=0;x<5;x++)
+    {
+      newDamage.unshift(Math.floor(Math.random()*40)+atkStat);
+    }
+    //BUBBLE SORTING CODE BELOW
+    // temporaryNumber is a variable that is used as a temporary variable in our bubblesorting part of this function.
+    let temporaryNumber=0;
+    for (let x=0;x<newDamage.length;x++)
+    {
+      for (let y=0;y<newDamage.length-1;y++)
+      {
+        if (newDamage[y]>newDamage[y+1])
+        {
+          // Lexical: temporaryNumber is used here to act like a temporaryNumber used only for this function.
+          temporaryNumber=newDamage[y+1];
+          newDamage[y+1]=newDamage[y];
+          newDamage[y]=temporaryNumber;
+        }
+      }
+    }
+  }
+  return;
+}
+
+//This fuction is here to prevent copy and paste spam - David Cacorovski 1/27/2021 4:00 PM
+function levelCheck()
+{
+  if(level9==false)
+  {
+    level10=false;
+  }
+  if(level8==false)
+  {
+    level9=false;
+  }
+  if(level7==false)
+  {
+    level8=false;
+  }
+  if(level6==false)
+  {
+    level7=false;
+  }
+  if(level5==false)
+  {
+    level6=false;
+  }
+  if(level4==false)
+  {
+    level5=false;
+  }
+  if(level3==false)
+  {
+    level4=false;
+  }
+  if(level2==false)
+  {
+    level3=false;
+  }
+  if(level1==false)
+  {
+    level2=false;
+  }
+  level1=false;
+  $("#lblDouble").hide();
+  $("#lblLevelUp").hide();
+  $("#lblEncounter").show();
+  $("#atkButton").hide();
+  $("#defButton").hide();
+  $("#spdButton").hide();
+  $("#hpButton").hide();
+  $("#greyBackground").css('animation', 'fadeOut 1s');
+  $("#greyBackground").css('opacity', '0');
+  $("#greyBackground").hide();
+  spdTrue=false;
+  $("#enemyStraw").hide();
+  $("#enemySnake").hide();
+  $("#enemyFrosty").hide();
+  return;
+}
+
+//Also to prevent copy and paste spam - David Cacorovski 1/27/2021 4:12 PM
+function experienceCheck()
+{
+  if(experience>349)
+  {
+    experience=350;
+    maxLevel=true;
+    if(level10==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else if(experience>314)
+  {
+    if(level9==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else if(experience>269)
+  {
+    if(level8==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else if(experience>224)
+  {
+    if(level7==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else if(experience>179)
+  {
+    if(level6==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else if(experience>134)
+  {
+    if(level5==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else if(experience>89)
+  {
+    if(level4==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else if(experience>44)
+  {
+    if(level3==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else if(experience>29)
+  {
+    if(level2==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else if(experience>14)
+  {
+    if(level1==true)
+    {
+      levelUp();
+    }
+    else
+    {
+      noLevelUp();
+    }
+  }
+  else
+  {
+    setTimeout(function(){
+      spdTrue=false;
+      $("#enemyStraw").hide();
+      battle();
+    }, 1000);
+  }
+  function noLevelUp()
+  {
+    setTimeout(function(){
+      spdTrue=false;
+      $("#enemyStraw").hide();
+      $("#enemySnake").hide();
+      $("#enemyFrosty").hide();
+      $("#enemyHiveo").hide();
+      $("#enemyPengu").hide();
+      $("#enemyCovered").hide();
+      $("#enemyZyborgus").hide();
+      battle();
+    }, 1000);
+  }
+}
+
+/*************** DAVID CACOROVSKI 1/17/21 6:16 PM Hid elements ***************/
+/*************** SOHAIL MEGHANI 1/1/21 6:21 PM Hid more elements ***************/
+/*************** SOHAIL MEGHANI 1/1/21 6:41 PM Hid more elements ***************/
+$(document).ready(function(){
+  $("#intro").css('opacity', '0');
+  $("#neo").css('opacity', '0');
+  $("#neo").hide();
+  $("#bossIntro").css('opacity', '0');
+  $("#bossIntro").hide();
+  $("#bossPhase").css('opacity', '0');
+  $("#bossPhase").hide();
+  $("#lblLevelUp").css('opacity', '0');
+  $("#lblLevelUp").hide();
+  $("#lblDouble").css('opacity', '0');
+  $("#lblDouble").hide();
+  $("#lblLost").css('opacity', '0');
+  $("#lblLost").hide();
+  $("#submitBTN").css('opacity', '0');
+  $("#submitBTN").hide();
+  $("#namePlayer").css('opacity', '0');
+  $("#namePlayer").hide();
+  $("#yesContinue").css('opacity', '0');
+  $("#yesContinue").hide();
+  $("#noContinue").css('opacity', '0');
+  $("#noContinue").hide();
+  $("#lblContinue").css('opacity', '0');
+  $("#lblContinue").hide();
+  $("#lblArea").css('opacity', '0');
+  $("#lblArea").hide();
+  $("#shop").css('opacity', '0');
+  $("#shop").hide();
+  $("#exitButton2").css('opacity', '0');
+  $("#exitButton2").hide();
+  $("#run").css('opacity', '0');
+  $("#run").hide();
+  $("#weapons").css('opacity', '0');
+  $("#weapons").hide();
+  $("#moveTwo").hide();
+  $("#whiteBackground").css('opacity', '0');
+  $("#whiteBackground").hide();
+  $("#blackBackground").css('opacity', '0');
+  $("#blackBackground").hide();
+  $("#shopBackground").css('opacity', '0');
+  $("#shopBackground").hide();
+  $("#greyBackground").css('opacity', '0');
+  $("#greyBackground").hide();
+  $("#enterBattle").css('opacity', '0');
+  $("#enterBattle").hide();
+  $("#gameTwo").hide();
+  $("#enemyStraw").hide();
+  $("#enemySnake").hide();
+  $("#enemyFrosty").hide();
+  $("#enemyZyborgus").hide();
+  $("#enemyHiveo").hide();
+  $("#enemyCovered").hide();
+  $("#enemyPengu").hide();
+  $("#lblEncounter").hide();
+  $("#lblEnemyHealth").hide();
+  $("#lblPlayerHealth").hide();
+  $("#lblAmountOfGold").hide();
+  $("#lblCurrent").hide();
+  $("#lblEnemyLeft").hide();
+  $("#items").css('opacity', '0');
+  $("#items").hide();
+  $("#atkButton").css('opacity', '0');
+  $("#atkButton").hide();
+  $("#defButton").css('opacity', '0');
+  $("#defButton").hide();
+  $("#spdButton").css('opacity', '0');
+  $("#spdButton").hide();
+  $("#hpButton").css('opacity', '0');
+  $("#hpButton").hide();
+  $("#stats").css('opacity', '0');
+  $("#stats").hide();
+  $("#avatarInGame").hide();
+  $("#lblDon").hide();
+  $("#lblATK").hide();
+  $("#lblDEF").hide();
+  $("#lblHP").hide();
+  $("#lblSPD").hide();
+  $("#lblXP").hide();
+  $("#lblWoodSpear").hide();
+  $("#lblPotion").hide();
+  $("#lbl5Potions").hide();
+  $("#lblMultipleAmount1").hide();
+  $("#bag").css('opacity', '0');
+  $("#bag").hide();
+  $("#buy").css('opacity', '0');
+  $("#buy").hide();
+  $("#woodSpear").css('opacity', '0');
+  $("#woodSpear").hide();
+  $("#attack").css('opacity', '0');
+  $("#attack").hide();
+  $("#lblGoldCounter").hide();
+  $("#staticHands").css('opacity', '0');
+  $("#staticHands").hide();
+  $("#movingHands").hide();
+  $("#staticHandsSpear").hide();
+  $("#movingHandsSpear").hide();
+  $("#potion1").hide();
+  $("#potion2").hide();
+  $("#potion3").hide();
+  $("#lblPotionHP").hide();
+  $("#shopKeeper").hide();
+  $("#woodSpearBuy").hide();
+  $("#skipButton").css('opacity', '0');
+  $("#skipButton").hide();
+  $("#exitButton").hide();
+  $("#moveOne").hide();
+  $("#mines").css('opacity', '0');
+  $("#mines").hide();
+  $("#attackHit").hide();
+
+  $("#playButton").click(function(){
+    $("#intro").css('opacity', '1');
+    $("#gameBackground").css('background-image', 'url(../images/hideoutBackground2.png)');
+    $("#gameBackground").css('background-size', '200%');
+    $("#skipButton").show();
+    $("#skipButton").css('animation', 'fadeIn ease 1s');
+    $("#skipButton").css('opacity', '1');
+    playVid();
+    $("#playButton").hide();
+    $("#gameLogo").hide();
+    $("#gameTwo").show();
+
+    /*************** JEREMY THUMMEL 1/18/21 11:17 AM Added skipVid(); functionality ***************/
+
+    $("#skipButton").click(function(){
+      skipTrue=true;
+      skipVid();
+    });//end of skipButton Click
+
+    setTimeout(function(){ //Start of setTimeout
+      if(skipTrue==false)
+      {
+        skipVid();
+      }
+    }, 16000);// End of setTimeout
+
+  });//End of playButton click
+
+  /*************** DAVID CACOROVSKI 1/18/21 11:31 AM Added shop(); functionality ***************/
+  $("#shop").click(function(){
+    $("#mines").hide();
+    $("#enterBattle").hide();
+    $("#exitButton2").show();
+    $("#exitButton2").css('opacity', '1');
+    $("#shopKeeper").show();
+    $("#shop").hide();
+    $("#bag").hide();
+    $("#buy").show();
+    $("#buy").css('opacity', '1');
+    $("#shopKeeper").css('opacity', '1');
+    $("#lblShop").show();
+    $("#lblArea").hide();
+
+    $("#gameBackground").css('background-image', 'url(../images/shopBackground.png)');
+    $("#gameBackground").css('background-size','100%');
+
+    $("#lblShop").text("Welcome to the Shop!");
+  });//end of shop click
+
+  /*************** JEREMY THUMMEL 1/18/21 11:42 AM Added Hideout transition functionality ***************/
+  $("#enterBattle").click(function(){
+    var footstepsMedium=new Audio("../audio/footstepsMedium.mp3");
+    footstepsMedium.play();
+    walking(4);
+    setTimeout(function(){ //Start of setTimeout
+      transition.play();
+      $("#whiteBackground").show();
+      $("#whiteBackground").css('animation', 'fadeIn ease 1s');
+      $("#whiteBackground").css('opacity', '1');
+    }, 3250);// End of setTimeout
+  });//end of enterBattle click
+
+  /*************** SOHAIL MEGHANI 1/19/21 5:49 PM Added functionality to buying in the shop ***************/
+  $("#buy").click(function(){
+    $("#greyBackground").show();
+    $("#greyBackground").css('animation', 'none');
+    $("#greyBackground").css('opacity', '0.75');
+    $("#items").show();
+    $("#items").css('opacity', '1');
+    $("#exitButton").show();
+    $("#weapons").show();
+    $("#weapons").css('opacity', '1');
+    $("#potion2").show();
+    $("#potion2").css('opacity', '1');
+    $("#potion3").show();
+    $("#potion3").css('opacity', '1');
+    $("#woodSpearBuy").show();
+    $("#woodSpearBuy").css('opacity', '1');
+    $("#lblWoodSpear").show();
+    $("#lblPotion").show();
+    $("#lbl5Potions").show();
+    $("#lblAmountOfGold").show();
+    $("#lblAmountOfGold").text("Gold Amount: " + gold);
+    $("#lblCurrent").show();
+    $("#lblCurrent").text("Current Amount: " + currentGold);
+  });//end of bagClick
+
+  $("#potion2").click(function()
+  {
+    if(gold>=10)
+    {
+      potion+=1;
+      $("#lblShop").text("You bought 1 potion!");
+      gold-=10;
+      $("#lblAmountOfGold").text("Gold Amount: " + gold);
+      setTimeout(function(){ //Start of setTimeout
+        $("#lblShop").text("Welcome to the Shop!");
+      }, 3000);// End of setTimeout
+    }
+    else
+    {
+      $("#lblShop").text("You don't have enough money!");
+      setTimeout(function(){ //Start of setTimeout
+        $("#lblShop").text("Welcome to the Shop!");
+      }, 3000);// End of setTimeout
+    }
+  });//end of potion2 click
+
+  $("#potion3").click(function()
+  {
+    if(gold>=40)
+    {
+      potion+=5;
+      $("#lblShop").text("You bought 5 potions!");
+      gold-=40;
+      $("#lblAmountOfGold").text("Gold Amount: " + gold);
+      setTimeout(function(){ //Start of setTimeout
+        $("#lblShop").text("Welcome to the Shop!");
+      }, 3000);// End of setTimeout
+    }
+    else
+    {
+      $("#lblShop").text("You don't have enough money!");
+      setTimeout(function(){ //Start of setTimeout
+        $("#lblShop").text("Welcome to the Shop!");
+      }, 3000);// End of setTimeout
+    }
+  });//end of potion3 click
+
+  $("#woodSpearBuy").click(function()
+  {
+    if(gold>=60)
+    {
+      if(woodSpear==false)
+      {
+        woodSpear=true;
+        $("#lblShop").text("You bought the Wood Spear!");
+        $("#woodSpearBuy").hide();
+        $("#lblWoodSpear").hide();
+        woodSpearMove=true;
+        gold-=60;
+        $("#lblAmountOfGold").text("Gold Amount: " + gold);
+
+        setTimeout(function(){ //Start of setTimeout
+          $("#lblShop").text("Welcome to the Shop!");
+        }, 3000);// End of setTimeout
+      }
+      else
+      {
+        $("#lblShop").text("You already have the Wood Spear.");
+
+        setTimeout(function(){ //Start of setTimeout
+          $("#lblShop").text("Welcome to the Shop!");
+        }, 3000);// End of setTimeout
+      }
+    }
+    else
+    {
+      $("#lblShop").text("You don't have enough money!");
+      setTimeout(function(){ //Start of setTimeout
+        $("#lblShop").text("Welcome to the Shop!");
+      }, 3000);// End of setTimeout
+    }
+  });//end of woodSpearBuy click
+
+  $("#exitButton2").click(function()
+  {
+    $("#shop").show();
+    $('#mines').show();
+    $("#bag").show();
+    $("#enterBattle").show();
+    $("#gameBackground").css('background-image', 'url(../images/hideoutBackground2.png)');
+    $("#gameBackground").css('background-size','200%');
+    $("#shopKeeper").hide();
+    $("#lblShop").hide();
+    $("#buy").hide();
+    $("#lblArea").text("Hideout Entrance");
+    $("#lblArea").show();
+    $("#exitButton2").hide();
+    skipVid();
+  });// end of exitButton2 click
+
+  /*************** DAVID CACOROVSKI 1/18/21 11:53 AM Added Mines functionality ***************/
+  $("#mines").click(function(){
+    $("#gameBackground").css('animation', 'towardsMine ease 4.25s');
+    if(woodSpear==false){
+      $("#movingHands").show();
+      $("#staticHands").hide();
+    } else{
+      $("#movingHands").hide();
+      $("#staticHands").hide();
+      $("#movingHandsSpear").show();
+      $("#staticHandsSpear").hide();
+    }
+
+    $("#enterBattle").hide();
+    $("#lblArea").hide();
+    $("#bag").hide();
+    $("#shop").hide();
+    $("#mines").hide();
+    setTimeout(function(){
+      if(woodSpear==false){
+        $("#movingHands").hide();
+        $("#staticHands").show();
+      } else{
+        $("#movingHands").hide();
+        $("#staticHands").hide();
+        $("#movingHandsSpear").hide();
+        $("#staticHandsSpear").show();
+      }
+      //STARTS PHASER PART OF THE GAME
+      //all game variables go here
+
+      /*************** SOHAIL MEGHANI 1/18/21 4:02 PM Added phaser variables ***************/
+      // PHASER VARIABLES (No more information due to the phaser part not being done yet)
+      titleScreenMusic.pause();
+      let brick=null;
+      let bricks=[];
+
+      let rock1=null;
+      let rocks1=[];
+      let rock2=null;
+      let rocks2=[];
+      let rock3=null;
+      let rocks3=[];
+      let rock4=null;
+      let rocks4=[];
+      let rock5=null;
+      let rocks5=[];
+      let rock6=null;
+      let rocks6=[];
+      let rock7=null;
+      let rocks7=[];
+      let rock7_2=null;
+      let rocks7_2=[];
+      let rock7_3=null;
+      let rocks7_3=[];
+      let rock7_4=null;
+      let rocks7_4=[];
+      let rock7_5=null;
+      let rocks7_5=[];
+      let rock8=null;
+      let rocks8=[];
+      let rock9=null;
+      let rocks9=[];
+      let rock10=null;
+      let rocks10=[];
+      let purpRock=null;
+      let purpRocks=[];
+      let purpRock3=null;
+      let purpRocks3=[];
+
+      let dxRock=2;
+      let dyRock=2;
+      let rock7Counter=0;
+      let rock7Counter2=0;
+      let rock7Counter3=0;
+      let rock7Counter4=0;
+      let doneAgain=false;
+
+      let goSound;
+      let goScreen;
+      let returnHideout;
+      let returnSound;
+
+      let man;
+      let coin;
+      let door;
+      let invisMan;
+      let background;
+      let returnTo;
+      let jump=false;
+      let onBrick=false;
+      let jumpTick=0;
+
+      //variables for our input keys
+      let leftKey;
+      let rightKey;
+      let upKey;
+      let slideKey;
+
+      let goldRandomP=0;
+      let goldCounter=0;
+      let oldGold=0;
+
+      let playable=false;
+
+      let _this=null;
+
+      //Music Variable
+      let minigameMusic;
+      let minigameMusicControl = 1;
+
+      class mainGame extends Phaser.Scene {
+
+        constructor (config)
+        {
+            super(config);
+            _this=this;
+        }
+
+        //preload loads all assets in to memory
+        preload ()
+        {
+          this.load.image('brick','assets/element_grey_rectangle_glossy.png');
+
+          this.load.image('rock1','assets/blue1.png');
+
+          this.load.image('invisDon', 'assets/don.png');
+
+          this.load.image('rock2','assets/blue2.png');
+
+          this.load.image('rock3','assets/blue3.png');
+
+          this.load.image('rock4','assets/blue4.png');
+
+          this.load.image('rock5','assets/blue5.png');
+
+          this.load.image('rock6','assets/blue6.png');
+
+          this.load.image('rock7','assets/blue7.png');
+
+          this.load.image('rock7_2','assets/blue7.png');
+
+          this.load.image('rock8','assets/blue8.png');
+
+          this.load.image('rock9','assets/blue9.png');
+
+          this.load.image('rock10','assets/blue10.png');
+
+          this.load.image('pRock','assets/pRock.png');
+
+          this.load.image('background', 'assets/caveBackground.png');
+
+          this.load.image('return', 'assets/goBack.png')
+
+          this.load.atlas('don', 'assets/animations/sheet.png', 'assets/animations/sprites.json');
+
+          this.load.audio('returnOver', 'assets/audio/returnOver.mp3');
+
+          this.load.audio('goSound', 'assets/audio/gapFall.mp3');
+
+          this.load.audio('minigameMusic', 'assets/audio/minigameMusic.mp3');
+
+          this.load.image('gameScreen', 'assets/gameOverReturn.png');
+
+          this.load.atlas('coin', 'assets/animations/coinSpriteVar.png', 'assets/animations/coinSpriteVar.json');
+
+          this.load.image('door', 'assets/door.png');
+
+          this.load.image('returnHideout', 'assets/returnHideout.png');
+        }//in the preload function we will load our game resources
+
+          /*************** SOHAIL MEGHANI 1/18/21 4:56 PM Added phaser create ***************/
+          create (data)
+          {
+            //
+
+            background=this.add.sprite(640, 360, 'background');
+
+            //middle column left
+            _this.createRocks1(1);
+            _this.createRocks1_2(1);
+            _this.createRocks1_3(1);
+
+            //middle column right
+            _this.createRocks3(1);
+            _this.createRocks3_2(1);
+            _this.createRocks3_3(1);
+
+            //platform middle
+            _this.createRocks2(1);
+            _this.createRocks5(1);
+            _this.createRocks6(1);
+
+            //
+
+            //left column left
+            _this.createRocks1_4(1);
+            _this.createRocks1_5(1);
+            _this.createRocks1_6(1);
+
+            //left column right
+            _this.createRocks3_4(1);
+            _this.createRocks3_5(1);
+            _this.createRocks3_6(1);
+
+            //platform left
+            _this.createRocks5_2(1);
+            _this.createRocks6_2(1);
+            _this.createRocks2_2(1);
+
+            //movingBlock1
+            _this.createMoveBlock(1);
+
+            //movingBlock2
+            _this.createPurpRock(2);
+            _this.createMoveBlock_2(1);
+
+            //middle top platform
+            _this.createRocks10(1);
+            _this.createRocks9(1);
+            _this.createRocks8(1);
+            _this.createRocks2_3(1);
+            _this.createRocks5_3(1);
+            _this.createRocks6_3(1);
+
+            //side block
+            _this.createRockBlock(1);
+
+            //purple rocks
+            _this.createPurpRock_3(1);
+            _this.createPurpRock_4(1);
+            _this.createPurpRock_5(1);
+            _this.createPurpRock_6(1);
+            _this.createPurpRock_7(1);
+            _this.createPurpRock_8(1);
+
+            //
+
+            _this.createRocks7_4(1);
+            _this.createRocks7_5(1);
+
+
+            invisMan=this.physics.add.sprite(300, 210, 'invisDon').setVisible(false);
+
+            //
+
+            /*************** SOHAIL MEGHANI 1/26/21 5:01 PM Created animations and events ***************/
+
+            //Create all animations for the game
+
+            this.anims.create({
+              key: 'run',
+              frames: this.anims.generateFrameNames('don', {prefix: 'run', end: 9}),
+              repeat: -1
+            });
+
+            this.anims.create({
+              key: 'stand',
+              frames: this.anims.generateFrameNames('don', {prefix: 'stand', end: 4}),
+              repeat: -1
+            });
+
+            this.anims.create({
+              key: 'jump',
+              frames: this.anims.generateFrameNames('don', {prefix: 'jump', end: 13}),
+              repeat: 0
+            });
+
+            this.anims.create({
+              key: 'slide',
+              frames: this.anims.generateFrameNames('don', {prefix: 'slide', end: 8}),
+              repeat: -1
+            });
+
+            this.anims.create({
+              key: 'coinSpin',
+              frames: this.anims.generateFrameNames('coin', {prefix: 'coin', end: 5}),
+              repeat: -1
+            });
+
+
+            man = this.add.sprite(300, 200, 'don');
+
+            door = this.add.sprite(188, 424, 'door');
+
+
+            coin = this.add.sprite(100, 100, 'coin');
+
+            invisMan.setBounce(0.2);
+            invisMan.setCollideWorldBounds(true);
+
+            this.physics.world.enable(invisMan);
+
+            returnSound = this.sound.add('returnOver');
+
+            goSound = this.sound.add('goSound');
+
+            returnHideout = this.add.sprite(9999, 9999, 'returnHideout');
+
+            goScreen = this.add.sprite(9999, 9999,"gameScreen");
+
+            //
+
+            leftKey=this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+
+            rightKey=this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+
+            upKey=this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+            slideKey=this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+
+            /*************** JEREMY THUMMEL 1/26/21 10:32 AM Added Rock Physics ***************/
+
+            this.physics.add.collider(invisMan, rocks1);
+
+            this.physics.add.collider(invisMan, rocks2);
+
+            this.physics.add.collider(invisMan, rocks3);
+
+            this.physics.add.collider(invisMan, rocks4);
+
+            this.physics.add.collider(invisMan, rocks5);
+
+            this.physics.add.collider(invisMan, rocks6);
+
+            this.physics.add.collider(invisMan, rocks7);
+
+            this.physics.add.collider(invisMan, rocks7_2);
+
+            this.physics.add.collider(invisMan, rocks7_3);
+
+            this.physics.add.collider(invisMan, rocks7_4);
+
+            this.physics.add.collider(invisMan, rocks7_5);
+
+            this.physics.add.collider(invisMan, rocks8);
+
+            this.physics.add.collider(invisMan, rocks9);
+
+            this.physics.add.collider(invisMan, rocks10);
+
+            minigameMusic=this.sound.add('minigameMusic');
+
+            minigameMusic.loop=true;
+
+            $("#lblGoldCounter").show();
+            $("#lblGoldCounter").css('opacity', '1');
+            $("#lblGoldCounter").css('z-index', '10');
+            $("#lblGoldCounter").text("Gold Amount: " + currentGold);
+
+          }//create the game resources and assign them to variables
+
+          //update function is your game loop function
+          //it iterates for every frame of your game
+          update()
+          {
+            if(minigameMusicControl == 1)
+            {
+              minigameMusic.play();
+              minigameMusicControl++;
+            }
+            coin.anims.play('coinSpin', true);
+
+            console.log(man.x);
+            console.log(man.y);
+
+            man.x=invisMan.x;
+            man.y=invisMan.y;
+
+            if(_this.collides(rocks2, invisMan)==true){
+                man.y=invisMan.y+5;
+            }
+
+
+            if(leftKey.isDown){
+              invisMan.setVelocityX(-200);
+              man.flipX=true;
+              if(invisMan.body.touching.down){
+                man.anims.play('run', true);
+              }
+            } else if(rightKey.isDown){
+              invisMan.setVelocityX(200);
+              man.flipX=false;
+              if(invisMan.body.touching.down){
+                man.anims.play('run', true);
+              }
+            } else if(slideKey.isDown){
+              invisMan.setVelocityX(50);
+              man.flipX=false;
+              if(invisMan.body.touching.down){
+                man.anims.play('slide', true);
+              }
+              if(_this.collides(rocks2, invisMan)==true){
+                  man.y=invisMan.y+30;
+              }
+            } else{
+              if(invisMan.body.touching.down){
+                invisMan.setVelocityX(0);
+                man.play('stand');
+              }
+            }
+
+            if(invisMan.body.touching.down && upKey.isDown){
+              invisMan.setVelocityY(-300);
+              man.play('jump', true);
+            }
+
+            if(man.x > 195 && man.x < 200 && playable==false){
+              $("#lblGoldCounter").hide();
+              returnSound.play();
+              minigameMusic.stop();
+              playable=true;
+              man.x=9999;
+              man.y=9999;
+              invisMan.x=9999;
+              invisMan.y=9999;
+              returnHideout.x=640;
+              returnHideout.y=360;
+              setTimeout(function(){
+                $("canvas").hide();
+                game.destroy();
+                $("#lblGoldCounter").hide();
+                $("#whiteBackground").hide();
+                $("#movingHands").hide();
+                $("#staticHands").show();
+                $("#enterBattle").show();
+                $("#lblArea").show();
+                $("#bag").show();
+                $("#shop").show();
+                $("#mines").show();
+                titleScreenMusic.play();
+                $("#gameBackground").css('background-image', 'url(../images/hideoutBackground2.png)');
+                $("#gameBackground").css('background-size', '200%');
+                $("#gameBackground").css('animation', 'none');
+                gold+=currentGold;
+                currentGold=0;
+                man.destroy();
+                invisMan.destroy();
+              }, 4000);
+            }
+
+
+            if(man.y == 677 && playable==false){
+              $("#lblGoldCounter").hide();
+              minigameMusic.stop();
+              currentGold=0;
+              goSound.play();
+              playable=true;
+              man.x=9999;
+              man.y=9999;
+              invisMan.x=9999;
+              invisMan.y=9999;
+              goScreen.x=640;
+              goScreen.y=360;
+              setTimeout(function(){
+                $("canvas").hide();
+                game.destroy();
+                $("#whiteBackground").hide();
+                $("#movingHands").hide();
+                $("#staticHands").show();
+                $("#enterBattle").show();
+                $("#lblArea").show();
+                $("#bag").show();
+                $("#shop").show();
+                $("#mines").show();
+                titleScreenMusic.play();
+                $("#gameBackground").css('background-image', 'url(../images/hideoutBackground2.png)');
+                $("#gameBackground").css('background-size', '200%');
+                $("#gameBackground").css('animation', 'none');
+                man.destroy();
+                invisMan.destroy();
+              }, 4000);
+            }
+
+            if(man.x > coin.x - 25 && man.x < coin.x + 25 && man.y > coin.y - 25 && man.y < coin.y + 25){
+              currentGold++;
+              $("#lblGoldCounter").text("Gold Amount: " + currentGold);
+              oldGold=goldRandomP;
+              goldCounter=0;
+            }
+
+            // currentGold++;
+
+            if(goldCounter==0)
+            {
+              goldRandomP=(Math.round(Math.random()*1)+1);
+              while(oldGold==goldRandomP)
+              {
+                goldRandomP=(Math.round(Math.random()*1)+1);
+              }
+              goldCounter++;
+            }
+
+            if(goldRandomP==1)
+            {
+              coin.x=636;
+              coin.y=420;
+            }
+
+            if(goldRandomP==2)
+            {
+              coin.x=636;
+              coin.y=150;
+            }
+
+            if(man.x==coin.x && man.y==coin.y)
+            {
+              oldGold=goldRandomP;
+              goldCounter=0;
+            }
+
+            //
+
+            if(rock7Counter>=150)
+            {
+              rock7Counter=0;
+              rock7Counter2++;
+            }
+            if(rock7Counter<150 && rock7Counter2%2==1)
+            {
+              rock7.y-=dyRock;
+            }
+            else if(rock7Counter<150 && rock7Counter2%2==0)
+            {
+              rock7.y+=dyRock;
+            }
+            rock7Counter++;
+
+            if(rock7Counter3>=80)
+            {
+              rock7Counter3=0;
+              rock7Counter4++;
+            }
+            if(rock7Counter3<80 && rock7Counter4%2==0)
+            {
+              rock7_2.x-=dxRock;
+              purpRock.x-=dxRock;
+            }
+            else if(rock7Counter3<80 && rock7Counter4%2==1)
+            {
+              rock7_2.x+=dxRock;
+              purpRock.x+=dxRock;
+            }
+            rock7Counter3++;
+
+
+
+
+            /*************** JEREMY THUMMEL & SOHAIL MEGHANI 1/26/21 6:36 PM Created rock7 movement ***************/
+            //Moving platform code
+
+            //end of Moving platform code
+
+          }//this represents the game loop and is where all the major code that controls the game is written
+
+
+
+
+
+          collides(sprite1,sprite2)
+          {
+              return Phaser.Geom.Intersects.RectangleToRectangle(sprite1,sprite2);
+          }
+
+          /*************** JEREMY THUMMEL 1/26/21 11:02 AM Created Rock Functions ***************/
+
+          //middle column right
+          createRocks1(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock1=this.physics.add.image(572+(64*x),564,"rock1");
+              rock1.setImmovable(true);
+              rock1.body.allowGravity = false;
+              rocks1.push(rock1);
+
+            }
+          }
+
+          createRocks1_2(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock1=this.physics.add.image(572+(64*x),628,"rock1");
+              rock1.setImmovable(true);
+              rock1.body.allowGravity = false;
+              rocks1.push(rock1);
+
+            }
+          }
+
+          createRocks1_3(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock1=this.physics.add.image(572+(64*x),692,"rock1");
+              rock1.setImmovable(true);
+              rock1.body.allowGravity = false;
+              rocks1.push(rock1);
+
+            }
+          }
+
+          //left column left
+          createRocks1_4(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock1=this.physics.add.image(172+(64*x),564,"rock1");
+              rock1.setImmovable(true);
+              rock1.body.allowGravity = false;
+              rocks1.push(rock1);
+
+            }
+          }
+
+          createRocks1_5(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock1=this.physics.add.image(172+(64*x),628,"rock1");
+              rock1.setImmovable(true);
+              rock1.body.allowGravity = false;
+              rocks1.push(rock1);
+
+            }
+          }
+
+          createRocks1_6(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock1=this.physics.add.image(172+(64*x),692,"rock1");
+              rock1.setImmovable(true);
+              rock1.body.allowGravity = false;
+              rocks1.push(rock1);
+
+            }
+          }
+
+          createRocks2_2(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock2=this.physics.add.image(236+(64*x),500,"rock2");
+              rock2.setImmovable(true);
+              rock2.body.allowGravity = false;
+              rocks2.push(rock2);
+
+            }
+          }
+
+          createPurpRock_3(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              purpRock3=this.add.image(236+(64*x),564,"pRock");
+              purpRocks3.push(purpRock3);
+            }
+          }
+
+          createPurpRock_4(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              purpRock3=this.add.image(236+(64*x),628,"pRock");
+              purpRocks3.push(purpRock3);
+            }
+          }
+
+          createPurpRock_5(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              purpRock3=this.add.image(236+(64*x),692,"pRock");
+              purpRocks3.push(purpRock3);
+            }
+          }
+
+          createPurpRock_6(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              purpRock3=this.add.image(636+(64*x),564,"pRock");
+              purpRocks3.push(purpRock3);
+            }
+          }
+
+          createPurpRock_7(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              purpRock3=this.add.image(636+(64*x),628,"pRock");
+              purpRocks3.push(purpRock3);
+            }
+          }
+
+          createPurpRock_8(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              purpRock3=this.add.image(636+(64*x),692,"pRock");
+              purpRocks3.push(purpRock3);
+            }
+          }
+
+          createRocks2(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock2=this.physics.add.image(636+(64*x),500,"rock2");
+              rock2.setImmovable(true);
+              rock2.body.allowGravity = false;
+              rocks2.push(rock2);
+
+            }
+          }
+
+          //top middle platform
+
+          createRocks10(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock10=this.physics.add.image(636+(64*x),308,"rock10");
+              rock10.setImmovable(true);
+              rock10.body.allowGravity = false;
+              rocks10.push(rock10);
+
+            }
+          }
+
+          createRocks2_3(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock2=this.physics.add.image(636+(64*x),244,"rock2");
+              rock2.setImmovable(true);
+              rock2.body.allowGravity = false;
+              rocks2.push(rock2);
+
+            }
+          }
+
+          createRocks9(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock9=this.physics.add.image(572+(64*x),308,"rock9");
+              rock9.setImmovable(true);
+              rock9.body.allowGravity = false;
+              rocks9.push(rock9);
+
+            }
+          }
+
+          createRocks5_3(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock5=this.physics.add.image(572+(64*x),244,"rock5");
+              rock5.setImmovable(true);
+              rock5.body.allowGravity = false;
+              rocks5.push(rock5);
+
+            }
+          }
+
+          createRocks8(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock8=this.physics.add.image(700+(64*x),308,"rock8");
+              rock8.setImmovable(true);
+              rock8.body.allowGravity = false;
+              rocks8.push(rock8);
+
+            }
+          }
+
+          createRocks6_3(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock6=this.physics.add.image(700+(64*x),244,"rock6");
+              rock6.setImmovable(true);
+              rock6.body.allowGravity = false;
+              rocks6.push(rock6);
+
+            }
+          }
+
+          //end of middle top platform
+
+          //middle column left
+
+          createRocks3(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock3=this.physics.add.image(700+(64*x),564,"rock3");
+              rock3.setImmovable(true);
+              rock3.body.allowGravity = false;
+              rocks3.push(rock3);
+
+            }
+          }
+
+          createRocks3_2(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock3=this.physics.add.image(700+(64*x),628,"rock3");
+              rock3.setImmovable(true);
+              rock3.body.allowGravity = false;
+              rocks3.push(rock3);
+
+            }
+          }
+
+          createRocks3_3(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock3=this.physics.add.image(700+(64*x),692,"rock3");
+              rock3.setImmovable(true);
+              rock3.body.allowGravity = false;
+              rocks3.push(rock3);
+
+            }
+          }
+
+          //left column right
+
+          createRocks3_4(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock3=this.physics.add.image(300+(64*x),564,"rock3");
+              rock3.setImmovable(true);
+              rock3.body.allowGravity = false;
+              rocks3.push(rock3);
+
+            }
+          }
+
+          createRocks3_5(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock3=this.physics.add.image(300+(64*x),628,"rock3");
+              rock3.setImmovable(true);
+              rock3.body.allowGravity = false;
+              rocks3.push(rock3);
+
+            }
+          }
+
+          createRocks3_6(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock3=this.physics.add.image(300+(64*x),692,"rock3");
+              rock3.setImmovable(true);
+              rock3.body.allowGravity = false;
+              rocks3.push(rock3);
+
+            }
+          }
+
+          createRocks4(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock4=this.physics.add.image(350+(64*x),500,"rock4");
+              rock4.setImmovable(true);
+              rock4.body.allowGravity = false;
+              rocks4.push(rock4);
+
+            }
+          }
+
+          createRocks5(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock5=this.physics.add.image(572+(64*x),500,"rock5");
+              rock5.setImmovable(true);
+              rock5.body.allowGravity = false;
+              rocks5.push(rock5);
+
+            }
+          }
+
+          createRocks5_2(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock5=this.physics.add.image(172+(64*x),500,"rock5");
+              rock5.setImmovable(true);
+              rock5.body.allowGravity = false;
+              rocks5.push(rock5);
+
+            }
+          }
+
+          createRocks6(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock6=this.physics.add.image(700+(64*x),500,"rock6");
+              rock6.setImmovable(true);
+              rock6.body.allowGravity = false;
+              rocks6.push(rock6);
+
+            }
+          }
+
+          createRocks7_4(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock7_4=this.physics.add.image(964+(64*x),436,"rock7");
+              rock7_4.setImmovable(true);
+              rock7_4.body.allowGravity = false;
+              rocks7_4.push(rock7_4);
+
+            }
+          }
+
+          createRocks7_5(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock7_5=this.physics.add.image(900+(64*x),500,"rock7");
+              rock7_5.setImmovable(true);
+              rock7_5.body.allowGravity = false;
+              rocks7_5.push(rock7_5);
+
+            }
+          }
+
+          createRocks6_2(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock6=this.physics.add.image(300+(64*x),500,"rock6");
+              rock6.setImmovable(true);
+              rock6.body.allowGravity = false;
+              rocks6.push(rock6);
+
+            }
+          }
+
+          createRockBlock(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock7_3=this.physics.add.image(1028+(64*x),372,"rock7");
+              rock7_3.setImmovable(true);
+              rock7_3.body.allowGravity = false;
+              rocks7_3.push(rock7_3);
+
+            }
+          }
+
+          createMoveBlock(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock7=this.physics.add.image(508+(64*x),308,"rock7");
+              rock7.setImmovable(true);
+              rock7.body.allowGravity = false;
+              rocks7.push(rock7);
+
+            }
+          }
+
+          createMoveBlock_2(numberOfCols)
+          {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+              rock7_2=this.physics.add.image(856+(64*x),308,"rock7_2");
+              rock7_2.setImmovable(true);
+              rock7_2.body.allowGravity = false;
+              rocks7_2.push(rock7_2);
+
+            }
+          }
+
+          createPurpRock(numberOfCols)
+          {
+            numberOfCols = 3;
+            for(let x=0;x<numberOfCols;x++)
+            {
+              purpRock=this.add.image(728+(64*x),308,"pRock");
+              purpRocks.push(purpRock);
+            }
+          }
+
+          /*************** DAVID CACOROVSKI 1/19/21 9:54 AM Created more bricks ***************/
+
+
+      }//end of our first game scene/screen
+
+      var scenes=[];
+      scenes.push(mainGame);
+
+
+      var config={
+          type: Phaser.AUTO,
+          parent: 'phaser-example',
+          width: 1280,
+          height: 720,
+          physics: {
+              default: 'arcade',
+              arcade: {
+                gravity: { y: 500 },
+
+                  debug: false
+
+                },
+              audio: {
+                disableWebAudio: true,
+                noAudio: false
+                }
+          }
+      };
+
+      var game=new Phaser.Game(config);
+
+      game.scene.add("screenOne",mainGame);
+      game.scene.start("screenOne");
+   }, 2500);
+  });//end of mines click
+
+  /*************** SOHAIL MEGHANI 1/19/21 10:01 AM Created ability to run in a battle ***************/
+  /*************** DAVID CACOROVSKI 1/19/21 10:15 AM Added not being able to run in a battle ***************/
+  /*************** JEREMY THUMMEL 1/19/21 11:13 AM Added animation to running from a battle ***************/
+  $("#run").click(function(){
+    // runChance is a variable that does a 50/50 and if you roll a 1, you cant run from the battle. But if you get a 2 you get to run away from the battle.
+    let runChance=(Math.round(Math.random()*1)+1);
+    if(runChance==1)
+    {
+      $("#lblEncounter").text("It seems you cannot run...");
+      $("#run").hide();
+      $("#attack").hide();
+      $("#bag").hide();
+      setTimeout(function(){
+        enemyAttack();
+      }, 1500);
+    }
+    else
+    {
+      $("#lblEncounter").text("It seems you have run from battle!!!");
+      $("#run").hide();
+      $("#attack").hide();
+      $("#bag").hide();
+      waves=15;
+      if(neoEndless == false)
+      {
+        wave1True=true;
+        neoWaves=false;
+      }
+      wave2True=false;
+      wave3True=false;
+      neoEndlessCheck=false;
+      bossWave=false;
+      bossPhased=false;
+      bossFirst=true;
+      finalWave=false;
+      playerHealth=hpStat
+      var footstepsMedium=new Audio("../audio/footstepsMedium.mp3");
+      footstepsMedium.play();
+      setTimeout(function(){ //Start of setTimeout
+        transition.play();
+        $("#whiteBackground").show();
+        $("#whiteBackground").css('animation', 'fadeIn ease 1s');
+        $("#whiteBackground").css('opacity', '1');
+        setTimeout(function(){
+          $("#greyBackground").css('opacity', '0');
+          $("#greyBackground").hide();
+          $("#gameBackground").css('background-image', 'url(../images/hideoutBackground2.png)');
+          $("#gameBackground").css('background-size', '200%');
+          firstWaves.pause();
+          secondWaves.pause();
+          thirdWaves.pause();
+          neoWavesMusic.pause();
+          bossWavesMusic.pause();
+          finalBossPhase.pause();
+          $("#attack").hide();
+          $("#run").hide();
+          $("#lblEncounter").hide();
+          $("#lblEnemyHealth").hide();
+          $("#lblPlayerHealth").hide();
+          $("#lblEnemyLeft").hide();
+          if(enemy=="Strawburry")
+          {
+            $("#enemyStraw").hide();
+          }
+
+          else if(enemy=="Frosty")
+          {
+            $("#enemyFrosty").hide();
+          }
+
+          else if(enemy=="Hiveo")
+          {
+            $("#enemyHiveo").hide();
+          }
+
+          else if(enemy=="Covered King")
+          {
+            $("#enemyCovered").hide();
+          }
+
+          else if(enemy=="Buff Pengu")
+          {
+            $("#enemyPengu").hide();
+          }
+
+          else if(enemy=="Boulder Snake")
+          {
+            $("#enemySnake").hide();
+          }
+
+          else if(enemy=="Zyborgus")
+          {
+            $("#enemyZyborgus").hide();
+          }
+          setTimeout(function(){
+            $("#whiteBackground").css('animation', 'fadeOut 1s');
+            $("#whiteBackground").css('opacity', '0');
+            $("#whiteBackground").hide();
+            skipVid();
+          }, 1500);
+        }, 1500);
+      }, 2000);// End of setTimeout
+    }
+  });//end of runClick
+
+  /*************** JEREMY THUMMEL 1/19/21 5:48 PM Added bag functionality ***************/
+  /*************** SOHAIL MEGHANI 1/19/21 5:49 PM Added labels ***************/
+  /*************** DAVID CACOROVSKI 1/19/21 5:51 PM Added name changing functionality ***************/
+  $("#bag").click(function(){
+    $("#greyBackground").show();
+    $("#greyBackground").css('animation', 'none');
+    $("#items").show();
+    $("#items").css('opacity', '1');
+    $("#stats").show();
+    $("#stats").css('opacity', '1');
+    $("#avatarInGame").show();
+    if(maxLevel==true)
+    {
+      $("#avatarInGame").attr('src', '../images/neoDonCloseUp.png');
+    }
+    $("#lblDon").show();
+    $("#lblATK").show();
+    $("#lblATK").text("ATK: " + atkStat);
+    $("#lblDEF").show();
+    $("#lblDEF").text("DEF: " + defStat);
+    $("#lblHP").show();
+    $("#lblHP").text("HP: " + playerHealth + "/" + hpStat);
+    $("#lblSPD").show();
+    $("#lblSPD").text("SPD: " + spdStat);
+    $("#lblXP").show();
+    $("#lblXP").text("XP: " + experience + "/" + experienceCap);
+    $("#lblAmountOfGold").show();
+    $("#lblAmountOfGold").text("Gold Amount: " + gold);
+    $("#lblCurrent").show();
+    $("#lblCurrent").text("Current Amount: " + currentGold);
+    $("#exitButton").show();
+    $("#submitBTN").show();
+    $("#submitBTN").css('opacity', '1');
+    $("#namePlayer").show();
+    $("#namePlayer").css('opacity', '1');
+    $("#greyBackground").css('opacity', '0.75');
+    if(potion>0)
+    {
+      $("#potion1").show();
+      $("#potion1").css('opacity', '1');
+      $("#lblMultipleAmount1").show();
+      $("#lblMultipleAmount1").text("Potion: x" + potion);
+    }
+    if(nameDeclared==true){
+      $("#submitBTN").css('opacity', '0');
+      $("#submitBTN").hide();
+      $("#namePlayer").css('opacity', '0');
+      $("#namePlayer").hide();
+    }
+  });//end of bagClick
+
+  /*************** DAVID CACOROVSKI 1/19/21 6:02 PM Added attack functionality ***************/
+  /*************** JEREMY THUMMEL 1/19/21 6:04 PM Edited attack functionality ***************/
+  $("#attack").click(function(){
+    $("#greyBackground").show();
+    $("#greyBackground").css('animation', 'none');
+    $("#exitButton").show();
+    $("#moveOne").show();
+    if(woodSpearMove==true)
+    {
+      $("#moveTwo").show();
+    }
+    $("#greyBackground").css('opacity', '0.75');
+  });//end of attack click
+
+  /*************** DAVID CACOROVSKI 1/20/21 10:43 AM Added not continuing after dying ***************/
+  /*************** DAVID CACOROVSKI 1/20/21 11:03 AM Added yes continuing after dying ***************/
+  $("#noContinue").click(function(){
+    /* Act on the event */
+    window.location="../index.html";
+  });//end of noContinue click
+
+  $("#yesContinue").click(function(){
+    /* Act on the event */
+    $("#staticHands").attr("src","../images/hands.png");
+    $("#staticHandsSpear").attr("src","../images/handsSpear.png");
+    $("#movingHands").attr("src","../images/hands.gif");
+    $("#movingHandsSpear").attr("src","../images/handsSpear.gif");
+    waves=15;
+    if(neoEndless == false)
+    {
+      wave1True=true;
+      neoWaves=false;
+    }
+    neoEndlessCheck=false;
+    wave2True=false;
+    wave3True=false;
+    bossPhased=false;
+    bossFirst=true;
+    bossWave=false;
+    finalWave=false;
+    playerHealth=hpStat;
+    transition.play();
+    $("#whiteBackground").show();
+    $("#whiteBackground").css('animation', 'fadeIn 1s');
+    $("#whiteBackground").css('opacity', '1');
+    $("#lblLost").css('opacity', '0');
+    $("#lblLost").hide();
+    $("#lblContinue").css('opacity', '0');
+    $("#lblContinue").hide();
+    $("#yesContinue").css('opacity', '0');
+    $("#yesContinue").hide();
+    $("#noContinue").css('opacity', '0');
+    $("#noContinue").hide();
+    setTimeout(function(){
+      $("#greyBackground").css('opacity', '0');
+      $("#greyBackground").hide();
+      $("#gameBackground").css('background-image', 'url(../images/hideoutBackground2.png)');
+      $("#gameBackground").css('background-size', '200%');
+      firstWaves.pause();
+      secondWaves.pause();
+      thirdWaves.pause();
+      neoWavesMusic.pause();
+      bossWavesMusic.pause();
+      finalBossPhase.pause();
+      $("#attack").hide();
+      $("#run").hide();
+      $("#lblEncounter").hide();
+      $("#lblEnemyHealth").hide();
+      $("#lblPlayerHealth").hide();
+      $("#lblEnemyLeft").hide();
+      if(enemy=="Strawburry")
+      {
+        $("#enemyStraw").hide();
+      }
+
+      else if(enemy=="Frosty")
+      {
+        $("#enemyFrosty").hide();
+      }
+
+      else if(enemy=="Zyborgus")
+      {
+        $("#enemyZyborgus").hide();
+      }
+
+      else if(enemy=="Covered King")
+      {
+        $("#enemyCovered").hide();
+      }
+
+      else if(enemy=="Buff Pengu")
+      {
+        $("#enemyPengu").hide();
+      }
+
+      else if(enemy=="Hiveo")
+      {
+        $("#enemyHiveo").hide();
+      }
+
+      else if(enemy=="Boulder Snake")
+      {
+        $("#enemySnake").hide();
+      }
+      setTimeout(function(){
+        $("#whiteBackground").css('animation', 'fadeOut 1s');
+        $("#whiteBackground").css('opacity', '0');
+        $("#whiteBackground").hide();
+        currentGold=0;
+        skipVid();
+      }, 1000);
+    }, 1000);
+
+  });//end of yesContinue click
+
+  /*************** SOHAIL MEGHANI 1/20/21 10:45 AM Added attack button ***************/
+  $("#atkButton").click(function() {
+    /* Act on the event */
+    levelUpSound.play();
+    atkStat+=atkLevel;
+    levelCheck();
+    battle();
+  });
+
+  /*************** JEREMY THUMMEL 1/20/21 10:49 AM Added defence button ***************/
+  $("#defButton").click(function() {
+    /* Act on the event */
+    levelUpSound.play();
+    defStat+=defLevel;
+    levelCheck();
+    battle();
+  });
+
+  /*************** DAVID CACOROVSKI 1/20/21 4:09 PM Added health button ***************/
+  $("#hpButton").click(function() {
+    /* Act on the event */
+    levelUpSound.play();
+    hpStat+=hpLevel;
+    playerHealth=hpStat;
+    levelCheck();
+    battle();
+  });
+
+  /*************** SOHAIL MEGHANI 1/21/21 9:33 AM Added speed button ***************/
+  $("#spdButton").click(function() {
+    /* Act on the event */
+    levelUpSound.play();
+    spdStat+=spdLevel;
+    levelCheck();
+    battle();
+  });
+
+  /*************** JEREMY THUMMEL 1/21/21 9:53 AM Added exit button ***************/
+  $("#exitButton").click(function(){
+    $("#greyBackground").css('opacity', '0');
+    $("#greyBackground").hide();
+    $("#exitButton").hide();
+    $("#moveTwo").hide();
+    $("#moveOne").hide();
+    $("#items").hide();
+    $("#avatarInGame").hide();
+    $("#lblDon").hide();
+    $("#lblATK").hide();
+    $("#lblDEF").hide();
+    $("#lblHP").hide();
+    $("#lblSPD").hide();
+    $("#lblXP").hide();
+    $("#lblAmountOfGold").hide();
+    $("#lblCurrent").hide();
+    $("#lblMultipleAmount1").hide();
+    $("#stats").hide();
+    $("#potion2").hide();
+    $("#potion3").hide();
+    $("#weapons").hide();
+    $("#submitBTN").css('opacity', '0');
+    $("#submitBTN").hide();
+    $("#namePlayer").css('opacity', '0');
+    $("#namePlayer").hide();
+    $("#lblWoodSpear").hide();
+    $("#lblPotion").hide();
+    $("#lbl5Potions").hide();
+    $("#potion1").hide();
+    $("#woodSpearBuy").hide();
+  });//end of exitButton click
+
+  /*************** DAVID CACOROVSKI 1/24/21 5:22 PM Added potion functionaliy. ***************/
+  $("#potion1").click(function(){
+    // Lexical - Used here because it is only used here. restoreAmount is the number that restores the amount of hp with.
+    let restoreAmount=20;
+    if(playerHealth==hpStat)
+    {
+      $("#lblPotionHP").show();
+      $("#lblPotionHP").text("You can't use potion at full HP!");
+      setTimeout(function(){
+        $("#lblPotionHP").hide();
+      }, 1000);
+    }
+    else
+    {
+      playerHealth+=20;
+      if(playerHealth>hpStat)
+      {
+        restoreAmount=playerHealth-hpStat;
+        restoreAmount=20-restoreAmount;
+        playerHealth=hpStat;
+      }
+      $("#lblPotionHP").show();
+      $("#lblPotionHP").text("You have restored your HP by: " + restoreAmount + "HP!");
+      potion-=1;
+      $("#lblHP").text("HP: " + playerHealth + "/" + hpStat);
+      $("#lblMultipleAmount1").text("Potion: x" + potion);
+      $("#lblPlayerHealth").text('Player HP: ' + playerHealth);
+      if(potion<1)
+      {
+        potion=0;
+        $("#potion1").hide();
+        $("#lblMultipleAmount1").hide();
+      }
+      setTimeout(function(){
+        $("#lblPotionHP").hide();
+      }, 1000);
+    }
+  });//end of potion1 click
+
+  /*************** JEREMY THUMMEL 1/21/21 9:59 AM Added move buttons ***************/
+  /*************** SOHAIL MEGHANI 1/21/21 10:03 AM Added submit text functionality ***************/
+  $("#moveOne").click(function(){
+    damageOutput=(Math.round(Math.random()*5)+ atkStat);
+    damageOutput=(Math.round(damageOutput));
+    spearStrikeCounter=0;
+    attacking();
+  });//end of moveOne click
+
+  $("#moveTwo").click(function(){
+    bubbleSort();
+    damageOutput=newDamage[spearStrikeCounter];
+    damageOutput=(Math.round(damageOutput));
+    spearStrikeCounter+=1;
+    attacking();
+  });//end of moveOne click
+
+  $("#submitBTN").click(function(){
+    nameGet();
+    if(name == ""){
+      $("#lblDon").text("Name: Don");
+    }
+    nameDeclared=true;
+    $("#lblDon").text("Name: " + name);
+    $("#submitBTN").css('opacity', '0');
+    $("#submitBTN").hide();
+    $("#namePlayer").css('opacity', '0');
+    $("#namePlayer").hide();
+  });//end of submit click
+
+});//end of docReady

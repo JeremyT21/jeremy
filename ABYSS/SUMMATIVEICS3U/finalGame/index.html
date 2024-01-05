@@ -1,0 +1,133 @@
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/6/21
+	ICS3U Summative Homepage
+	This is the homepage of our game this year.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="../images/web_logo.png">
+		<title>Abyss Below: Final Game</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<script type="text/javascript" src="phaser.min.js"></script>
+		<script type="text/javascript" src="jquery-3.5.1.slim.min.js"></script>
+		<script type="text/javascript" src="code.js"></script>
+		<script type="text/javascript" src="../code.js"></script>
+	</head>
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown">
+ 			<!-- <button onclick="myFunction()" class="dropbtn">&#9776;</button> -->
+ 			<div id="myDropdown" class="dropdown-content">
+ 				<a href="../index.html">Home</a>
+ 				<a href="index.html">Play Game</a>
+ 				<a href="../code.txt">Code</a>
+				<a href="../roughSketches/index.html">Rough Sketches</a>
+				<a href="../codeSnippets/index.html">Code Snippets</a>
+				<a href="../functions/index.html">New Functions</a>
+				<a href="../helpPage/index.html">Help</a>
+ 			</div>
+		</div>
+		<br>
+		<!-- This div tag is used as our game box. This will make putting images and labels from JQUERY easier to do. -->
+		<div id="gameBackground">
+			<!-- SOHAIL MEGHANI 1/14/21 9:59 PM Added the video and some labels -->
+			<!-- We are using a video in our game as some sort of cutscene in our game. -->
+			<video width="1280" height="720" id="intro" class="videoCentering">
+	  			<source src="../video/opening.mp4" type="video/mp4">
+			</video>
+			<video width="1280" height="720" id="neo" class="videoCentering">
+	  			<source src="../video/neoIntro.mp4" type="video/mp4">
+			</video>
+			<video width="1280" height="720" id="bossIntro" class="videoCentering">
+	  			<source src="../video/bossIntro.mp4" type="video/mp4">
+			</video>
+			<video width="1280" height="720" id="bossPhase" class="videoCentering">
+	  			<source src="../video/bossPhase.mp4" type="video/mp4">
+			</video>
+			<!-- This is the label for our JQUERY part of the game. -->
+			<label id="lblEncounter" style="width: 25%;">You encountered</label>
+			<label id="lblGoldCounter" style="width: 25%; top: 10%; left: 14.5%; z-index: 11;">Gold Amount: </label>
+			<label id="lblArea" style="width: 25%;"></label>
+			<label id="lblShop" style="width: 25%;"></label>
+			<label id="lblWoodSpear" style="width: 25%; top: 50%; left: 56.5%;">60 Gold</label>
+			<label id="lblPotion" style="width: 25%; top: 39%; left: 21%;">x1: 10 Gold</label>
+			<label id="lbl5Potions" style="width: 25%; top: 50%; left: 21%;">x5: 40 Gold</label>
+			<label id="lblAmountOfGold" style="width: 20%; top: 79.5%; left: 1075px;">Gold Amount: </label>
+			<label id="lblCurrent" style="width: 25%; top: 79.5%; left: 435px;">Current Amount: </label>
+			<label id="lblMultipleAmount1" style="z-index: 6; width: 10%; top: 400px; left: 550px;">Potion: x</label>
+			<label id="lblPotionHP" style="z-index: 6; width: 15%; top: 650px; left: 500px;">You can't use potion at full HP!</label>
+			<label id="lblEnemyHealth" style="width: 25%;">Enemy HP: </label>
+			<label id="lblEnemyLeft" style="width: 25%;">Enemies Left: </label>
+			<label id="lblPlayerHealth" style="width: 25%;">Player HP: </label>
+			<!-- JEREMY THUMMEL 1/15/21 11:03 AM Added the some more labels and some images-->
+			<label id="lblDon" style="position: absolute; left: 1030px; top: 500px; width: 25%; z-index: 6;">Name: </label>
+			<input type="text" id="namePlayer" style="position: absolute; left: 1330px; top: 500px; width: 5%; z-index: 6;"></input>
+			<label id="lblXP" style="position: absolute; left: 1030px; top: 550px; width: 25%; z-index: 6;">XP: </label>
+			<label id="lblHP" style="position: absolute; left: 900px; top: 625px; width: 25%; z-index: 6;">HP: </label>
+			<label id="lblATK" style="position: absolute; left: 900px; top: 700px; width: 25%; z-index: 6;">ATK: </label>
+			<label id="lblDEF" style="position: absolute; left: 1160px; top: 700px; width: 25%; z-index: 6;">DEF: </label>
+			<label id="lblSPD" style="position: absolute; left: 1160px; top: 625px; width: 25%; z-index: 6;">SPD: </label>
+			<label id="lblLost" style="width: 25%; z-index: 6;">It would appear that you have lost your gold running back to the hideout...</label>
+			<label id="lblContinue" style="width: 25%; z-index: 6; top: 50%;">Would you like to continue playing?</label>
+			<label id="lblLevelUp" style="width: 25%; z-index: 6;">You have leveled up! Giving you a stat boost!</label>
+			<label id="lblDouble" style="width: 25%; z-index: 6; top: 40%;">Please select what stat to double upgrade.</label>
+			<!-- This is the images for our JQUERY part of the game. -->
+			<img src="../images/logo.png" id="gameLogo">
+			<img src="../images/play.png" id="playButton" class="hover" style="cursor: pointer;">
+			<img src="../images/strawburry.gif" id="enemyStraw">
+			<img src="../images/frosty_the_ice_man.gif" id="enemyFrosty">
+			<img src="../images/hiveo.gif" id="enemyHiveo">
+			<img src="../images/theCoveredKing.gif" id="enemyCovered">
+			<img src="../images/buffPengu.gif" id="enemyPengu">
+			<img src="../images/boulderSnake.gif" id="enemySnake">
+			<img src="../images/boss.gif" id="enemyZyborgus" style="left: 34%;">
+			<img src="../images/shopKeeper.gif" id="shopKeeper">
+			<img src="../images/shop.png" id="shop" class="hover">
+			<img src="../images/run.png" id="run" class="hover">
+			<img src="../images/items.png" id="items" style="left: 500px; top: 175px;">
+			<img src="../images/stats.png" id="stats" style="left: 1125px; top: 175px;">
+			<img src="../images/atk.png" id="atkButton" class="hover" style="left: 500px; top: 45%;">
+			<img src="../images/def.png" id="defButton" class="hover" style="left: 1275px; top: 45%;">
+			<img src="../images/hp.png" id="hpButton" class="hover" style="left: 500px; top: 60%;">
+			<img src="../images/spd.png" id="spdButton" class="hover" style="left: 1275px; top: 60%;">
+			<img src="../images/donCloseUp.png" id="avatarInGame">
+			<img src="../images/bag.png" id="bag" class="hover">
+			<img src="../images/potionIcon.png" id="potion1" class="hover" style="position: absolute; height: 154px; width: 154px; left: 575px; top: 250px; z-index: 6;">
+			<img src="../images/potion.png" id="potion2" class="hover potion">
+			<img src="../images/potion.png" id="potion3" class="hover potion">
+			<img src="../images/woodSpear.png" id="woodSpearBuy" class="hover">
+			<img src="../images/spearStrike.png" id="moveTwo" class="hover" style="z-index: 6; top: 30%;">
+			<img src="../images/weapons.png" id="weapons" style="left: 1075px; top: 175px;">
+			<img src="../images/buy.png" id="buy" class="hover" style="left: 45%;">
+			<img src="../images/attack.png" id="attack" class="hover">
+			<!-- DAVID CACOROVSKI 1/15/21 11:49 AM Added more images and audio-->
+			<img src="../images/hands.gif" class="hands" id="movingHands">
+			<img src="../images/hands.png" class="hands" id="staticHands">
+			<img src="../images/handsSpear.gif" class="handsSpear" id="movingHandsSpear">
+			<img src="../images/handsSpear.png" class="handsSpear" id="staticHandsSpear">
+			<img src="../images/skip.png" id="skipButton" class="hover">
+			<img src="../images/enter.png" id="enterBattle" class="hover">
+			<img src="../images/mines.png" id="mines" class="hover">
+			<img src="../images/white.png" id="whiteBackground" style="z-index: 6;">
+			<img src="../images/black.png" id="blackBackground" style="z-index: 6;">
+			<img src="../images/exitButton.png" id="exitButton" class="hover exitButton" style="z-index: 6;">
+			<img src="../images/exitButton.png" id="exitButton2" class="hover exitButton">
+			<img src="../images/superPunch.png" id="moveOne" class="hover" style="z-index: 6;">
+			<img src="../images/yes.png" id="yesContinue" class="hover" style="z-index: 6; top: 60%;">
+			<img src="../images/no.png" id="noContinue" class="hover" style="z-index: 6; top: 60%;">
+			<img src="../images/attack.gif" id="attackHit">
+			<img src="../images/grey.png" id="greyBackground" style="z-index: 5;">
+			<img src="../images/submit.png" id="submitBTN"  style="z-index: 5; position: absolute;" class="hover">
+		</div>
+		<audio controls autoplay="true" loop="true" class="audioCentering" hidden="true" id="titleScreenMusic">
+			<source src="../audio/menu.mp3" type="audio/mp3">
+		</audio>
+		<img src="../images/logo.png" id="gameTwo">
+	</body>
+</html>

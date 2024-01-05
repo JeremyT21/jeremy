@@ -1,0 +1,182 @@
+<!--
+  Jeremy Thummel, David Cacorovski, Sohail Meghani
+  11/1/2021
+  Game Page
+  This is the code for our game
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+    <script src="code.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script>
+    //all game variables go here
+
+     let brick=null;
+     let bricks=[];
+
+     let man;
+     let jump=false;
+     let onBrick=false;
+     let jumpTick=0;
+
+     //variables for our input keys
+     let leftKey;
+     let rightKey;
+     let upKey;
+
+     let _this=null;
+
+     class mainGame extends Phaser.Scene {
+
+        constructor (config)
+        {
+            super(config);
+            _this=this;
+        }
+
+        //preload loads all assets in to memory
+        preload ()
+        {
+             this.load.image('man','assets/man.png');//this line loads the image into memory and assigns it the id greyBall
+
+             this.load.image('brick','assets/element_grey_rectangle_glossy.png');
+
+        }//in the preload function we will load our game resources
+
+        create (data)
+        {
+            //
+
+            _this.createBricks(7,10);
+
+            //
+
+            man = this.add.sprite(400, 450, 'man');
+
+            //
+
+            leftKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+
+            rightKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+
+            upKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+            this.physics.add.collider(man, bricks);
+
+        }//create the game resources and assign them to variables
+
+        //update function is your game loop function
+        //it iterates for every frame of your game
+        update()
+        {
+            //check for collisions
+
+            for(let x=0;x<bricks.length;x++)
+            {
+
+                brick=bricks[x];
+                if(this.physics.world.overlap(man,brick))
+                {
+                    man.y=brick.y-32;
+                    onBrick=true;
+                    console.log("collision");
+                }
+
+            }//end of brick to ball collision checks
+
+            if(_this.collisionChecker(man,brick)==false && jump==false)
+            {
+                onBrick=false;
+            }
+
+            //move paddle
+            if(leftKey.isDown)
+            {
+                man.x=man.x-5;
+                man.flipX = true;
+            }
+
+            if(rightKey.isDown)
+            {
+                man.x=man.x+5;
+                man.flipX = false;
+            }
+
+            //Sohail Meghani 12:15PM 11/1/2021 Fixed Jump Mechanic
+            if(upKey.isDown)
+            {
+                onBrick=false;
+                jump=true;
+                jumpTick++;
+                setTimeout(function(){
+                    man.y=man.y-30;
+                }, 150);
+                setTimeout(function(){
+                    man.y=man.y+30;
+                }, 200);
+                jump=false;
+
+                if(man.x <= 115 && man.y == man.y){
+                  console.log("Out of bounds")
+                }
+            }//end of update
+
+        }//this represents the game loop and is where all the major code that controls the game is written
+
+        collisionChecker(sprite1,sprite2)
+        {
+            return this.physics.world.overlap(sprite1,sprite2);
+        }
+
+        createBricks(numberOfCols)
+        {
+            for(let x=0;x<numberOfCols;x++)
+            {
+
+                brick=this.physics.add.image(140+(65*x),500,"brick");
+                bricks.push(brick);
+
+            }
+        }//end of my createBricks  function
+
+        createGridBricks(rows, cols)
+        {
+            for(let y=0;y<rows;y++)
+            {
+                for(let x=0;x<cols;x++)
+                {
+                    brick=this.physics.add.image(100+(70*x),55+50*y);
+                    bricks.push(brick);
+                }
+            }
+
+        }//end of createGridBricks
+
+    }//end of our first game scene/screen
+
+    var config = {
+        type: Phaser.AUTO,
+        parent: 'phaser-example',
+        width: 800,
+        height: 600,
+        physics: {
+            default: 'arcade',
+            arcade: {
+                debug: true
+
+                }
+        }
+    };
+
+    var game = new Phaser.Game(config);
+
+    game.scene.add("game",mainGame);
+    game.scene.start("game");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	January 6th, 2021
+	ICS3U Summative Homepage
+	This is the homepage of our game this year.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="../images/web_logo.png">
+		<title>ICS3U SUMMATIVE</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<script type="text/javascript" src="../code.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="code.js"></script>
+	</head>
+	<body class="fade-in">
+		<div class="dropdown">
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="../index.html">Home</a>
+ 			   <a href="index.html">Play Game</a>
+ 			   <a href="../aboutUs/index.html">About Us</a>
+ 			   <a href="../code.txt">Code</a>
+ 			 </div>
+		</div>
+		<br>
+		<div id="gameBackground">
+			<img src="../images/logo.png" id="gameLogo">
+			<img src="../images/play.png" id="playButton">
+		</div>
+		<audio controls autoplay="true" loop="true" class="audioCentering" hidden="true">
+			<source src="../audio/menu.mp3" type="audio/mp3">
+		</audio>
+	</body>
+</html>

@@ -1,0 +1,103 @@
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/22/21
+	ICS3U Summative Functions
+  This is the code custom functions page
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="../images/web_logo.png">
+		<title>Abyss Below: New Functions</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<script type="text/javascript" src="jquery-3.5.1.slim.min.js"></script>
+		<script type="text/javascript" src="../code.js"></script>
+	</head>
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown"> <!-- Dropdown functionality. -->
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="../index.html">Home</a>
+ 			   <a href="../finalGame/index.html">Play Game</a>
+ 			   <a href="../code.txt">Code</a>
+				 <a href="../roughSketches/index.html">Rough Sketches</a>
+         <a href="../codeSnippets/index.html">Code Snippets</a>
+         <a href="index.html">New Functions</a>
+				 <a href="../helpPage/index.html">Help</a>
+ 			 </div>
+		</div>
+		<!-- SOHAIL MEGHANI 1/22/21 10:14 AM Added paragraphs and images -->
+		<h1 style="text-decoration: underline;">New Functions</h1>
+    <h3>Explanation</h3>
+    <p>
+      The purpose of this webpage is to showcase the functions that we have used within our code that have not been taught to us via our teacher, Mr. Krnic
+      and that our team has found to be beneficial and even crucial to our work on this game and its many parts.
+    </p>
+    <h3>Pause Function</h3><!-- h3 identifies the function. -->
+    <p>
+      Similar to the play function that was previously explained, this function also gives users the power over which audio track or video file
+      is playing at a certain time. Furthermore, like the play function as well, it is used multiple times in the code for our game which allows
+      us to toggle the music and the video depending on the conditions that the player has or has not fulfilled. It is also like the play function
+      in the sense that it can be assigned to anything from an element via jQuery and even a variable.
+      <br>
+      <img src="../images/pauseFunction.PNG" id="function"><!-- image is inside of the paragraph to give more of a theme and uniqueness. -->
+      <br>
+      Once again, this function is assigned to a variable which allows us to toggle on or off the title screen music (as the variable name suggests)
+      to the liking of the programmers.
+    </p>
+    <br><!-- Several br tags to create more of a space between texts. -->
+    <br>
+    <br>
+    <br>
+    <h3>setTimeout Function</h3>
+    <p>
+      This function was crucial to many parts of our code and if we had not found this piece of code, we would have much harder time pulling off
+      certain aspects of our game. The way that this function acts is that you have a body that executes after a time that has been set by the
+      programmer, in milliseconds. Once that amount of time has passed, then the code will then execute and it will only execute once rather than the
+      multiple times that some other functions have been documented to do. Additionally, the time that can be set can also be the parameter that has
+      been specified within a function. For example, if there were a function in which the parameter was a certain time, the time value for the setTimeout
+      function can be that value.
+      <br>
+      <img src="../images/setTimeoutFunction.PNG" id="function">
+    </p>
+		<br>
+    <br>
+    <br>
+    <br>
+    <h3>setAttribute Function</h3>
+    <p>
+      This function enabled us to add a specific attribute once a certain event in our game occured. For example, we used this function to loop a piece
+			of music once you enter a battle, so that there's always music playing to keep the player engaged in our game.
+      <br>
+      <img src="../images/setAttributeFunction.PNG" id="function">
+    </p>
+		<br>
+    <br>
+    <br>
+    <br>
+    <h3>location Function</h3>
+    <p>
+      This function allows our game to direct the player to a different webpage. For example, we use this function to send the player back to the home webpage
+			if they decide they no longer want to play the game.
+      <br>
+      <img src="../images/locationFunction.PNG" id="function">
+    </p>
+		<br>
+    <br>
+    <br>
+    <br>
+    <h3>Math.floor Function</h3>
+    <p>
+      This function allows us to round down random numbers we generate so that we can avoid decimals. We chose floor instead of round, since
+			we wanted to take as many measures as possible to make the player's random damage numbers smaller, so that we could make our game harder,
+			though this adjustment is just a small step to making this game a bit more unfavouring to the player.
+      <br>
+      <img src="../images/mathFloorFunction.PNG" id="function">
+    </p>
+	</body>
+</html>

@@ -1,0 +1,198 @@
+body
+{
+  background-color: #5ed18e;
+  background-image: url(images/bg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+/* ***************************David Cacorovski 1/8/2021 9:00 PM Added dropdown styles *****************************************/
+/* Code taken from https://www.w3schools.com/howto/howto_js_dropdown.asp */
+/* Dropdown Button */
+.dropbtn
+{
+  background-color: rgba(66,135,245,0.5);
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 20%;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus
+{
+  background-color: #FFFFFF;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown
+{
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content
+{
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content 
+a 
+{
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  background-color: rgba(66,135,245,0.5);
+  color: black;
+  font-size: 24px;
+  border: 2px solid black;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  text-shadow: 1px 1px white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+#logo
+{
+  position: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(66,135,245,0.5);
+  border-radius: 2em;
+  border-style: ridge;
+  border-color: black;
+  border-width: 3px;
+}
+
+h2
+{
+  border-style: solid;
+  border-radius: 10px;
+  color: rgba(222,118,33,1);
+  text-shadow: 3px 3px black;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  background-color: rgba(66,135,245,0.5);
+  border-color: black;
+  border-style: ridge;
+  border-width: 3px;
+  margin-right: 38%;
+  margin-left: 40%;
+  padding: 7px;
+  position: relative;
+  left: -2%;
+
+}
+
+p
+{
+  border-style: solid;
+  border-radius: 10px;
+  color: rgba(222,118,33,1);
+  text-shadow: 3px 3px black;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.5);
+  border-color: black;
+  border-style: ridge;
+  border-width: 3px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  line-height: 35px;
+}
+
+#imgDiv
+{
+  position: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#imgDiv2
+{
+  position: absolute;
+  z-index: 100px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 15%;
+  left: 41.5%;
+  top: 26.5%;
+}
+
+#titleDiv
+{
+  position: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(66,135,245,0.5);
+  border-radius: 2em;
+  border-style: ridge;
+  border-color: black;
+  border-width: 3px;
+  width: 40%;
+  padding-bottom: 125px;
+}
+
+/* This code is a cool fade in I learned in this youtube video: https://www.youtube.com/watch?v=UInN6O_nMKs&ab_channel=CodeRookie */
+/* START OF FADE CODE */
+.fade-in
+{
+  animation: fadeIn 6s;
+}
+@keyframes fadeIn
+{
+  from
+  {
+    opacity: 0;
+  }
+
+  to
+  {
+    opacity: 1;
+  }
+}
+
+.audioCentering
+{
+  width: 20%;
+  left: 350%;
+  border-style: ridge;
+  border-color: black;
+  border-width: thick;
+  box-shadow: inset 0 0 10px rgba(0,0,0,.5);
+  border-radius: 30px;
+  background-color: White;
+  padding: 5px;
+  margin: 60px;
+  color: #fc8c03;
+  position: relative;
+}

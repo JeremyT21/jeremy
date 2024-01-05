@@ -1,0 +1,80 @@
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/6/21
+	ICS3U Summative Homepage
+	This is the homepage of our game this year.
+-->-
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="images/web_logo.png">
+		<title>Abyss Below: Home</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script type="text/javascript" src="code.js"></script>
+	</head>
+	<!-- This class has a fade-in. Something a little extra for our webpage. -->
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown">
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="">Home</a>
+ 			   <a href="finalGame/index.html">Play Game</a>
+ 			   <a href="code.txt">Code</a>
+				 <a href="roughSketches/index.html">Rough Sketches</a>
+				 <a href="codeSnippets/index.html">Code Snippets</a>
+				 <a href="functions/index.html">New Functions</a>
+				 <a href="helpPage/index.html">Help</a>
+ 			 </div>
+		</div>
+		<br>
+		<img src="images/logo.png" id="imgDiv">
+		<br>
+		<img src="images/frosty_the_ice_man.gif" id="imgDiv2">
+		<br>
+		<br>
+		<!-- JEREMY THUMMEL 1/6/21 10:39 AM Added the paragraph -->
+		<p>
+			In a normal world filled with normal people, there is one thing bothering those who live in the town of Bellowsville. A deep mysterious cave that travels beyond the bottom of the Earth itself, those who enter, never come out. One man who seeks to discover the secrets of this cavern, sets out on an adventure to traverse the ins and outs of this rocky shelter. What secrets does this cave hold? Is it truly endless? Do monsters really exist in this quiet town of Bellowsville? Find out, in The Abyss Below!
+		</p>
+		<h2>Work Distribution</h2>
+		<p>
+			Overall we will all help each other and work on every aspect of the game together as a team, though there is some work that will be distributed more specifically. David is in charge of a website development and incorporating special effects into the website pages (e.g. using new styles for aesthetic purposes), and is also one of the lead programmers in charge of creating the jQuery aspect of our game (the turn based combat segments). Jeremy is the lead artist and is responsible for the graphic design of the website layout, as well as the graphic design for the video game itself. Jeremy also will be the lead programmer on the phaser aspect of our game (the 2D platforming portion of the game). Sohail is in charge of programming everything inbetween, he will not only be working on the jQuery part of the game, but the phaser as well, and is overall the lead summative programmer, and also acts as a main "debugger" of sorts.
+			<br>
+		</p>
+		<!-- SOHAIL MEGHANI 1/6/21 10:43 AM Added the images for our webpage -->
+		<img src="images/avatar1.png" id="avatar">
+		<div>
+			<h3>David Cacorovski: Lead Website Developer, Lead programmer (JQUERY),</h3>
+		</div>
+		<img src="images/avatar2.png" id="avatar">
+		<div>
+			<h3>Jeremy Thummel: Lead Artist, Lead Programmer (Phaser)</h3>
+		</div>
+		<img src="images/avatar3.png" id="avatar">
+		<div>
+			<h3>Sohail Meghani: Lead Summative Programmer, Debugger</h3>
+		</div>
+		<h2>Possible Challenges</h2>
+		<p>
+			We will implement string functions by creating a function that will act as a battle, with parameters which will decide the enemy health and type of enemy (e.g. function battle(enemyID,health)). We will implement arrays by creating random list of numbers. Each position of the array will decide something different. For example, position 2 in the array will always decide the gold you get from defeating an enemy, but position 1 will always decide the enemies health. To do this we will create a for loop, but depending on the value of x, a random number with a specific range will be created. This way we can neatly store all our randomly generated numbers inside of an array. An acception to that rule of storing all the random numbers in that array, is the experience points you get from defeating enemies. We will create random numbers for an exclusive experience point array, and we will sort it using bubble sort, so that the experience points given to the player will match with their game progress (since the bubble sorting will sort numbers least to greatest, it will make sense for the player's experience points to be greater later in the game).
+		</p>
+		<h2>Screens</h2>
+		<p>
+			The first screen of our game is the title screen, which you must press enter to play. The second screen of our game is the turn based part of our game (RPG Screen), where you traverse through a cave, and are constantly tasked with fighting a newly encountered enemy. The third screen of our game is the 2D platforming part of our game (Mining Screen), where you can travel through the mines as a sort of minigame which will help you gain gold faster to buy special items from the shop. The last screen of our game is the shop screen which the player will purchase items from that will help them battle enemies in during the RPG Screens.
+		</p>
+		<h2>Concerns</h2>
+		<p>
+			One of our greatest challenges will be to combine the jQuery game segments, with the phaser game segments, in a way that will make it feel seamless like it's one whole game experience. Another challenge will be to create a function that will start battles just by entering the enemy and health parameters with the use of arrays. Another challenge will be to make this game endless, as making the game endless would mean we would have to make use of lots of nested for loops.
+		</p>
+		<!-- DAVID CACOROVSKI 1/6/21 10:36 AM Added the audio for our webpage -->
+		<!-- Background Music for the webpage, also something a little extra. -->
+		<audio controls autoplay="true" loop="true" class="audioCentering" hidden="true">
+			<source src="audio/webpageBackground.mp3" type="audio/mp3">
+		</audio>
+	</body>
+</html>

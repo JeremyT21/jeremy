@@ -1,0 +1,140 @@
+<!--
+	David Cacorovski, Jeremy Thummel, Sohail Meghani
+	1/22/21
+	ICS3U Summative Snippets
+  This is the code snippets page
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="../images/web_logo.png">
+		<title>Abyss Below: Code Snippets</title>
+		<!-- Adding custom pixel font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<!-- End -->
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<script type="text/javascript" src="../finalGame/jquery-3.5.1.slim.min.js"></script>
+		<script type="text/javascript" src="../code.js"></script>
+	</head>
+	<body class="fade-in">
+		<!-- DROPDOWN CODE -->
+		<div class="dropdown"><!-- Dropdown code. -->
+ 			 <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+ 			 <div id="myDropdown" class="dropdown-content">
+ 			   <a href="../index.html">Home</a>
+ 			   <a href="../finalGame/index.html">Play Game</a>
+ 			   <a href="../code.txt">Code</a>
+				 <a href="../roughSketches/index.html">Rough Sketches</a>
+         <a href="index.html">Code Snippets</a>
+         <a href="../functions/index.html">New Functions</a>
+				 <a href="../helpPage/index.html">Help</a>
+ 			 </div>
+		</div>
+
+		<!-- DAVID CACOROVSKI 1/19/21 10:39 AM Added the code snippets for all of our custom code -->
+
+		<h1 style="text-decoration: underline;">Code Snippets / Screen Shots</h1> <!-- The title of the webpage. -->
+
+    <h2 class="functionTitle">Functions Without Parameters</h2> <!-- The secondary title. -->
+		<h3>battle() Function</h3> <!-- The sub-title. -->
+		<p>
+			This function does not have parameters, since its main purpose is to decide the enemy that the player will battle each time an enemy is defeated,
+			<br>
+			<img src="../images/battleSnippet.PNG" id="functionSnippet"> <!-- The image is in the paragraph to give this page more of a theme. -->
+			<br>
+			as well as starting off each battle. For example, this function will fade in the cave area, along with the first enemy you will face.<br>
+			It will decide base enemy stats (e.g. the enemy's health), but not as in depth as the enemyAttack() function. The function also starts off<br>
+			the battle visually by creating a fade in transition, as well as showing how many enemies you have left to fight in each wave using a label<br>
+			in the top center of the screen. Overall this functions main purpose is to decide the enemy's the player will face on a case by case basis<br>
+			by selecting a random enemy from an array, which will depend on the enemy wave the player is fighting.
+		</p>
+
+		<h3>enemyAttack() Function</h3>
+		<p>
+			This function does not have parameters, since its main purpose is to create the enemy's attack phase. This function will look to see<br>
+			which enemy has been selected to fight the player (from the battle function) and will create random stats with a specific range based on<br>
+			that enemy. This function also process the player's move choice, and will change the enemy's health based on the player's move.<br>
+			This function will also change a label to communicate to the player what is going on in the battle (e.g. how much damage the enemy did to you, etc.).<br>
+			In conclusion, this function makes up the base of the turn based battles.
+			<br>
+			<img src="../images/enemyAttackSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Functions With Parameters</h2>
+		<h3>walking() Function</h3>
+		<p>
+			This function has a parameter that will tell the function how many seconds for the walking animation to be active. This walking<br>
+			animation consists of the background zooming in to give the illusion of movement, as well as changing the hands from a static image to a<br>
+			moving gif. This function also must decide if the player has bought the wooden spear or not, so that if they have the game can change all<br>
+			of the hand's appearences to be holding the wooden spear.
+			<br>
+			<img src="../images/walkingSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Functions Without Parameters With a Return</h2>
+		<h3>nameGet() Function</h3>
+		<p>
+			This function will accept a string from the player through a text input box, and will return a version of that user's name which will be<br>
+			trimmed as well as the first letter being turned into an uppercase letter (if not already done so). This is so that the name can<br>
+			be displayed in the player's "BAG" along with their stats (e.g. health, attack, etc.).
+			<br>
+			<img src="../images/nameGetSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Functions With Parameters With a Return</h2>
+		<h3>upperCaseName() Function</h3>
+		<p>
+			This function will take the string returned from the nameGet() function (as the parameter), and will captalize all the words in the name. For instance,<br>
+			instead of "the king christoph" being turned into "The king christoph", it will be turned into "The King Christoph" with capitals at each<br>
+			of the seperate word's beginnings. Thus the new version of the name will then be returned.
+			<br>
+			<img src="../images/nameGetSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h3>shopping() Function</h3>
+		<p>
+			This function has a parameter named currency which will enable the function to either use the player's gold (through the global gold variable),<br>
+			or for testing purposes this function could also use a specific set number of currency (to help test this game easier). This function<br>
+			will use that amount of currency and create a scene for the player to shop and buy items or weapons that they may want to prepare them<br>
+			for battle. Once the player has bought what they wanted and exited the shop, this function will also return the amount of gold (or currency)<br>
+			that the player has left so that they don't have an infinite amount of gold.
+			<br>
+			<img src="../images/shoppingSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">String Functions</h2>
+		<h3>String Functions in the nameGet() & upperCaseName() Function</h3>
+		<p>
+			Most of the string functions are used in these two functions. In the first function nameGet(), we make use of the trim() function so<br>
+			the layout of scenes in our game won't we distrupted by a player name with a large amount of spaces at the end. We also use the charAt()<br>
+			function to specify that the first character of the string is what we want to capatilize using the toUpperCase()function so the player's name is written and<br>
+			displayed properly. Once we have the captalized first letter, we add it to the rest of the string using slice().<br>
+			The next function upperCaseName() not only uses most of the previous string functions, but also uses substr() so that we can add the newly<br>
+			capatilized words to the player's name string (nameOfPlayer).
+			<br>
+			<img src="../images/nameGetSnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Arrays</h2>
+		<h3>Enemy Array</h3>
+		<p>
+			Since we wanted to have a list of enemies that you are able to fight, our group decided to store the enemy IDs in an array, so that<br>
+			we could create a random number generator which would randomly pick an enemy from the array for you to fight.
+			<br>
+			<img src="../images/enemyArraySnippet.PNG" id="functionSnippet">
+		</p>
+
+		<h2 class="functionTitle">Array + Bubble Sorting</h2>
+		<h3>Spear Strike Array</h3>
+		<p>
+			We wanted to implement a move in our game which would do more damage the more you used it and reset once it reached a high number<br>
+			of damage. To code this, we decided we would create a random list of numbers (an array) and then bubble sort them. Since they are bubble sorted, we<br>
+			would then create a counter which would keep track of how many times you've used the move, and would have the attack do the amount of damage<br>
+			as whatever the array's element value is at the position of the counter's value (e.g. array[counter]). Thus, the damage output of the<br>
+			spear strike would steadily increase as we intended combining bubble sorting with an array.
+			<br>
+			<img src="../images/bubbleSortSnippet.PNG" id="functionSnippet">
+		</p>
+	</body>
+</html>
