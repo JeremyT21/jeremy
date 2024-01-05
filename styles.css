@@ -109,6 +109,7 @@ p
     border-color: #bb1e25;
     border-radius: 20px;
     margin-bottom: 0.5%;
+    opacity: 0;
 }
 
 #screenShot2
@@ -123,6 +124,7 @@ p
     border-color: #bb1e25;
     border-radius: 20px;
     margin-bottom: 0.5%;
+    opacity: 0;
 }
 
 #header

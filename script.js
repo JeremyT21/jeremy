@@ -49,4 +49,18 @@ document.addEventListener('scroll', function(){
         pdfObject.style.animation = "fade 2s";
         pdfObject.style.opacity = 1;
     }
+
+    if(window.scrollY >= 500)//Fades in screenshot 1.
+    {
+        var ss1 = document.getElementById('screenShot1');
+        ss1.style.animation = "fade 2s";
+        ss1.style.opacity = 1;
+    }
+
+    if(window.scrollY >= 1200)//Fades in screenshot 2.
+    {
+        var ss2 = document.getElementById('screenShot2');
+        ss2.style.animation = "fade 2s";
+        ss2.style.opacity = 1;
+    }
 });
