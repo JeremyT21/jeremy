@@ -18,7 +18,7 @@ setInterval(function()
     console.log(topBarHeight);
 },500);
 
-//Every half a second website resizes the relativity of page elements appropriately in reference to the yellow rectangluar background.
+//Every half a second website resizes the relativity of page elements appropriately in reference to the rectangular background.
 setInterval(function()
 {
     var pdf = document.getElementById('pdf1');
@@ -28,7 +28,7 @@ setInterval(function()
     
     var extraSpace2 = document.getElementById('belowMargin2');
     extraSpace2.style.paddingBottom = (rBGHeight + pdfH) + "px";
-    extraSpace2.style.marginTop = -rBGHeight + "px";
+    extraSpace2.style.marginTop = (-rBGHeight-400) + "px";
 },500);
 
 //Keeps track of scrolling on the website and when to fade certain elements in.
