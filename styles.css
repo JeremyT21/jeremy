@@ -203,7 +203,8 @@ p
     margin-left: auto;
     margin-right: auto;
     width: 70%;
-    height: 170%;
+    height: auto;
     margin-bottom: 0%;
+    padding-bottom: 2%;
     z-index: -1;
 }
