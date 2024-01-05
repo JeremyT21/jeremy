@@ -1,4 +1,181 @@
 body
 {
-    background-color: rgb(95, 95, 204);
+    background-image: url("images/bgImg.jpg"); /* Courtesy of: https://pixabay.com/illustrations/technology-computer-background-7969801/ */
+    background-color: #2a6981;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+}
+
+.shadow
+{
+    text-shadow: 1px 1px 2px black;
+}
+
+.subtitle
+{
+    margin-top: -26px;
+    color: #bb1e25;
+}
+
+.bodyText
+{
+    color: white;
+    background-color: rgb(5, 4, 56);
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.fadingIn
+{
+	animation: fade 2s;
+}
+
+.fadingInSlower
+{
+	animation: fade 8s;
+}
+
+@keyframes fade
+{
+	from
+	{
+		opacity: 0;
+	}
+
+	to
+	{
+		opacity: 1;
+	}
+}
+
+object
+{
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    margin-bottom: 5%;
+}
+
+a, a:link, a:visited
+{
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+}
+
+a:hover
+{
+    color: black;
+}
+
+h1
+{
+    margin-top: 2%;
+    text-align: center;
+    font-size: 45px;
+    letter-spacing: .1rem;
+    font-family: 'Afacad';
+    color: #ffffff;
+    width: auto;
+    height: auto;
+}
+
+p
+{
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: .1rem;
+    font-family: 'Afacad';
+    color: #ff4848;
+    width: auto;
+    height: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#header
+{
+    text-align: center;
+    position: fixed;
+    background-color: #1d1d1d;
+    z-index: 2;
+    padding-right: 35%;
+    padding-left: 35%;
+}
+
+#belowMargin
+{
+    position: relative;
+}
+
+#belowMargin2
+{
+    position: relative;
+    background: #2e2e2e;
+    width: 100%;
+    margin-bottom: 0%;
+    z-index: -1;
+}
+
+#pdf1
+{
+    opacity: 0;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #ff4848;
+}
+
+#githubLogo
+{
+    z-index: 3;
+    position: fixed;
+    width: 11%;
+    margin-left: 17%;
+    margin-right: auto;
+    margin-top: 3%;
+}
+
+#githubLogo:hover
+{
+    content: url("images/githubG.png");
+    z-index: 3;
+    position: fixed;
+    width: 11%;
+    margin-left: 17%;
+    margin-right: auto;
+    margin-top: 3%;
+}
+
+#linkedLogo
+{
+    z-index: 4;
+    position: fixed;
+    width: 14%;
+    margin-left: 70%;
+    margin-top: 3%;
+}
+
+#linkedLogo:hover
+{
+    content: url("images/linkedinG.png");
+    z-index: 4;
+    position: fixed;
+    width: 14%;
+    margin-left: 70%;
+    margin-top: 3%;
+}
+
+#rBG
+{
+    background: #2e2e2e;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 140%;
+    margin-bottom: 0%;
+    z-index: -1;
 }
