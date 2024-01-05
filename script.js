@@ -50,7 +50,7 @@ document.addEventListener('scroll', function(){
         pdfObject.style.opacity = 1;
     }
 
-    if(window.scrollY >= 500)//Fades in screenshot 1.
+    if(window.scrollY >= 400)//Fades in screenshot 1.
     {
         var ss1 = document.getElementById('screenShot1');
         ss1.style.animation = "fade 2s";
