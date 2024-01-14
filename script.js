@@ -43,7 +43,7 @@ setInterval(function()
 
 //Keeps track of scrolling on the website and when to fade certain elements in.
 document.addEventListener('scroll', function(){
-    if(window.scrollY >= 100)//Fades in the pdf.
+    if(window.scrollY >= 0)//Fades in the pdf.
     {
         var pdfObject = document.getElementById('pdf1');
         pdfObject.style.animation = "fade 2s";
