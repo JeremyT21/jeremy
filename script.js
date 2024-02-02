@@ -19,7 +19,25 @@ setInterval(function()
 setInterval(function()
 {
 	var nameHeader = document.getElementById('name');
-    nameHeader.style.fontSize = document.getElementById('githubLogo').clientHeight + "px";
+    nameHeader.style.fontSize = document.getElementById('githubLogo').clientHeight+10 + "px";
+
+    //Below code gets the font-size of the Jeremy Thummel header, and changes the header font-size relatively.
+    var styleAttributesJ = window.getComputedStyle(nameHeader);
+    nameFontSizeJ = styleAttributesJ.getPropertyValue('font-size');
+    var fontSizeStringJ = nameFontSizeJ.replace('px', '');
+    var fontSizeNumJ = parseInt(fontSizeStringJ);
+    
+    if(fontSizeNumJ > 40)
+    {
+        nameHeader.style.fontSize = 40 + "px";
+    }
+
+    if(fontSizeNumJ < 20)
+    {
+        nameHeader.style.fontSize = 20 + "px";
+    }
+
+    console.log(fontSizeNumJ);
 
     //Below code gets the font-size of the Jeremy Thummel header, and changes the subtitle font-size relatively.
     var styleAttributes = window.getComputedStyle(nameHeader);
@@ -29,20 +47,27 @@ setInterval(function()
 
     var sub = document.getElementById('subtitleHeader');
 
-    if(fontSizeNum > 25)
-        sub.style.fontSize = 25 + "px";
+    if(fontSizeNum < 25)
+        sub.style.display = "none";
+    
+    if(fontSizeNum > 30)
+    {
+        sub.style.fontSize = 20 + "px";
+        sub.style.display = "block";
+    }
 
     else if(fontSizeNum > 20)
-        sub.style.fontSize = (fontSizeNum - 10) + "px";
-
-    else
-        sub.style.fontSize = 10 + "px";//The px value must be the number in the if statement - 10.
+    {
+        sub.style.fontSize = (fontSizeNum - 15) + "px";
+        sub.style.display = "block";
+    }
 
     //console.log(fontSizeNum);
 },500);
 
 //Keeps track of scrolling on the website and when to fade certain elements in.
 document.addEventListener('scroll', function(){
+    /*
     if(window.scrollY >= 0)//Fades in the pdf.
     {
         var pdfObject = document.getElementById('pdf1');
@@ -63,4 +88,5 @@ document.addEventListener('scroll', function(){
         ss2.style.animation = "fade 2s";
         ss2.style.opacity = 1;
     }
+    */
 });
