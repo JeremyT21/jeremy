@@ -19,7 +19,7 @@ setInterval(function()
 setInterval(function()
 {
 	var nameHeader = document.getElementById('name');
-    nameHeader.style.fontSize = document.getElementById('githubLogo').clientHeight+10 + "px";
+    nameHeader.style.fontSize = document.getElementById('githubLogo').clientHeight + 10 + "px";
 
     //Below code gets the font-size of the Jeremy Thummel header, and changes the header font-size relatively.
     var styleAttributesJ = window.getComputedStyle(nameHeader);
@@ -47,22 +47,23 @@ setInterval(function()
 
     var sub = document.getElementById('subtitleHeader');
 
-    if(fontSizeNum < 25)
-        sub.style.display = "none";
-    
-    if(fontSizeNum > 30)
-    {
-        sub.style.fontSize = 20 + "px";
-        sub.style.display = "block";
-    }
+    console.log(fontSizeNum);
 
-    else if(fontSizeNum > 20)
+    if(fontSizeNum < 30)
+        sub.style.display = "none";
+
+
+    else if(fontSizeNum > 30)
     {
-        sub.style.fontSize = (fontSizeNum - 15) + "px";
+        sub.style.fontSize = (fontSizeNum - 10) + "px";
         sub.style.display = "block";
     }
 
     //console.log(fontSizeNum);
+
+    //Below code is for resizing connected website logos.
+    //Write code to check for clientwidth of #rBG, and depending on that resizes both the logos
+
 },500);
 
 //Keeps track of scrolling on the website and when to fade certain elements in.

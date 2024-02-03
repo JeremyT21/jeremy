@@ -171,7 +171,7 @@ p
 {
     z-index: 3;
     position: fixed;
-    width: 6%;
+    width: 8%;
     margin-left: 25%;
     margin-right: auto;
     margin-top: 2%;
@@ -188,7 +188,7 @@ p
     /*content: url("images/githubG.png");*/
     z-index: 3;
     position: fixed;
-    width: 6%;
+    width: 8%;
     margin-left: 25%;
     margin-right: auto;
     margin-top: 2%;
@@ -198,7 +198,7 @@ p
 {
     z-index: 4;
     position: fixed;
-    width: 8%;
+    width: 10%;
     margin-left: 68%;
     margin-top: 2%;
 }
@@ -208,7 +208,7 @@ p
     /*content: url("images/linkedinG.png");*/
     z-index: 4;
     position: fixed;
-    width: 8%;
+    width: 10%;
     margin-left: 68%;
     margin-top: 2%;
 }
