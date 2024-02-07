@@ -18,8 +18,10 @@ setInterval(function()
 //Every half a second website resizes the relativity of page elements appropriately in reference to the header bar's text.
 setInterval(function()
 {
+    var widthOfWindow = window.innerWidth;
 	var nameHeader = document.getElementById('name');
-    nameHeader.style.fontSize = document.getElementById('githubLogo').clientHeight + 10 + "px";
+    console.log(widthOfWindow);
+    nameHeader.style.fontSize = (widthOfWindow / 22) + "px";
 
     //Below code gets the font-size of the Jeremy Thummel header, and changes the header font-size relatively.
     var styleAttributesJ = window.getComputedStyle(nameHeader);
@@ -55,7 +57,7 @@ setInterval(function()
 
     else if(fontSizeNum > 30)
     {
-        sub.style.fontSize = (fontSizeNum - 10) + "px";
+        sub.style.fontSize = (fontSizeNum - 15) + "px";
         sub.style.display = "block";
     }
 
@@ -64,7 +66,63 @@ setInterval(function()
     //Below code is for resizing connected website logos.
     //Write code to check for clientwidth of #rBG, and depending on that resizes both the logos
 
-},500);
+    //var sizeOfLogo = document.getElementById('githubLogo').clientHeight;
+    //console.log(sizeOfLogo);
+
+    var gL = window.getComputedStyle(document.getElementById('githubLogo'));
+    var gLPV = gL.getPropertyValue('width');
+    var gLPVS = gLPV.replace('px', '');
+    var currentSizeGit = parseInt(gLPVS);
+
+    var linkL = window.getComputedStyle(document.getElementById('linkedLogo'));
+    var linkLPV = linkL.getPropertyValue('width');
+    var linkLPVS = linkLPV.replace('px', '');
+    var currentSizeLink = parseInt(linkLPVS);
+
+    var initialSizeGit = 152;
+    var initialSizeLink = 190;
+
+    //linked logo resize
+
+    //console.log(currentSizeLink);
+    document.getElementById('linkedLogo').style.width = ((widthOfWindow / 14) + 60) + "px";
+
+    if(currentSizeLink < 90)
+    {
+        document.getElementById('linkedLogo').style.width = 90 + "px";
+    }
+
+    //github logo resize
+
+    console.log(currentSizeGit);
+    document.getElementById('githubLogo').style.width = ((widthOfWindow / 16) + 50) + "px";
+
+    if(currentSizeGit < 100)
+    {
+        document.getElementById('githubLogo').style.width = 80 + "px";
+    }
+
+    document.getElementById('githubLogo').style.width = ((widthOfWindow / 16) + 50) + "px";
+
+    //resizing the github logo position
+
+    var gMLPV = gL.getPropertyValue('margin-left');
+    var gMLPVS = gMLPV.replace('px', '');
+    var currentSizeMLGit = parseInt(gMLPVS);
+
+    document.getElementById('githubLogo').style.marginLeft = ((widthOfWindow / 5) + 30) + "px"
+
+    if(currentSizeGit < 100)
+    {
+        document.getElementById('githubLogo').style.marginLeft = (widthOfWindow / 6) - 20 + "px"
+    }
+
+    else if(currentSizeGit < 150)
+    {
+        document.getElementById('githubLogo').style.marginLeft = (widthOfWindow / 7) + 60 + "px"
+    }
+
+},50);
 
 //Keeps track of scrolling on the website and when to fade certain elements in.
 document.addEventListener('scroll', function(){
