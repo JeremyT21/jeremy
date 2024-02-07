@@ -92,6 +92,8 @@ setInterval(function()
         document.getElementById('linkedLogo').style.width = 90 + "px";
     }
 
+    document.getElementById('linkedLogo').style.width = ((widthOfWindow / 14) + 60) + "px";
+
     //github logo resize
 
     console.log(currentSizeGit);
