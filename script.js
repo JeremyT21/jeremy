@@ -85,16 +85,16 @@ setInterval(function()
     //linked logo resize
 
     //console.log(currentSizeLink);
-    //document.getElementById('linkedLogo').style.width = ((widthOfWindow / 14) + 60) + "px";
+    document.getElementById('linkedLogo').style.width = ((widthOfWindow / 14) + 60) + "px";
 
-    if(currentSizeLink < 90)
-    {
-        document.getElementById('linkedLogo').style.width = 90 + "px";
-    }
-    
-    else
+    if(currentSizeLink > 90)
     {
         document.getElementById('linkedLogo').style.width = ((widthOfWindow / 14) + 60) + "px";
+    }
+
+    else
+    {
+        document.getElementById('linkedLogo').style.width = 90 + "px";
     }
 
     //github logo resize
