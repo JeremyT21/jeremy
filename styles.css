@@ -15,7 +15,7 @@ body
 
 .subtitle
 {
-    font-family: 'Protest Strike';
+    font-family: 'Afacad';
     margin-top: -26px;
     color: #5692ad;
 }
@@ -223,4 +223,12 @@ p
     margin-bottom: 0%;
     padding-bottom: 2%;
     z-index: -1;
+}
+
+#profilePic
+{
+    width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -19,6 +19,8 @@ setInterval(function()
 setInterval(function()
 {
     var widthOfWindow = window.innerWidth;
+    var heightOfWindow = window.innerHeight;
+
 	var nameHeader = document.getElementById('name');
     console.log(widthOfWindow);
     nameHeader.style.fontSize = (widthOfWindow / 22) + "px";
@@ -49,7 +51,8 @@ setInterval(function()
 
     var sub = document.getElementById('subtitleHeader');
 
-    console.log(fontSizeNum);
+    //console.log(heightOfWindow);
+    //console.log(widthOfWindow);
 
     if(fontSizeNum < 30)
         sub.style.display = "none";
@@ -57,7 +60,7 @@ setInterval(function()
 
     else if(fontSizeNum > 30)
     {
-        sub.style.fontSize = (fontSizeNum - 15) + "px";
+        sub.style.fontSize = (fontSizeNum - 18) + "px";
         sub.style.display = "block";
     }
 
