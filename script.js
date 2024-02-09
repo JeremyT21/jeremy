@@ -87,18 +87,15 @@ setInterval(function()
 
     //linked logo resize
 
-    //console.log(currentSizeLink);
+    console.log(currentSizeLink);
     document.getElementById('linkedLogo').style.width = ((widthOfWindow / 14) + 60) + "px";
 
-    if(currentSizeLink > 90)
-    {
-        document.getElementById('linkedLogo').style.width = ((widthOfWindow / 14) + 60) + "px";
-    }
-
-    else
+    if(currentSizeLink < 90)
     {
         document.getElementById('linkedLogo').style.width = 90 + "px";
     }
+
+    document.getElementById('linkedLogo').style.width = ((widthOfWindow / 14) + 60) + "px";
 
     //github logo resize
 
