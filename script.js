@@ -13,7 +13,7 @@ setInterval(function()
     extraSpace = document.getElementById('belowMargin');
     extraSpace.style.height = (topBarHeight + 10) + "px";
     //console.log(topBarHeight);
-},500);
+},50);
 
 //Every half a second website resizes the relativity of page elements appropriately in reference to the header bar's text.
 setInterval(function()
