@@ -51,6 +51,46 @@ body
 	}
 }
 
+.slideL
+{
+    animation: slideL 2s;
+}
+
+@keyframes slideL
+{
+	from
+	{
+        opacity: 0;
+		margin-left: 100%;
+	}
+
+	to
+	{
+        opacity: 1;
+		margin-left: 68%;
+	}
+}
+
+.slideG
+{
+    animation: slideG 2s;
+}
+
+@keyframes slideG
+{
+	from
+	{
+        opacity: 0;
+		margin-left: 100%;
+	}
+
+	to
+	{
+        opacity: 1;
+		margin-left: 22%;
+	}
+}
+
 object
 {
     display: block;
@@ -231,4 +271,8 @@ p
     display: block;
     margin-left: auto;
     margin-right: auto;
+    border-color: black;
+    border-width: 6px;
+    border-style: solid;
+    border-radius: 8em;
 }
