@@ -82,6 +82,11 @@ setInterval(function()
     var linkLPVS = linkLPV.replace('px', '');
     var currentSizeLink = parseInt(linkLPVS);
 
+    var profL = window.getComputedStyle(document.getElementById('profilePic'));
+    var profLPV = profL.getPropertyValue('width');
+    var profLPVS = profLPV.replace('px', '');
+    var currentSizeProfile = parseInt(profLPVS);
+
     var initialSizeGit = 152;
     var initialSizeLink = 190;
 
@@ -108,6 +113,15 @@ setInterval(function()
     }
 
     document.getElementById('githubLogo').style.width = ((widthOfWindow / 16) + 50) + "px";
+
+    //picture of avatar resize
+
+    document.getElementById('profilePic').style.width = ((widthOfWindow / 10) + 100) + "px";
+
+    if(currentSizeProfile < 100)
+    {
+        document.getElementById('profilePic').style.width = 100 + "px";
+    }
 
     //resizing the github logo position
 
