@@ -163,6 +163,7 @@ setInterval(function()
     */
 
     //resizing timeline code
+    //inspired by code from: https://www.educative.io/answers/how-to-create-a-timeline-in-html
     if(widthOfWindow < 1490)
     {
         //Below code changes the text formatting of the left and right timeline elements so they are no longer in a timeline format
