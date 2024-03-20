@@ -52,7 +52,7 @@ setInterval(function()
     var sub = document.getElementById('subtitleHeader');
 
     //console.log(heightOfWindow);
-    //console.log("window width "+widthOfWindow);
+    console.log("window width "+widthOfWindow);
 
     //as if statements go down in the code, the lower if statements take priority
     if(fontSizeNum < 30)
@@ -90,6 +90,22 @@ setInterval(function()
     var profLPV = profL.getPropertyValue('width');
     var profLPVS = profLPV.replace('px', '');
     var currentSizeProfile = parseInt(profLPVS);
+
+    //screenshot sizes
+    var ss1L = window.getComputedStyle(document.getElementById('ss1'));
+    var ss1LPV = ss1L.getPropertyValue('width');
+    var ss1LPVS = ss1LPV.replace('px', '');
+    var currentSizeSS1 = parseInt(ss1LPVS);
+
+    var ss2L = window.getComputedStyle(document.getElementById('ss2'));
+    var ss2LPV = ss2L.getPropertyValue('width');
+    var ss2LPVS = ss2LPV.replace('px', '');
+    var currentSizeSS2 = parseInt(ss2LPVS);
+
+    var ss3L = window.getComputedStyle(document.getElementById('ss3'));
+    var ss3LPV = ss3L.getPropertyValue('width');
+    var ss3LPVS = ss3LPV.replace('px', '');
+    var currentSizeSS3 = parseInt(ss3LPVS);
 
     var initialSizeGit = 152;
     var initialSizeLink = 190;
@@ -144,7 +160,96 @@ setInterval(function()
     {
         document.getElementById('githubLogo').style.marginLeft = (widthOfWindow / 7) + 60 + "px"
     }
-*/
+    */
+
+    //resizing timeline code
+    if(widthOfWindow < 1490)
+    {
+        //Below code changes the text formatting of the left and right timeline elements so they are no longer in a timeline format
+        var leftElements = document.getElementsByClassName('timeline-item left');
+
+        //below loops go through left and right timeline events and remove the left position of each timeline event
+        //and change the font-size to be smaller for a smaller window width
+        for (var i = 0; i < leftElements.length; i++)
+        {
+            var leftContentElements = leftElements[i].getElementsByClassName('timeline-content');
+            var leftContentDescs = leftElements[i].getElementsByClassName('timeline-description');
+            for (var j = 0; j < leftContentElements.length; j++)
+            {
+                leftContentElements[j].style.left = 'auto';
+                leftContentDescs[j].style.fontSize = 17+"px";
+            }
+        }
+        
+        var rightElements = document.getElementsByClassName('timeline-item right');
+
+        for (var i = 0; i < rightElements.length; i++)
+        {
+            var rightContentElements = rightElements[i].getElementsByClassName('timeline-content');
+            var rightContentDescs = rightElements[i].getElementsByClassName('timeline-description');
+            for (var j = 0; j < rightContentElements.length; j++)
+            {
+                rightContentElements[j].style.left = 'auto';
+                rightContentDescs[j].style.fontSize = 17+"px";
+            }
+        }
+
+        //This line adds the timeline visual elements to hideElements in order to hide the timeline visuals
+        document.body.classList.add('hideElements');
+
+        //Below code checks the sizes of each screenshot and makes sure they're not too small even when the window is small
+        if(currentSizeSS1 < 250)
+            document.getElementById('ss1').style.width = 250 + "px";
+
+        if(currentSizeSS2 < 250)
+            document.getElementById('ss2').style.width = 260 + "px";
+
+        if(currentSizeSS3 < 250)
+            document.getElementById('ss3').style.width = 260 + "px";
+        
+    }
+
+    else
+    {
+        //Below code changes the text formatting of the left and right timeline elements so they are in a timeline format
+        var leftElements = document.getElementsByClassName('timeline-item left');
+
+        //below loops go through left and right timeline events and reset the left position of each timeline event
+        //and change the font-size to be bigger for a bigger window width
+        for (var i = 0; i < leftElements.length; i++)
+        {
+            var leftContentElements = leftElements[i].getElementsByClassName('timeline-content');
+            var leftContentDescs = leftElements[i].getElementsByClassName('timeline-description');
+            for (var j = 0; j < leftContentElements.length; j++)
+            {
+                leftContentElements[j].style.left = '65%';
+                leftContentDescs[j].style.fontSize = 25+"px";
+            }
+        }
+    
+        var rightElements = document.getElementsByClassName('timeline-item right');
+
+        for (var i = 0; i < rightElements.length; i++)
+        {
+            var rightContentElements = rightElements[i].getElementsByClassName('timeline-content');
+            var rightContentDescs = rightElements[i].getElementsByClassName('timeline-description');
+            for (var j = 0; j < rightContentElements.length; j++)
+            {
+                rightContentElements[j].style.left = '-10%';
+                rightContentDescs[j].style.fontSize = 25+"px";
+            }
+        }
+
+        //This line removes the timeline visual elements to hideElements in order to show the timeline visuals
+        document.body.classList.remove('hideElements');
+
+        //Below code sets the screenshots back to their normal sizes
+        document.getElementById('ss1').style.width = 50 + "%";
+        document.getElementById('ss2').style.width = 50 + "%";
+        document.getElementById('ss3').style.width = 50 + "%";
+    }
+    //end of resizing timeline
+
 },50);
 
 //Keeps track of scrolling on the website and when to fade certain elements in.

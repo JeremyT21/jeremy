@@ -117,7 +117,7 @@ h1
 {
     margin-top: 2%;
     text-align: center;
-    font-size: 35px;
+    font-size: 50px;
     letter-spacing: .1rem;
     font-family: 'Playfair Display';
     color: black;
@@ -276,3 +276,84 @@ p
     border-style: solid;
     border-radius: 9em;
 }
+
+/* TIMELINE STYLES */
+
+.hideElements *::after {
+    display: none;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #000;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+  
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+  
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    margin-left: -10px;
+}
+  
+.timeline-item.left .timeline-content {
+    left: 65%;
+}
+  
+.timeline-item.right .timeline-content {
+    left: -10%;
+}
+  
+.timeline-content {
+    position: relative;
+    left: 30px;
+}
+  
+.timeline-date {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: 'Playfair Display';
+}
+  
+.timeline-description {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-family: 'Afacad';
+}
+
+#ss1 {
+    width: 50%;
+}
+
+#ss2 {
+    width: 50%;
+}
+
+#ss3 {
+    width: 50%;
+}
+
+  /* END OF TIMELINE STYLES */
