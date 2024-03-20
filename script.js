@@ -177,6 +177,27 @@ setInterval(function()
         introP.style.fontSize = 20+"px";
     }
 
+    //resizing pdf
+    if(widthOfWindow < 1490)
+    {
+        var pdfTextObj = document.getElementById('pdfText');
+        var pdfTextLink = document.getElementById('pdfLink');
+        pdfTextObj.style.marginTop = -60+"px";
+        pdfTextObj.style.marginBottom = -4+"px";
+        pdfTextLink.style.fontSize = 18+"px";
+    }
+
+    else
+    {
+        var pdfTextObj = document.getElementById('pdfText');
+        var pdfTextLink = document.getElementById('pdfLink');
+        pdfTextObj.style.marginTop = 2+"%";
+        pdfTextObj.style.marginBottom = "auto";
+        pdfTextLink.style.fontSize = 25+"px";
+    }
+
+
+    //****************************
     //resizing timeline code
     //inspired by code from: https://www.educative.io/answers/how-to-create-a-timeline-in-html
     if(widthOfWindow < 1490)
@@ -288,6 +309,7 @@ setInterval(function()
         document.getElementById('ss3').style.width = 40 + "%";
     }
     //end of resizing timeline
+    //****************************
 
 },50);
 
