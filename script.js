@@ -183,7 +183,7 @@ setInterval(function()
     {
         //changing the position relativity of timeline header
         var tHeader = document.getElementById('timelineHeader');
-        tHeader.style.marginBottom = -25+"px";
+        tHeader.style.marginBottom = 0+"px";
         tHeader.style.fontSize = 25+"px";
 
         //Below code changes the text formatting of the left and right timeline elements so they are no longer in a timeline format
@@ -195,10 +195,14 @@ setInterval(function()
         {
             var leftContentElements = leftElements[i].getElementsByClassName('timeline-content');
             var leftContentDescs = leftElements[i].getElementsByClassName('timeline-description');
+            var leftContentDates = leftElements[i].getElementsByClassName('timeline-date');
             for (var j = 0; j < leftContentElements.length; j++)
             {
                 leftContentElements[j].style.left = 'auto';
-                leftContentDescs[j].style.fontSize = 17+"px";
+                leftContentElements[j].style.textAlign = "center";
+                leftContentDescs[j].style.marginTop = -5+"px";
+                leftContentDescs[j].style.fontSize = 12+"px";
+                leftContentDates[j].style.marginTop = -40+"px";
             }
         }
         
@@ -208,10 +212,14 @@ setInterval(function()
         {
             var rightContentElements = rightElements[i].getElementsByClassName('timeline-content');
             var rightContentDescs = rightElements[i].getElementsByClassName('timeline-description');
+            var rightContentDates = rightElements[i].getElementsByClassName('timeline-date');
             for (var j = 0; j < rightContentElements.length; j++)
             {
                 rightContentElements[j].style.left = 'auto';
-                rightContentDescs[j].style.fontSize = 17+"px";
+                rightContentElements[j].style.textAlign = "center";
+                rightContentDescs[j].style.marginTop = -5+"px";
+                rightContentDescs[j].style.fontSize = 12+"px";
+                rightContentDates[j].style.marginTop = -40+"px";
             }
         }
 
@@ -250,6 +258,8 @@ setInterval(function()
             for (var j = 0; j < leftContentElements.length; j++)
             {
                 leftContentElements[j].style.left = '65%';
+                leftContentElements[j].style.textAlign = "left";
+                leftContentDescs[j].style.marginTop = "auto";
                 leftContentDescs[j].style.fontSize = 25+"px";
             }
         }
@@ -263,6 +273,8 @@ setInterval(function()
             for (var j = 0; j < rightContentElements.length; j++)
             {
                 rightContentElements[j].style.left = '-10%';
+                rightContentElements[j].style.textAlign = "left";
+                rightContentDescs[j].style.marginTop = "auto";
                 rightContentDescs[j].style.fontSize = 25+"px";
             }
         }
@@ -271,9 +283,9 @@ setInterval(function()
         document.body.classList.remove('hideElements');
 
         //Below code sets the screenshots back to their normal sizes
-        document.getElementById('ss1').style.width = 50 + "%";
-        document.getElementById('ss2').style.width = 50 + "%";
-        document.getElementById('ss3').style.width = 50 + "%";
+        document.getElementById('ss1').style.width = 40 + "%";
+        document.getElementById('ss2').style.width = 40 + "%";
+        document.getElementById('ss3').style.width = 40 + "%";
     }
     //end of resizing timeline
 
