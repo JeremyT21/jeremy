@@ -143,6 +143,8 @@ setInterval(function()
         document.getElementById('profilePic').style.width = 100 + "px";
     }
 
+    document.getElementById('profilePic').style.width = ((widthOfWindow / 10) + 100) + "px";
+
     //resizing the github logo position
     var gMLPV = gL.getPropertyValue('margin-left');
     var gMLPVS = gMLPV.replace('px', '');
