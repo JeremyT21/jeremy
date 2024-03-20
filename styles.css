@@ -344,6 +344,10 @@ p
     font-family: 'Afacad';
 }
 
+#timelineHeader {
+    /*this style will be changed in js*/
+}
+
 #ss1 {
     width: 50%;
 }
