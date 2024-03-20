@@ -5,6 +5,8 @@ var extraSpace = document.getElementById('belowMargin');
 extraSpace.style.height = (topBarHeight / 8) + "%";
 //console.log(topBarHeight);
 
+var widthOutput = document.getElementById('widthOutput');
+widthOutput.innerText = window.innerWidth;
 //Every half a second website resizes the relativity of page elements appropriately in reference to the fixed position of the top bar.
 setInterval(function()
 {
