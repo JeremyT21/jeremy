@@ -136,14 +136,14 @@ setInterval(function()
 
     //picture of avatar resize
 
-    document.getElementById('profilePic').style.width = ((widthOfWindow / 10) + 100) + "px";
+    document.getElementById('profilePic').style.width = ((widthOfWindow / 10) + 80) + "px";
 
     if(currentSizeProfile < 100)
     {
         document.getElementById('profilePic').style.width = 100 + "px";
     }
 
-    document.getElementById('profilePic').style.width = ((widthOfWindow / 10) + 100) + "px";
+    document.getElementById('profilePic').style.width = ((widthOfWindow / 10) + 80) + "px";
 
     //resizing the github logo position
     var gMLPV = gL.getPropertyValue('margin-left');
