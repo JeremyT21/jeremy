@@ -5,8 +5,8 @@ var extraSpace = document.getElementById('belowMargin');
 extraSpace.style.height = (topBarHeight / 8) + "%";
 //console.log(topBarHeight);
 
-var widthOutput = document.getElementById('widthOutput');
-widthOutput.innerText = window.innerWidth;
+//var widthOutput = document.getElementById('widthOutput');
+//widthOutput.innerText = window.innerWidth;
 //Every half a second website resizes the relativity of page elements appropriately in reference to the fixed position of the top bar.
 setInterval(function()
 {
@@ -251,15 +251,26 @@ setInterval(function()
         //This line adds the timeline visual elements to hideElements in order to hide the timeline visuals
         document.body.classList.add('hideElements');
 
+        //Below code checks the sizes of each screenshot and makes sure they're not too small even when the window is very small
+        if(widthOfWindow < 900)
+        {
+            document.getElementById('ss1').style.width = 200 + "px";
+            document.getElementById('ss2').style.width = 200 + "px";
+            document.getElementById('ss3').style.width = 200 + "px";
+        }
+
         //Below code checks the sizes of each screenshot and makes sure they're not too small even when the window is small
-        if(currentSizeSS1 < 250)
-            document.getElementById('ss1').style.width = 250 + "px";
+        else
+        {
+            if (currentSizeSS1 < 250)
+                document.getElementById('ss1').style.width = 250 + "px";
 
-        if(currentSizeSS2 < 250)
-            document.getElementById('ss2').style.width = 260 + "px";
+            if(currentSizeSS2 < 250)
+                document.getElementById('ss2').style.width = 260 + "px";
 
-        if(currentSizeSS3 < 250)
-            document.getElementById('ss3').style.width = 260 + "px";
+            if(currentSizeSS3 < 250)
+                document.getElementById('ss3').style.width = 260 + "px";
+        }
         
     }
 
@@ -308,9 +319,9 @@ setInterval(function()
         document.body.classList.remove('hideElements');
 
         //Below code sets the screenshots back to their normal sizes
-        document.getElementById('ss1').style.width = 40 + "%";
-        document.getElementById('ss2').style.width = 40 + "%";
-        document.getElementById('ss3').style.width = 40 + "%";
+        document.getElementById('ss1').style.width = 50 + "%";
+        document.getElementById('ss2').style.width = 50 + "%";
+        document.getElementById('ss3').style.width = 50 + "%";
     }
     //end of resizing timeline
     //****************************
