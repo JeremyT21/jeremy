@@ -182,8 +182,10 @@ setInterval(function()
     {
         var pdfTextObj = document.getElementById('pdfText');
         var pdfTextLink = document.getElementById('pdfLink');
+        //changes positioning
         pdfTextObj.style.marginTop = -60+"px";
         pdfTextObj.style.marginBottom = -4+"px";
+        //changes size
         pdfTextLink.style.fontSize = 18+"px";
     }
 
