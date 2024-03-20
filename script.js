@@ -52,8 +52,9 @@ setInterval(function()
     var sub = document.getElementById('subtitleHeader');
 
     //console.log(heightOfWindow);
-    //console.log(widthOfWindow);
+    //console.log("window width "+widthOfWindow);
 
+    //as if statements go down in the code, the lower if statements take priority
     if(fontSizeNum < 30)
         sub.style.display = "none";
 
@@ -63,6 +64,9 @@ setInterval(function()
         sub.style.fontSize = (fontSizeNum - 18) + "px";
         sub.style.display = "block";
     }
+
+    if(widthOfWindow < 1300)
+        sub.style.display = "none";
 
     //console.log(fontSizeNum);
 
@@ -124,7 +128,6 @@ setInterval(function()
     }
 
     //resizing the github logo position
-
     var gMLPV = gL.getPropertyValue('margin-left');
     var gMLPVS = gMLPV.replace('px', '');
     var currentSizeMLGit = parseInt(gMLPVS);
@@ -136,11 +139,12 @@ setInterval(function()
         document.getElementById('githubLogo').style.marginLeft = (widthOfWindow / 6) - 20 + "px"
     }
 
+    /*
     else if(currentSizeGit < 150)
     {
         document.getElementById('githubLogo').style.marginLeft = (widthOfWindow / 7) + 60 + "px"
     }
-
+*/
 },50);
 
 //Keeps track of scrolling on the website and when to fade certain elements in.
