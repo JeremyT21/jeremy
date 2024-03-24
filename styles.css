@@ -267,6 +267,20 @@ p
 
 #profilePic
 {
+    content: url("images/avatar.png");
+    width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: black;
+    border-width: 6px;
+    border-style: solid;
+    border-radius: 9em;
+}
+
+#profilePic:hover
+{
+    content: url("images/profilePixelated.png");
     width: 20%;
     display: block;
     margin-left: auto;
@@ -278,19 +292,23 @@ p
 }
 
 /* TIMELINE STYLES */
+/* inspired by and using code from: https://www.educative.io/answers/how-to-create-a-timeline-in-html */
 
-.hideElements *::after {
+.hideElements *::after
+{
     display: none;
 }
 
-.timeline {
+.timeline
+{
     position: relative;
     max-width: 800px;
     margin: 0 auto;
     padding: 40px 20px;
   }
   
-.timeline::after {
+.timeline::after
+{
     content: '';
     position: absolute;
     width: 2px;
@@ -301,12 +319,14 @@ p
     margin-left: -1px;
 }
   
-.timeline-item {
+.timeline-item
+{
     position: relative;
     margin-bottom: 50px;
 }
   
-.timeline-item::after {
+.timeline-item::after
+{
     content: '';
     position: absolute;
     width: 20px;
@@ -318,45 +338,54 @@ p
     margin-left: -10px;
 }
   
-.timeline-item.left .timeline-content {
+.timeline-item.left .timeline-content
+{
     left: 65%;
 }
   
-.timeline-item.right .timeline-content {
+.timeline-item.right .timeline-content
+{
     left: -10%;
 }
   
-.timeline-content {
+.timeline-content
+{
     position: relative;
     left: 30px;
 }
   
-.timeline-date {
+.timeline-date
+{
     font-weight: bold;
     margin-bottom: 10px;
     font-size: 20px;
     font-family: 'Playfair Display';
 }
   
-.timeline-description {
+.timeline-description
+{
     margin-bottom: 10px;
     font-size: 25px;
     font-family: 'Afacad';
 }
 
-#timelineHeader {
+#timelineHeader
+{
     /*this style will be changed in js*/
 }
 
-#ss1 {
+#ss1
+{
     width: 50%;
 }
 
-#ss2 {
+#ss2
+{
     width: 50%;
 }
 
-#ss3 {
+#ss3
+{
     width: 50%;
 }
 
