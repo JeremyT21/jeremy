@@ -173,7 +173,7 @@ p
     text-align: center;
     position: fixed;
     background-color: #000000;
-    z-index: 2;
+    z-index: 3;
     padding-right: 35%;
     padding-left: 35%;
 }
@@ -209,7 +209,7 @@ p
 
 #githubLogo
 {
-    z-index: 3;
+    z-index: 4;
     position: fixed;
     width: 8%;
     margin-left: 25%;
@@ -226,7 +226,7 @@ p
 #githubLogo:hover
 {
     /*content: url("images/githubG.png");*/
-    z-index: 3;
+    z-index: 4;
     position: fixed;
     width: 8%;
     margin-left: 25%;
@@ -317,6 +317,7 @@ p
     bottom: 0;
     left: 50%;
     margin-left: -1px;
+    z-index: 1;
 }
   
 .timeline-item
@@ -324,18 +325,40 @@ p
     position: relative;
     margin-bottom: 50px;
 }
-  
+
+/* Code for timeline circles below */
 .timeline-item::after
 {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background-color: #000;
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
     border-radius: 50%;
-    top: 0;
+    top: 60;
     left: 50%;
-    margin-left: -10px;
+    margin-left: -9px; /* Change this value according to width and height to make it visually appealing. */
+    z-index: 2;
+    transition:
+        width 0.5s ease,
+        height 0.5s ease,
+        margin-left 0.5s ease,
+        background-color 0.5s ease,
+        border-color 0.5s ease,
+        top 1s ease;
+}
+
+/* Code that changes the appearence of the timeline circle when hovering an event is below */
+.timeline-item:hover::after {
+    width: 25px;
+    height: 25px;
+    margin-left: -14px;
+    background-color: #e0e0e0;
+    border-color: #000;
+    top: 300;
 }
   
 .timeline-item.left .timeline-content
@@ -405,4 +428,35 @@ p
     font-family: 'Afacad';
     font-size: 20px;
 }
+
+.javaLogo
+{
+    width: 4.5%;
+}
+
+.htmlLogo
+{
+    width: 5%;
+}
+
+.cssLogo
+{
+    width: 4.5%;
+}
+
+.jsLogo
+{
+    width: 5%;
+}
+
+.cLogo
+{
+    width: 5%;
+}
+
+.pythonLogo
+{
+    width: 5%;
+}
+
   /* END OF TIMELINE STYLES */
