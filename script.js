@@ -146,16 +146,16 @@ setInterval(function()
     document.getElementById('profilePic').style.width = ((widthOfWindow / 10) + 80) + "px";
 
     //resizing the github logo position
-    var gMLPV = gL.getPropertyValue('margin-left');
-    var gMLPVS = gMLPV.replace('px', '');
-    var currentSizeMLGit = parseInt(gMLPVS);
+    // var gMLPV = gL.getPropertyValue('margin-left');
+    // var gMLPVS = gMLPV.replace('px', '');
+    // var currentSizeMLGit = parseInt(gMLPVS);
 
-    document.getElementById('githubLogo').style.marginLeft = ((widthOfWindow / 5) + 30) + "px"
+    // document.getElementById('githubLogo').style.marginLeft = ((widthOfWindow / 5) + 30) + "px"
 
-    if(currentSizeGit < 100)
-    {
-        document.getElementById('githubLogo').style.marginLeft = (widthOfWindow / 6) - 20 + "px"
-    }
+    // if(currentSizeGit < 100)
+    // {
+    //     document.getElementById('githubLogo').style.marginLeft = (widthOfWindow / 6) - 20 + "px"
+    // }
 
     /*
     else if(currentSizeGit < 150)
