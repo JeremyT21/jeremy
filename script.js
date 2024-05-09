@@ -5,6 +5,10 @@ var extraSpace = document.getElementById('belowMargin');
 extraSpace.style.height = (topBarHeight / 8) + "%";
 //console.log(topBarHeight);
 
+//Slowing the background speed
+let bgVideo = document.getElementById("videoBackground");
+bgVideo.playbackRate = 0.8;
+
 //Every half a second website resizes the relativity of page elements appropriately in reference to the fixed position of the top bar.
 setInterval(function()
 {
