@@ -205,9 +205,12 @@ setInterval(function()
 
     //****************************
     //resizing timeline code
-    //inspired by code from: https://www.educative.io/answers/how-to-create-a-timeline-in-html
     if(widthOfWindow < 1490)
     {
+        //changing email text size in intro of website
+        var emailElement = document.getElementById('email');
+        emailElement.style.fontSize = 15+"px";
+
         //changing the position relativity of timeline header
         var tHeader = document.getElementById('timelineHeader');
         tHeader.style.marginBottom = 0+"px";
@@ -283,6 +286,9 @@ setInterval(function()
         var tHeader = document.getElementById('timelineHeader');
         tHeader.style.marginBottom = 10+"px";
         tHeader.style.fontSize = 50+"px";
+
+        var emailElement = document.getElementById('email');
+        emailElement.style.fontSize = 25+"px";
 
         //Below code changes the text formatting of the left and right timeline elements so they are in a timeline format
         var leftElements = document.getElementsByClassName('timeline-item left');
