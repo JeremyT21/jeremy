@@ -203,6 +203,21 @@ setInterval(function()
         pdfTextLink.style.fontSize = 25+"px";
     }
 
+    //resizing joke hint text
+    if(widthOfWindow < 1490)
+    {
+        var hintText = document.getElementById('jokeTry');
+        hintText.style.fontSize = 16+"px";
+        hintText.style.marginBottom = 2.6+"%";
+    }
+
+    else
+    {
+        var hintText = document.getElementById('jokeTry');
+        hintText.style.fontSize = 20+"px";
+        hintText.style.marginBottom = 0.6+"%";
+        hintText.style.marginTop = -2.8+"%";
+    }
 
     //****************************
     //resizing timeline code
@@ -366,6 +381,11 @@ document.addEventListener('scroll', function(){
 var animationAlreadyRunning = false;
 function jokeActive()
 {
+    //the below code fades out the text hinting the user to initiate the joke animation
+    var tryJoke = document.getElementById('jokeTry');
+    tryJoke.style.opacity = 0;
+    tryJoke.style.transition = 'opacity 1s ease';
+
     //the below if statement makes sure there isn't an occurence of the animation already running
     if (!animationAlreadyRunning)
     {

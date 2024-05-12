@@ -16,7 +16,8 @@ body
     text-shadow: 1px 1px 2px black;
 }
 
-.subtitle {
+.subtitle
+{
     /*reset the position*/
     left: 0;
     right: 0;
@@ -27,6 +28,19 @@ body
     text-align: center;
     padding-top: 1.5%;
     z-index: 4;
+}
+
+#jokeTry
+{
+    font-family: 'Afacad';
+    color: #000000;
+    position: relative;
+    text-align: center;
+    margin-top: -2.8%;
+    margin-bottom: 0.6%;
+    z-index: 4;
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 
 .bodyText
