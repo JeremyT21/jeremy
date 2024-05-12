@@ -6,6 +6,9 @@ body
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
+
+    /*below code hides the scroll bar from appearing when the duck flies across the screen*/
+    overflow-x: hidden;
 }
 
 .shadow
@@ -151,6 +154,12 @@ p
 #pdf
 {
     /*opacity: 0;*/
+}
+
+#jokeGif
+{
+    position: absolute;
+    left: -350px;
 }
 
 #githubLogo

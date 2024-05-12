@@ -2,6 +2,7 @@
 var topBar = document.getElementById('header');
 var topBarHeight = topBar.clientHeight;
 var extraSpace = document.getElementById('belowMargin');
+var widthOfWindow;
 extraSpace.style.height = (topBarHeight / 8) + "%";
 //console.log(topBarHeight);
 
@@ -22,7 +23,7 @@ setInterval(function()
 //Every half a second website resizes the relativity of page elements appropriately in reference to the header bar's text.
 setInterval(function()
 {
-    var widthOfWindow = window.innerWidth;
+    widthOfWindow = window.innerWidth;
     var heightOfWindow = window.innerHeight;
 
 	var nameHeader = document.getElementById('name');
@@ -361,3 +362,35 @@ document.addEventListener('scroll', function(){
     }
     */
 });
+
+var animationAlreadyRunning = false;
+function jokeActive()
+{
+    //the below if statement makes sure there isn't an occurence of the animation already running
+    if (!animationAlreadyRunning)
+    {
+        var flyingComputer = document.getElementById("jokeGif");
+        var styleAttributesOfJoke = window.getComputedStyle(flyingComputer);
+        var leftValue = styleAttributesOfJoke.getPropertyValue('left');
+        var leftValueInt = parseInt(leftValue);
+        var widthOfWindow = window.innerWidth;
+        
+        animationAlreadyRunning = true; //the animation starts
+        
+        var currentAnimation = setInterval(function(){
+            if (leftValueInt < widthOfWindow + 350)
+            {
+                flyingComputer.style.left = leftValueInt + "px";
+                leftValueInt += 4;//changes how many pixels the gif moves by
+                console.log("moving gif*******************************");
+            }
+            
+            else
+            {
+                flyingComputer.style.left = parseInt(leftValue) + "px";
+                clearInterval(currentAnimation); //now the previous occurence of the gif is destroyed so the website won't flicker the gif the next time the function runs
+                animationAlreadyRunning = false; //the animation is finished running
+            }
+        }, 20);//changes the speed at which the gif moves
+    }
+}
