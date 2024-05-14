@@ -490,3 +490,24 @@ p
 {
     animation: slidingInL 2s ease-in-out;
 }
+
+/* below code are styles for desktop only or phone only content (decided by pixel width of screen) */
+/* desktop only */
+@media screen and (max-width: 768px)
+{
+    .desktopOnly
+    {
+      visibility: hidden;
+      display: none;
+    }
+}
+
+/* phone only */
+@media screen and (min-width: 992px)
+{
+    .phoneOnly
+    {
+      visibility: hidden;
+      display: none;
+    }
+}
