@@ -236,6 +236,7 @@ p
     border-radius: 9em;
 }
 
+/* for laptop screens */
 #resume
 {
     content: url("images/JeremyThummel_Resume_2024_May_blur.png");
@@ -249,6 +250,14 @@ p
     display: block;
     transition:
         object-position 1.5s ease;
+}
+
+/* for slim / phone screens */
+#phoneViewResume
+{
+    content: url("images/JeremyThummel_Resume_2024_May.png");
+    width: 70%;
+    height: auto;
 }
 
 #resume:hover

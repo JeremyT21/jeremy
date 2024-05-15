@@ -192,6 +192,9 @@ setInterval(function()
         pdfTextObj.style.marginBottom = -4+"px";
         //changes size
         pdfTextLink.style.fontSize = 18+"px";
+
+        //changing actual pdf image
+        document.getElementById("resume").id = "phoneViewResume";
     }
 
     else
@@ -201,6 +204,8 @@ setInterval(function()
         pdfTextObj.style.marginTop = 2+"%";
         pdfTextObj.style.marginBottom = "auto";
         pdfTextLink.style.fontSize = 25+"px";
+
+        document.getElementById("phoneViewResume").id = "resume";
     }
 
     //resizing joke hint text
@@ -401,7 +406,7 @@ function jokeActive()
             if (leftValueInt < widthOfWindow + 350)
             {
                 flyingComputer.style.left = leftValueInt + "px";
-                leftValueInt += 4;//changes how many pixels the gif moves by
+                leftValueInt += 2;//changes how many pixels the gif moves by
                 console.log("moving gif*******************************");
             }
             
@@ -411,6 +416,6 @@ function jokeActive()
                 clearInterval(currentAnimation); //now the previous occurence of the gif is destroyed so the website won't flicker the gif the next time the function runs
                 animationAlreadyRunning = false; //the animation is finished running
             }
-        }, 20);//changes the speed at which the gif moves
+        }, 10);//changes the speed at which the gif moves
     }
 }
