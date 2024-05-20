@@ -11,6 +11,26 @@ body
     overflow-x: hidden;
 }
 
+img
+{
+    border-radius: 7.5px;
+}
+
+.imgZoom
+{
+    transition: transform 0.5s;
+}
+
+.imgZoom:hover
+{
+    transform: scale(1.05);
+}
+
+video
+{
+    border-radius: 7.5px;
+}
+
 .shadow
 {
     text-shadow: 1px 1px 2px black;
@@ -32,6 +52,7 @@ body
 
 #jokeTry
 {
+    /*
     font-family: 'Afacad';
     color: #000000;
     position: relative;
@@ -41,6 +62,8 @@ body
     z-index: 4;
     opacity: 1;
     transition: opacity 1s ease;
+    */
+    display: none;
 }
 
 .bodyText
@@ -133,7 +156,7 @@ p
     text-align: center;
     position: fixed;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #000000;
     width: 100%;
@@ -398,6 +421,11 @@ p
     width: 50%;
 }
 
+#ssF
+{
+    width: 30%;
+}
+
 .codingLanguages
 {
     font-style: italic;
@@ -413,6 +441,11 @@ p
 .htmlLogo
 {
     width: 5%;
+}
+
+.phaserLogo
+{
+    width: 6.5%;
 }
 
 .cssLogo
@@ -435,6 +468,25 @@ p
     width: 5%;
 }
 
+.phaserLogoF
+{
+    width: 4.5%;
+}
+
+.htmlLogoF
+{
+    width: 3.5%;
+}
+
+.cssLogoF
+{
+    width: 3.2%;
+}
+
+.jsLogoF
+{
+    width: 3.5%;
+}
 /* END OF TIMELINE STYLES */
 
 /* ANIMTATIONS */
@@ -506,8 +558,8 @@ p
 {
     .desktopOnly
     {
-      visibility: hidden;
-      display: none;
+        visibility: hidden;
+        display: none;
     }
 }
 
@@ -516,7 +568,7 @@ p
 {
     .phoneOnly
     {
-      visibility: hidden;
-      display: none;
+        visibility: hidden;
+        display: none;
     }
 }

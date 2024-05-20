@@ -387,9 +387,12 @@ var animationAlreadyRunning = false;
 function jokeActive()
 {
     //the below code fades out the text hinting the user to initiate the joke animation
-    var tryJoke = document.getElementById('jokeTry');
-    tryJoke.style.opacity = 0;
-    tryJoke.style.transition = 'opacity 1s ease';
+    if(document.getElementById('jokeTry'))
+    {
+        var tryJoke = document.getElementById('jokeTry');
+        tryJoke.style.opacity = 0;
+        tryJoke.style.transition = 'opacity 1s ease';
+    }
 
     //the below if statement makes sure there isn't an occurence of the animation already running
     if (!animationAlreadyRunning)
