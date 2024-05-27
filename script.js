@@ -112,6 +112,16 @@ setInterval(function()
     var ss3LPVS = ss3LPV.replace('px', '');
     var currentSizeSS3 = parseInt(ss3LPVS);
 
+    var ss4L = window.getComputedStyle(document.getElementById('ss4'));
+    var ss4LPV = ss4L.getPropertyValue('width');
+    var ss4LPVS = ss4LPV.replace('px', '');
+    var currentSizeSS4 = parseInt(ss4LPVS);
+
+    var ss5L = window.getComputedStyle(document.getElementById('ss5'));
+    var ss5LPV = ss5L.getPropertyValue('width');
+    var ss5LPVS = ss5LPV.replace('px', '');
+    var currentSizeSS5 = parseInt(ss5LPVS);
+
     var initialSizeGit = 152;
     var initialSizeLink = 190;
 
@@ -283,6 +293,8 @@ setInterval(function()
             document.getElementById('ss1').style.width = 200 + "px";
             document.getElementById('ss2').style.width = 200 + "px";
             document.getElementById('ss3').style.width = 200 + "px";
+            document.getElementById('ss4').style.width = 200 + "px";
+            document.getElementById('ss5').style.width = 200 + "px";
         }
 
         //Below code checks the sizes of each screenshot and makes sure they're not too small even when the window is small
@@ -296,6 +308,12 @@ setInterval(function()
 
             if(currentSizeSS3 < 250)
                 document.getElementById('ss3').style.width = 260 + "px";
+
+            if(currentSizeSS4 < 250)
+                document.getElementById('ss4').style.width = 260 + "px";
+
+            if(currentSizeSS5 < 250)
+                document.getElementById('ss5').style.width = 260 + "px";
         }
         
     }
@@ -349,6 +367,8 @@ setInterval(function()
 
         //Below code sets the screenshots back to their normal sizes
         document.getElementById('ss1').style.width = 50 + "%";
+        document.getElementById('ss2').style.width = 50 + "%";
+        document.getElementById('ss3').style.width = 50 + "%";
         document.getElementById('ss2').style.width = 50 + "%";
         document.getElementById('ss3').style.width = 50 + "%";
     }
