@@ -11,6 +11,15 @@ body
     overflow-x: hidden;
 }
 
+hr
+{
+    background-color: #000000;
+    height: 2px;
+    width: 400px;
+    border-style: none;
+    margin-bottom: -20px;
+}
+
 img
 {
     border-radius: 7.5px;
@@ -427,6 +436,11 @@ p
     width: 30%;
 }
 
+#diagramSS
+{
+    width: 40%;
+}
+
 .codingLanguages
 {
     font-style: italic;
@@ -488,6 +502,22 @@ p
 {
     width: 3.5%;
 }
+
+.drawLogoF
+{
+    width: 3.5%;
+}
+
+.lucLogoF
+{
+    width: 3.5%;
+}
+
+.visLogoF
+{
+    width: 3.5%;
+}
+
 /* END OF TIMELINE STYLES */
 
 /* ANIMTATIONS */
