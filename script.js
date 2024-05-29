@@ -369,8 +369,8 @@ setInterval(function()
         document.getElementById('ss1').style.width = 50 + "%";
         document.getElementById('ss2').style.width = 50 + "%";
         document.getElementById('ss3').style.width = 50 + "%";
-        document.getElementById('ss2').style.width = 50 + "%";
-        document.getElementById('ss3').style.width = 50 + "%";
+        document.getElementById('ss4').style.width = 50 + "%";
+        document.getElementById('ss5').style.width = 50 + "%";
     }
     //end of resizing timeline
     //****************************
