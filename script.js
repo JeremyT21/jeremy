@@ -122,6 +122,11 @@ setInterval(function()
     var ss5LPVS = ss5LPV.replace('px', '');
     var currentSizeSS5 = parseInt(ss5LPVS);
 
+    var ssDL = window.getComputedStyle(document.getElementById('diagramSS'));
+    var ssDLPV = ssDL.getPropertyValue('width');
+    var ssDLPVS = ssDLPV.replace('px', '');
+    var currentSizeSSD = parseInt(ssDLPVS);
+
     var initialSizeGit = 152;
     var initialSizeLink = 190;
 
@@ -247,6 +252,15 @@ setInterval(function()
         tHeader.style.marginBottom = 0+"px";
         tHeader.style.fontSize = 25+"px";
 
+        //changing the position relativity of additional header and projects
+        var aHeader = document.getElementById('addHeader');
+        aHeader.style.marginBottom = -25+"px";
+        aHeader.style.marginTop = 5+"px";
+        aHeader.style.fontSize = 22+"px";
+
+        var dPrj = document.getElementById('diagramPrj');
+        dPrj.style.fontSize = 12+"px";
+
         //Below code changes the text formatting of the left and right timeline elements so they are no longer in a timeline format
         var leftElements = document.getElementsByClassName('timeline-item left');
 
@@ -295,6 +309,7 @@ setInterval(function()
             document.getElementById('ss3').style.width = 200 + "px";
             document.getElementById('ss4').style.width = 200 + "px";
             document.getElementById('ss5').style.width = 200 + "px";
+            document.getElementById('diagramSS').style.width = 200 + "px";
         }
 
         //Below code checks the sizes of each screenshot and makes sure they're not too small even when the window is small
@@ -314,6 +329,9 @@ setInterval(function()
 
             if(currentSizeSS5 < 250)
                 document.getElementById('ss5').style.width = 260 + "px";
+
+            if(currentSizeSSD < 250)
+                document.getElementById('diagramSS').style.width = 260 + "px";
         }
         
     }
@@ -325,6 +343,14 @@ setInterval(function()
         var tHeader = document.getElementById('timelineHeader');
         tHeader.style.marginBottom = 10+"px";
         tHeader.style.fontSize = 50+"px";
+
+        //changing the position relativity of timeline header
+        var aHeader = document.getElementById('addHeader');
+        aHeader.style.marginBottom = 10+"px";
+        aHeader.style.fontSize = 50+"px";
+
+        var dPrj = document.getElementById('diagramPrj');
+        dPrj.style.fontSize = 25+"px";
 
         var emailElement = document.getElementById('email');
         emailElement.style.fontSize = 25+"px";
@@ -371,6 +397,7 @@ setInterval(function()
         document.getElementById('ss3').style.width = 50 + "%";
         document.getElementById('ss4').style.width = 50 + "%";
         document.getElementById('ss5').style.width = 50 + "%";
+        document.getElementById('diagramSS').style.width = 50 + "%";
     }
     //end of resizing timeline
     //****************************
