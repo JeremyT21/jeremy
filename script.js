@@ -309,7 +309,7 @@ setInterval(function()
             document.getElementById('ss3').style.width = 200 + "px";
             document.getElementById('ss4').style.width = 200 + "px";
             document.getElementById('ss5').style.width = 200 + "px";
-            document.getElementById('diagramSS').style.width = 200 + "px";
+            document.getElementById('diagramSS').style.width = 240 + "px";
         }
 
         //Below code checks the sizes of each screenshot and makes sure they're not too small even when the window is small
