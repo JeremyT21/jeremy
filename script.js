@@ -188,7 +188,7 @@ setInterval(function()
     if(widthOfWindow < 1490)
     {
         var introP = document.getElementById('intro');
-        introP.style.fontSize = 12+"px";
+        introP.style.fontSize = 15+"px";
     }
 
     else
@@ -245,7 +245,7 @@ setInterval(function()
     {
         //changing email text size in intro of website
         var emailElement = document.getElementById('email');
-        emailElement.style.fontSize = 15+"px";
+        emailElement.style.fontSize = 20+"px";
 
         //changing the position relativity of timeline header
         var tHeader = document.getElementById('timelineHeader');
@@ -259,7 +259,7 @@ setInterval(function()
         aHeader.style.fontSize = 22+"px";
 
         var dPrj = document.getElementById('diagramPrj');
-        dPrj.style.fontSize = 12+"px";
+        dPrj.style.fontSize = 15+"px";
 
         //Below code changes the text formatting of the left and right timeline elements so they are no longer in a timeline format
         var leftElements = document.getElementsByClassName('timeline-item left');
@@ -276,7 +276,7 @@ setInterval(function()
                 leftContentElements[j].style.left = 'auto';
                 leftContentElements[j].style.textAlign = "center";
                 leftContentDescs[j].style.marginTop = -5+"px";
-                leftContentDescs[j].style.fontSize = 12+"px";
+                leftContentDescs[j].style.fontSize = 15+"px";
                 leftContentDates[j].style.marginTop = -40+"px";
             }
         }
@@ -293,7 +293,7 @@ setInterval(function()
                 rightContentElements[j].style.left = 'auto';
                 rightContentElements[j].style.textAlign = "center";
                 rightContentDescs[j].style.marginTop = -5+"px";
-                rightContentDescs[j].style.fontSize = 12+"px";
+                rightContentDescs[j].style.fontSize = 15+"px";
                 rightContentDates[j].style.marginTop = -40+"px";
             }
         }
