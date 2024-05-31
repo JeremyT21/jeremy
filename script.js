@@ -245,7 +245,7 @@ setInterval(function()
     {
         //changing email text size in intro of website
         var emailElement = document.getElementById('email');
-        emailElement.style.fontSize = 17+"px";
+        emailElement.style.fontSize = 16+"px";
 
         //changing the position relativity of timeline header
         var tHeader = document.getElementById('timelineHeader');
