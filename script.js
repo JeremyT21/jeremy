@@ -301,15 +301,71 @@ setInterval(function()
         //This line adds the timeline visual elements to hideElements in order to hide the timeline visuals
         document.body.classList.add('hideElements');
 
-        //Below code checks the sizes of each screenshot and makes sure they're not too small even when the window is very small
+        //Below code checks the sizes of each screenshot and software logo and makes sure they're not too small even when the window is very small
         if(widthOfWindow < 900)
         {
+            //Screenshots
             document.getElementById('ss1').style.width = 200 + "px";
             document.getElementById('ss2').style.width = 200 + "px";
             document.getElementById('ss3').style.width = 200 + "px";
             document.getElementById('ss4').style.width = 200 + "px";
             document.getElementById('ss5').style.width = 200 + "px";
             document.getElementById('diagramSS').style.width = 200 + "px";
+
+            //Logos
+            var javaClassList = document.getElementsByClassName('javaLogo');
+            for (var j = 0; j < javaClassList.length; j++)
+            {
+                javaClassList[j].style.width = 9 + "%";
+            }
+
+            var htmlClassList = document.getElementsByClassName('htmlLogo');
+            for (var j = 0; j < htmlClassList.length; j++)
+            {
+                htmlClassList[j].style.width = 9 + "%";
+            }
+
+            var cssClassList = document.getElementsByClassName('cssLogo');
+            for (var j = 0; j < cssClassList.length; j++)
+            {
+                cssClassList[j].style.width = 8 + "%";
+            }
+
+            var jsClassList = document.getElementsByClassName('jsLogo');
+            for (var j = 0; j < jsClassList.length; j++)
+            {
+                jsClassList[j].style.width = 9 + "%";
+            }
+
+            var cClassList = document.getElementsByClassName('cLogo');
+            for (var j = 0; j < cClassList.length; j++)
+            {
+                cClassList[j].style.width = 9 + "%";
+            }
+
+            var pythonClassList = document.getElementsByClassName('pythonLogo');
+            for (var j = 0; j < pythonClassList.length; j++)
+            {
+                pythonClassList[j].style.width = 10 + "%";
+            }
+
+            var visClassList = document.getElementsByClassName('visLogoF');
+            for (var j = 0; j < visClassList.length; j++)
+            {
+                visClassList[j].style.width = 8 + "%";
+            }
+
+            var lucClassList = document.getElementsByClassName('lucLogoF');
+            for (var j = 0; j < lucClassList.length; j++)
+            {
+                lucClassList[j].style.width = 8 + "%";
+            }
+
+            var drawClassList = document.getElementsByClassName('drawLogoF');
+            for (var j = 0; j < pythonClassList.length; j++)
+            {
+                drawClassList[j].style.width = 8 + "%";
+            }
         }
 
         //Below code checks the sizes of each screenshot and makes sure they're not too small even when the window is small
@@ -391,13 +447,68 @@ setInterval(function()
         //This line removes the timeline visual elements to hideElements in order to show the timeline visuals
         document.body.classList.remove('hideElements');
 
-        //Below code sets the screenshots back to their normal sizes
+        //Below code sets the screenshots and logos back to their normal sizes
         document.getElementById('ss1').style.width = 50 + "%";
         document.getElementById('ss2').style.width = 50 + "%";
         document.getElementById('ss3').style.width = 50 + "%";
         document.getElementById('ss4').style.width = 50 + "%";
         document.getElementById('ss5').style.width = 50 + "%";
         document.getElementById('diagramSS').style.width = 50 + "%";
+
+        //Logos
+        var javaClassList = document.getElementsByClassName('javaLogo');
+        for (var j = 0; j < javaClassList.length; j++)
+        {
+            javaClassList[j].style.width = 4.5 + "%";
+        }
+
+        var htmlClassList = document.getElementsByClassName('htmlLogo');
+        for (var j = 0; j < htmlClassList.length; j++)
+        {
+            htmlClassList[j].style.width = 5 + "%";
+        }
+
+        var cssClassList = document.getElementsByClassName('cssLogo');
+        for (var j = 0; j < cssClassList.length; j++)
+        {
+            cssClassList[j].style.width = 4.5 + "%";
+        }
+
+        var jsClassList = document.getElementsByClassName('jsLogo');
+        for (var j = 0; j < jsClassList.length; j++)
+        {
+            jsClassList[j].style.width = 5 + "%";
+        }
+
+        var cClassList = document.getElementsByClassName('cLogo');
+        for (var j = 0; j < cClassList.length; j++)
+        {
+            cClassList[j].style.width = 5 + "%";
+        }
+
+        var pythonClassList = document.getElementsByClassName('pythonLogo');
+        for (var j = 0; j < pythonClassList.length; j++)
+        {
+            pythonClassList[j].style.width = 5 + "%";
+        }
+
+        var visClassList = document.getElementsByClassName('visLogoF');
+        for (var j = 0; j < visClassList.length; j++)
+        {
+            visClassList[j].style.width = 3.5 + "%";
+        }
+
+        var lucClassList = document.getElementsByClassName('lucLogoF');
+        for (var j = 0; j < lucClassList.length; j++)
+        {
+            lucClassList[j].style.width = 3.5 + "%";
+        }
+
+        var drawClassList = document.getElementsByClassName('drawLogoF');
+        for (var j = 0; j < pythonClassList.length; j++)
+        {
+            drawClassList[j].style.width = 3.5 + "%";
+        }
     }
     //end of resizing timeline
     //****************************
