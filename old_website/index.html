@@ -1,0 +1,225 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremy Thummel</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad&family=Playfair+Display&family=Protest+Strike&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/jLetterFav.ico" style="border-radius: 10px;">
+
+</head>
+<body>
+    <!-- example of code embeding:
+            <embed src="https://jeremyt21.github.io/jeremy/ABYSS/SUMMATIVEICS3U/finalGame/index.html" style="width:500px; height: 300px; display: block; margin-left: auto; margin-right: auto;">
+    --> 
+
+    <video muted autoplay loop id="videoBackground"><source src="videos/bg.mp4" type="video/mp4"></video>
+
+    <div id="header">
+        <a href="https://github.com/JeremyT21"><img src="images/githubW.png" id="githubLogo" class="slideInLeft"></a>
+        <h1 class="fadingIn" style="margin-bottom: 2%;" id="name">JEREMY THUMMEL</h1>
+        <a href="https://www.linkedin.com/in/jeremy-thummel"><img src="images/linkedinW.png" id="linkedLogo" class="slideInRight"></a>
+    </div>
+    <br>
+    <p class="subtitle fadingInSlower" id="subtitleHeader">Full Stack Software Developer | BSc (Hons) Co-op Student</p>
+        
+    <div id="rBG">
+        <div id="belowMargin"></div>
+
+        <p class="fadingIn" id="jokeTry">Try clicking my picture!</p>
+        <img src="images/avatar.png" id="profilePic" class="imgZoom" onclick="jokeActive()">
+        <br>
+        <img src="images/acrossScreenJoke.gif" id="jokeGif">
+
+        <p class="fadingIn" id="intro">
+            Hi! My name is Jeremy Thummel, I am pursuing a Bachelor's in Computer Science
+            <br>
+            with Honours at Ontario Tech University. I am seeking industry experience,
+            <br>
+            and I am a part of Ontario Tech's co-op program.
+            <br>
+            ⸺
+            <br>
+            On this website you will find various programming projects 
+            <br>
+            I have worked on, demonstrating my passion for coding and my abilities.
+            <br>
+            While browsing my site, if you want to learn more about a project just click on it!
+            <br>
+            Feel free to reach me any time at <a href= "mailto: thummeljeremy@gmail.com" id="email" class="shadow">thummeljeremy@gmail.com.</a>
+        </p>
+
+        <!-- START OF TIMELINE -->
+        <!-- inspired by and using code from: https://www.educative.io/answers/how-to-create-a-timeline-in-html -->
+        <h1 id="timelineHeader">TIMELINE</h1>
+        <div class="timeline">
+            
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <a href="https://github.com/JeremyT21/Align4_Video_Game" target="_blank">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-description">
+                            <video muted autoplay loop id="ss5" class="imgZoom"><source src="images/testFootageFinalAssignment2024.mp4" type="video/mp4"></video>
+                            <br><br>
+                            Developed a Connect 4 styled<br>video game utilizing WebSockets for<br>client-server communication, so friends<br>can play together locally online.
+                        </div>
+                    </a>
+                    <div class="codingLanguages">
+                        <img src="images/java_logo.png" class="javaLogo">
+                        <img src="images/html_logo.png" class="htmlLogo">
+                        <img src="images/js_logo.png" class="jsLogo">
+                        <img src="images/css_logo.png" class="cssLogo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <a href="https://github.com/JeremyT21/ChatNow_Chat_Room_Platform" target="_blank">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-description">
+                            <img src="images/chatRoomSSsmall.png" id="ss4" class="imgZoom">
+                            <br><br>
+                            Constructed a platform using WebSockets<br>providing users the ability<br>to connect with each other via<br>locally hosted chat rooms.
+                        </div>
+                    </a>
+                    <div class="codingLanguages">
+                        <img src="images/java_logo.png" class="javaLogo">
+                        <img src="images/html_logo.png" class="htmlLogo">
+                        <img src="images/js_logo.png" class="jsLogo">
+                        <img src="images/css_logo.png" class="cssLogo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <a href="https://github.com/JeremyT21/SpamDetection_API" target="_blank">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-description">
+                            <img src="images/restAPIss.png" id="ss1" class="imgZoom">
+                            <br><br>
+                            Created a Restful API<br>containing a specially developed<br>algorithm trained<br>to detect email spam.
+                        </div>
+                    </a>
+                    <div class="codingLanguages">
+                        <img src="images/java_logo.png" class="javaLogo">
+                        <img src="images/html_logo.png" class="htmlLogo">
+                        <img src="images/js_logo.png" class="jsLogo">
+                        <img src="images/css_logo.png" class="cssLogo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <a href="https://github.com/JeremyT21/Technology_Time_and_Your_Mental_Health_Summative" target="_blank">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-description">
+                            <img src="images/jupyterSS.png" id="ss2" class="imgZoom">
+                            <br><br>
+                            Organized a Jupyter Notebook,<br>analyzing the relationship between a<br>person's screen time and<br>their mental health.
+                        </div>
+                    </a>
+                    <div class="codingLanguages">
+                        <img src="images/python_logo.png" class="pythonLogo">
+                        <img src="images/html_logo.png" class="htmlLogo">
+                        <img src="images/css_logo.png" class="cssLogo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <a href="https://github.com/JeremyT21/Bunny_Population_Farm_Simulation" target="_blank">
+                        <div class="timeline-date">2022</div>
+                        <div class="timeline-description">
+                            <img src="images/bunnyExample.png" id="ss3" class="imgZoom">
+                            <br><br>
+                            Created an Object Oriented<br>model to simulate the population<br>of bunnies on a farm.
+                        </div>
+                    </a>
+                    <div class="codingLanguages">
+                        <img src="images/c++_logo.png" class="cLogo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END OF TIMELINE -->
+
+        <p class="shadow fadingIn" id="pdfText">
+            <a href="JeremyThummel_Resume_2024.pdf" target="_blank" id="pdfLink">
+                For further information on myself, my CV is attached below:
+                <br>
+                (Click to Enlarge)
+                <br><br>
+                <img src="images/JeremyThummel_Resume_2024_May.png" id="resume" class="shadowForImage">
+            </a>
+        </p>
+        <br>
+        <br>
+
+        <h1 style="margin-top: -20px; margin-bottom: -20px;" id="addHeader">ADDITIONAL PROJECTS</h1>
+        <br>
+        
+        <div class="desktopOnly">
+            <p>
+                <a href="FROGGER/summative_Final/finalGame/index.html" target="_blank">
+                    <img src="images/frogSS.png" id="ssF" class="imgZoom">
+                    <br><br>
+                    Using the canvas manipulation of the Phaser framework for HTML,
+                    <br>
+                    I created a game where a frog must travel across the canvas and eat the fly.
+                    <br>
+                    (Click Here to Play)
+                    <br><br>
+                    <img src="images/phaser_logo.png" class="phaserLogoF">
+                    <img src="images/html_logo.png" class="htmlLogoF">
+                    <img src="images/js_logo.png" class="jsLogoF">
+                    <img src="images/css_logo.png" class="cssLogoF">
+                </a>
+            </p>
+        </div>
+
+        <p>
+            <a href="Jeremy_Thummel_Diagram_Portfolio_Examples.pdf" target="_blank" id="diagramPrj">
+                <img src="images/diagramSS.png" id="diagramSS" class="imgZoom">
+                <br><br>
+                Utilizing diagram creation tools and UML principles,
+                <br>
+                I analyze systems and illustrate diagrams based on use cases.
+                <br>
+                (Click Here to View Diagrams)
+                <br><br>
+                <img src="images/drawio_logo.png" class="drawLogoF">
+                <img src="images/lucid_logo.png" class="lucLogoF">
+                <img src="images/visio_logo.png" class="visLogoF">
+            </a>
+        </p>
+
+        <div class="desktopOnly">
+            <br><br>
+            <h1 style="margin-top: -20px; margin-bottom: -20px;" id="addHeader">AWARDS & CERTIFICATIONS</h1>
+            <br><br>
+            <div class="certs">
+                <a href="certificatesAndAwards/Award_Fall2022.pdf" target="_blank"><img src="certificatesAndAwards/Award_Fall2022.png" class="presAward imgZoom"><br><br>Ontario Tech President's List Recognition 2022</a>
+                <a href="certificatesAndAwards/Award_Winter2023.pdf" target="_blank"><img src="certificatesAndAwards/Award_Winter2023.png" class="presAward imgZoom"><br><br>Ontario Tech President's List Recognition 2023</a>
+            </div>
+            <br>
+            <div class="certs">
+                <a href="certificatesAndAwards/javaCertificate.pdf" target="_blank"><img src="certificatesAndAwards/javaCertificate.png" class="hackCert imgZoom"><br><br>HackerRank Java Certification</a>
+                <a href="certificatesAndAwards/javascriptCertificate.pdf" target="_blank"><img src="certificatesAndAwards/javascriptCertificate.png" class="hackCert imgZoom"><br><br>HackerRank JavaScript Certification</a>
+            </div>
+        </div>
+
+        <p id="widthOutput"></p>
+        <div id="belowMargin2"></div>
+    <!-- </div> missing div end element makes the grey box continue to bottom of the web page -->
+
+    <script src="script.js"></script>
+</body>
+</html>

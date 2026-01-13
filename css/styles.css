@@ -1,0 +1,641 @@
+/*import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bebas+Neue&family=Cherry+Bomb+One&family=Press+Start+2P&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root
+{
+    --bg: #000000;
+    --panel: #1a2438;
+    --panel2: #0b0d30;
+    --text: #dbebf0;
+    --muted: #939cac;
+    --accent: #4eaeee;
+    --border: rgba(255, 255, 255, 0.11);
+    --shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    --radius: 16px;
+    --max: 1100px;
+}
+
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+    font-family: "Red Hat Display", system-ui, sans-serif;
+    color: var(--text);
+    background: black;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px;
+    padding-top: 60px;
+}
+
+.app
+{
+    width: min(var(--max), 100%);
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 880px)
+{
+    .app{grid-template-columns:1fr}
+}
+
+.card
+{
+    background: linear-gradient(180deg, rgba(45, 81, 95, 0.555), rgba(8, 88, 99, 0.75));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/*Left side panel of webpage styles: */
+.sidebar
+{
+    padding: 22px;
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, rgba(45, 81, 95, 0.555), rgba(8, 88, 99, 0.75));
+}
+
+.name
+{
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    margin: 0 0 2px;
+}
+
+.title
+{
+    display:inline-block;
+    margin: 0 0 16px;
+    /* padding: 4px 10px; */
+    /* border: 1px solid var(--border); */
+    /* border-radius: 999px; */
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.avatar
+{
+    width:100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit:cover;
+    border:4px solid var(--border);
+    border-color: black;
+    /* background: rgba(255,255,255,.04); */
+}
+
+.bio
+{
+    margin: 14px 0 14px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.socials
+{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.iconbtn
+{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.03);
+    color: var(--text);
+    text-decoration: none;
+    transition: 0.2s transform, 0.2s border-color, 0.2s background;
+}
+
+.iconbtn:hover
+{
+    transform: translateY(-2px);
+    border-color: rgba(96,165,250,.55);
+    background: rgba(96,165,250,.10);
+}
+
+.iconbtn svg
+{
+    width: 18px;
+    height: 18px;
+}
+
+.smallnote
+{
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/*Right panel webpage stylings (where content is shown): */
+.main
+{
+    padding: 18px 18px 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, rgba(45, 81, 95, 0.555), rgba(8, 88, 99, 0.75));
+    transition: background-color 320ms ease, box-shadow 320ms ease;
+}
+
+.tabs
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 6px;
+    /* border: 1px solid var(--border); */
+    border-radius: 999px;
+    width: fit-content;
+    background: rgb(0, 0, 0);
+}
+
+.tab
+{
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    padding: 10px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 650;
+    font-size: 13px;
+    transition: 0.2s background, 0.2s color;
+}
+
+.tab[aria-selected = "true"]
+{
+    background: rgba(96,165,250,.16);
+    color: var(--text);
+}
+
+/*Box where stuff is shown when a button is pressed on right side of page.*/
+.content
+{
+    margin-top: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0;
+    background: rgb(0, 0, 0);
+
+    overflow: hidden;/*used for vertical transitions in height size*/
+    transition: height 280ms ease;
+}
+
+/*The right panel content animates when switched */
+.content > section
+{
+    opacity: 0;
+    padding: 18px;
+    transform: translateY(6px);
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.content > section.is-active
+{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sectionTitle{
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+
+.muted
+{
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.grid
+{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+}
+
+@media (max-width: 620px)
+{
+    .grid
+    {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tile
+{
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px;
+    background: rgba(255,255,255,.03);
+}
+
+.tile h3
+{
+    margin: 0 0 6px;
+    font-size: 15px;
+}
+
+.tile p
+{
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5
+}
+
+.tile a
+{
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 650;
+    font-size: 13px;
+}
+
+.resumeBar
+{
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+}
+
+.resumeBar span
+{
+    color: var(--muted);
+    font-size: 13px
+}
+
+.btn
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.03);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    transition: 0.2s transform, 0.2s border-color, 0.2s background;
+}
+
+.btn:hover
+{
+    transform: translateY(-2px);
+    border-color: rgba(96,165,250,.55);
+    background: rgba(96,165,250,.10);
+}
+
+.btn svg
+{
+    width: 16px;
+    height: 16px;
+}
+
+form
+{
+    display: grid;
+    gap: 10px;
+    max-width: 640px;
+}
+
+input, textarea
+{
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.03);
+    color: var(--text);
+    outline: none;
+    font-family: sans-serif;
+}
+
+textarea
+{
+    min-height: 120px;
+    resize: vertical;
+}
+
+.formRow
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+@media (max-width: 620px)
+{
+    .formRow
+    {
+        grid-template-columns: 1fr;
+    }
+}
+
+.smallText
+{
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.hidden
+{
+    display: none;
+}
+
+/* ****** FOR SCALING WEBSITE SIZE: ****** */
+html, body
+{
+    overflow-x: hidden;
+}
+
+.app
+{
+    transform: scale(1.3);
+    transform-origin: top center;
+}
+
+/* ****** BACKGROUND JEREMY TICKER TEXT STYLING: ****** */
+.bg-ticker
+{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.2;
+}
+
+.ticker-row
+{
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-family: "Bagel Fat One", system-ui;
+}
+
+.ticker-track
+{
+    display: inline-flex;
+    white-space: nowrap;
+    will-change: transform;
+    animation: tickerRight 18s linear infinite;
+}
+
+.ticker-track span
+{
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 110px);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/*Give each line of JEREMY text a different speed for variation: */
+.ticker-row:nth-child(1) .ticker-track
+{
+    animation-duration: 90s;
+    opacity: 0.8;
+}
+
+.ticker-row:nth-child(2) .ticker-track
+{
+    animation-duration: 102s;
+    opacity: 0.9;
+}
+
+.ticker-row:nth-child(3) .ticker-track
+{
+    animation-duration: 76s;
+    opacity: 0.8;
+}
+
+.ticker-row:nth-child(4) .ticker-track
+{
+    animation-duration: 84s;
+    opacity: 0.7;
+}
+
+.ticker-row:nth-child(5) .ticker-track
+{
+    animation-duration: 99s;
+    opacity: 0.85;
+}
+
+/*JEREMY text moves right always */
+@keyframes tickerRight
+{
+    from
+    {
+        transform: translateX(-50%);
+    }
+
+    to
+    {
+        transform: translateX(0%);
+    }
+}
+
+/*Change formatting for mobile devices: */
+@media (max-width: 880px)
+{
+    /*Makes main elements (left and right panels / tabs) appear vertical */
+    .app
+    {
+        grid-template-columns: 1fr;
+    }
+
+    /*Makes the left main element / panel come first */
+    .sidebar
+    {
+        order: 1;
+    }
+    
+    .main
+    {
+        order: 2;
+    }
+
+    .sidebar
+    {
+        text-align: center;
+    }
+
+    /*Shrinks the avatar image */
+    .avatar
+    {
+        width: 160px;
+        max-width: 60vw;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        margin: 0 auto; /*centers image*/
+        display: block;
+    }
+
+    .title
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .socials
+    {
+        justify-content: center;
+    }
+
+    .tabs
+    {
+        margin: 0 auto;
+    }
+}
+
+/*Additional mobile device formatting - 2.0*/
+@media (max-width: 880px)
+{
+    body
+    {
+        padding: 12px;
+    }
+
+    .app
+    {
+        width: 100%;
+    }
+
+    .card
+    {
+        width: 100%;
+    }
+
+    .app
+    {
+        transform: none !important;
+    }
+
+    .tabs
+    {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .content
+    {
+        padding: 0;
+    }
+
+    .content > section
+    {
+        padding: 14px;
+    }
+
+    /*Pieces of text will stay contained within webpage view. */
+    .muted, .tile p, .bio
+    {
+        overflow-wrap: anywhere;
+    }
+}
+
+/*Colour transitions depending on selected button on right panel */
+.main[data-theme="home"]
+{
+    background: linear-gradient(180deg, rgba(45, 81, 95, 0.555), rgba(8, 88, 99, 0.75));
+}
+
+.main[data-theme="portfolio"]
+{
+    background: linear-gradient(180deg, rgba(95, 45, 58, 0.555), rgba(173, 6, 6, 0.75));
+}
+
+.main[data-theme="resume"]
+{
+    background: linear-gradient(180deg, rgba(22, 11, 71, 0.555), rgba(27, 41, 161, 0.75));
+}
+
+.main[data-theme="contact"]
+{
+    background: linear-gradient(180deg, rgba(10, 78, 36, 0.555), rgba(15, 145, 47, 0.849));
+}
+
+.main[data-theme="awards"]
+{
+    background: linear-gradient(180deg, rgba(117, 119, 19, 0.486), rgba(189, 139, 32, 0.315));
+}
+
+/*For reducing motion: */
+.motion-btn /*This styling is for the Reduced motion button in the top right of the website. */
+{
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 5;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--text);
+    font-weight: 800;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+}
+
+/* When reduced motion pause the background JEREMY text */
+.reduce-motion .ticker-track
+{
+    animation-play-state: paused !important;
+}
+
+/* Using system setting by default for motion reduction*/
+@media (prefers-reduced-motion: reduce)
+{
+    .ticker-track
+    {
+        animation-play-state: paused;
+    }
+}
+
+/*Stop the right panel growing or shrinking animations when reducing motion*/
+.reduce-motion .content
+{
+    transition: none !important;
+    /*stops the height animation */
+}
+
+.reduce-motion .content > section
+{
+    transition: none !important;
+    transform: none !important;
+    /*stops the fade/slide */
+}
