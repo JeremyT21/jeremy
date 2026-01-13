@@ -259,7 +259,8 @@
                 <section class="hidden" id="contact" role="tabpanel">
                     <h2 class="sectionTitle">Contact</h2>
                     <p class="muted">Feel free to reach out with any questions or requests!</p>
-
+                    
+                    <!-- Check if https://www.pythonanywhere.com/pricing/ works-->
                     <form onsubmit="return openMail(event)">
                         <div class="formRow">
                             <div>
@@ -270,7 +271,7 @@
                             </div>
                         </div>
                         <textarea id="cmsg" placeholder="Whatever you wish to inquire..." required></textarea>
-                        <button class="btn" type="submit">
+                        <button class="btn" id ="sendBtn" type="submit">
                             Send Message!
                         </button>
                     </form>

@@ -102,3 +102,5 @@ motionBtn.addEventListener("click", () => {
     const isOn = document.documentElement.classList.contains("reduce-motion");
     setReducedMotion(!isOn);
 });
+
+// ******* FOR USING CONTACT ME FUNCTION
