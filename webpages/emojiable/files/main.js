@@ -1,7 +1,7 @@
 
 const imageSize = 64;
 const canvasSize = 128;
-const model = 'model.onnx';
+const model = 'files/model.onnx';
 
 // Sources:
 // https://stackoverflow.com/questions/4899799/whats-the-best-way-to-set-a-single-pixel-in-an-html5-canvas
