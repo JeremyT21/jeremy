@@ -1,0 +1,13 @@
+/dist/
+/.vscode/
+/ABYSS/
+/FROGGER/
+/old_website/
+/videos/
+/images/*
+!/images/avatar.png
+!/images/jLetterFav.ico
+!/images/og.png
+/JeremyThummel_Resume_2024.pdf
+/Jeremy_Thummel_CoverLetter_2024.pdf
+/Jeremy_Thummel_Diagram_Portfolio_Examples.pdf

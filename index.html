@@ -3,359 +3,338 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Jeremy Thummel - 4th Year Com Sci</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jeremy Thummel is a computer science student and AI systems developer building dependable software, intelligent tools, and thoughtful digital products.">
+    <meta name="theme-color" content="#090b0d">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jeremy Thummel | Software Engineer">
+    <meta property="og:description" content="Software engineering, AI systems, and selected work by Jeremy Thummel.">
+    <meta property="og:image" content="https://jeremy-thummel-engineer.sugary-mouse-2112.chatgpt.site/images/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jeremy Thummel | Software Engineer">
+    <meta name="twitter:description" content="Software engineering, AI systems, and selected work by Jeremy Thummel.">
+    <meta name="twitter:image" content="https://jeremy-thummel-engineer.sugary-mouse-2112.chatgpt.site/images/og.png">
+    <title>Jeremy Thummel | Software Engineer</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/jLetterFav.ico">
 </head>
 
 <body>
-    <div class="bg-ticker" aria-hidden="true">
-        <div class="ticker-row">
-            <div class="ticker-track">
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-            </div>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="ticker-row">
-            <div class="ticker-track">
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-            </div>
-        </div>
-
-        <div class="ticker-row">
-            <div class="ticker-track">
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-            </div>
-        </div>
-
-        <div class="ticker-row">
-            <div class="ticker-track">
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-            </div>
-        </div>
-
-        <div class="ticker-row">
-            <div class="ticker-track">
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-                <span>JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • JEREMY • </span>
-            </div>
-        </div>
+    <div class="ambient" aria-hidden="true">
+        <div class="ambient__orb ambient__orb--one"></div>
+        <div class="ambient__orb ambient__orb--two"></div>
+        <div class="ambient__grid"></div>
+        <div class="ambient__spotlight"></div>
+        <div class="ambient__noise"></div>
     </div>
 
-    <button id="motionToggle" class="motion-btn" type="button" aria-pressed="false">
-        Reduce Motion
-    </button>
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
-    <div class="app">
-        <!--LEFT Panel on Webpage -->
-        <aside class="card sidebar">
-            <h1 class="name">Jeremy Thummel</h1>
-            <div class="title">4th Year Computer Science Undergrad Student</div>
+    <header class="site-header" id="top">
+        <a class="brand" href="#intro" aria-label="Jeremy Thummel home">
+            <span class="brand__mark">JT</span>
+            <span class="brand__text">Jeremy Thummel</span>
+        </a>
 
-            <img class="avatar" src="images/avatar.png" alt="Portrait of Jeremy">
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a class="nav-link is-active" href="#intro">Intro</a>
+            <a class="nav-link" href="#about">Profile</a>
+            <a class="nav-link" href="#work">Work</a>
+            <a class="nav-link" href="#experience">Experience</a>
+            <a class="nav-link" href="#recognition">Recognition</a>
+            <a class="nav-link" href="#contact">Contact</a>
+        </nav>
 
-            <p class="bio">
-                Hey, I'm Jeremy! I love developing software tools, and applications.
-                I've used many coding languages and frameworks,
-                so feel free to browse my site to see what I'm about! 
-            </p>
+        <button id="motionToggle" class="motion-toggle" type="button" aria-pressed="false">
+            <span class="motion-toggle__icon" aria-hidden="true"></span>
+            <span class="motion-toggle__label">Reduce motion</span>
+        </button>
+    </header>
 
-            <div class="socials" aria-label="Social links">
-                <!--GitHub SVG icon -->
-                <a class="iconbtn" href="https://github.com/JeremyT21" target="_blank" rel="noreferrer" aria-label="GitHub">
-                    <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-                        <path d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z">
-                    </svg>
-                </a>
-
-                <!--LinkedIn SVG icon -->
-                <a class="iconbtn" href="https://www.linkedin.com/in/jeremy-thummel/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 23.5h4V7.98h-4V23.5zM8.5 7.98h3.83v2.12h.05c.53-1 1.84-2.12 3.79-2.12 4.05 0 4.8 2.67 4.8 6.14v9.38h-4v-8.31c0-1.98-.04-4.52-2.76-4.52-2.76 0-3.18 2.16-3.18 4.39v8.44h-4V7.98z">
-                    </svg>
-                </a>
-
-                <!--Email SVG icon -->
-                <a class="iconbtn" href="mailto:thummeljeremy@gmail.com" aria-label="Email">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z">
-                    </svg>
-                </a>
+    <main id="main">
+        <section class="hero section" id="intro" data-section>
+            <div class="hero__eyebrow reveal">
+                <span class="status-dot"></span>
+                Software engineer and AI systems developer
             </div>
 
-            <div class="smallnote">Please feel free to <b>contact me</b> through any of my socials or my email at: <a style="color: #dbebf0;" href="mailto:thummeljeremy@gmail.com"><b>thummeljeremy@gmail.com</b></a></div>
-
-        </aside>
-
-        <!--RIGHT Panel of Webpage -->
-        <main class="card main">
-            <nav class="tabs" role="tablist" aria-label="Sections">
-                <button class="tab" role="tab" aria-selected="true" data-tab="home">Home</button>
-                <button class="tab" role="tab" aria-selected="false" data-tab="portfolio">Portfolio</button>
-                <button class="tab" role="tab" aria-selected="false" data-tab="resume">Resume</button>
-                <!-- I WILL NEED TO IMPLEMENT THE MAIL FUNCTION IN JS OR PYTHON <button class="tab" role="tab" aria-selected="false" data-tab="contact">Contact</button>-->
-                <button class="tab" role="tab" aria-selected="false" data-tab="awards">Awards</button>
-            </nav>
-      
-            <div class="content" id="contentBox">
-                <section id="home" role="tabpanel">
-                    <h2 class="sectionTitle">About Me</h2>
-                    <p class="muted">
-                        I am currently in my 4th year of a 5 year co-op program at Ontario Tech University,
-                        <br>
-                        where I am pursuing a Computer Science Bachelor's Degree with Honours.
-                        <br>
-                        <br>
-                        Recently, in a team I developed an ML image editor that can edit identified objects,
-                        <br>
-                        either automatically finding the objects or having the user draw on the part of the image they wish to edit. 
-                        <br>
-                        <br>
-                        Most recently, I was an AI Systems Developer for AFM Industries.
-                        <br>
-                        I built agentic tools used by employees to fulfill both deterministic and knowledge-based requests.
-                        <br>
-                        <br>
-                        Some of my main mottos:
+            <div class="hero__layout">
+                <div class="hero__copy">
+                    <p class="hero__index reveal">Portfolio 2026</p>
+                    <h1 class="reveal">
+                        Engineering
+                        <span>intelligent systems</span>
+                        with intent.
+                    </h1>
+                    <p class="hero__lede reveal">
+                        I’m Jeremy, a Computer Science student who turns complex ideas into dependable software, useful AI tools, and polished digital experiences.
                     </p>
 
-                    <ul class="muted">
-                        <li>Eat good, live good!</li>
-                        <li>Communication is critical.</li>
-                    </ul>
-
-                    <div class="resumeBar">
-                        <span>Download my resume:</span>
-                        <a class="btn" href="pdfs/JeremyThummel_Resume_2026_January.pdf" target="_blank" rel="noreferrer">
-                            <!--Download SVG icon -->
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L11 13.6V4a1 1 0 0 1 1-1z">
-                                <path d="M5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z">
-                            </svg>
-                            Resume (PDF)
-                        </a>
+                    <div class="hero__actions reveal">
+                        <a class="button button--primary" href="#work">Explore selected work <span aria-hidden="true">↘</span></a>
+                        <a class="button button--ghost" href="pdfs/JeremyThummel_Resume_2026_January.pdf" target="_blank" rel="noreferrer">View résumé <span aria-hidden="true">↗</span></a>
                     </div>
-                </section>
+                </div>
 
-                <section class="hidden" id="portfolio" role="tabpanel">
-                    <h2 class="sectionTitle">Portfolio</h2>
-                    <p class="muted">All GitHub projects were managed using a Git workflow.</p>
-
-                    <div class="grid" style="margin-top:12px;">
-                        
-                        <div class="tile">
-                            <h3>M.A.G.E. - Masked and Generative Image Editor</h3>
-                            <p>
-                                An image editing application that enables users to edit specific regions of an image using either automated masking or manual selection, with text-guided generation.
-                                The system combines Stable Diffusion Inpainting, YOLO segmentation, T5 prompt enhancement, and CLIP/SSIM evaluation to generate, refine, and assess image edits.
-                            </p>
-                            <a href="https://github.com/JeremyT21/AI_Image_Editing_Application" target="_blank" rel="noreferrer">Go to GitHub Repo →</a>
-                        </div>
-
-                        <div class="tile">
-                            <h3>In-Stock Tracker</h3>
-                            <p>An email service made with Python, Selenium, and the SMTPLIB library to alert me when a product I'm chasing comes back in-stock!</p>
-                            <a href="https://github.com/JeremyT21/Stock_Tracker_Notification_Application/blob/main/README.md" target="_blank" rel="noreferrer">Go to GitHub Repo →</a>
-                        </div>
-
-                        <div class="tile">
-                            <h3>emoji~able</h3>
-                            <p>A Generative Adversarial Network (GAN) that produces unique emoji-styled images. PyTorch was used for training. Datasets were processed with NumPy, Pandas, and OpenCV. Matplotlib was used to visualize model loss.</p>
-                            <a href="https://jeremyt21.github.io/jeremy/webpages/emojiable/index.html" target="_blank" rel="noreferrer">Try Generating Some emojis! →</a>
-                            <br>
-                            <a href="https://github.com/JeremyT21/emojiable_Machine_Learning_Final_Project/blob/main/README.md" target="_blank" rel="noreferrer">Go to GitHub Repo →</a>
-                        </div>
-
-                        <div class="tile">
-                            <h3>Align 4!!</h3>
-                            <p>This online 2-person game uses the same rules as "Connect 4". The program is built with Maven, and uses Jakarta EE for Servlet and WebSocket functionality. Java was used for server-handling, and JavaScript/HTML/CSS were used to manage front-end operations.</p>
-                            <a href="https://github.com/JeremyT21/Align4_Video_Game/blob/main/README.md" target="_blank" rel="noreferrer">Go to GitHub Repo →</a>
-                        </div>
-
-                        <div class="tile">
-                            <h3>Screen Time vs. Mental Health</h3>
-                            <p>This data analysis compares trends in mental health to the increase in technology use seen accross the world. NumPy and Pandas DataFrames were used to clean data, Matplotlib and Seaborn were used for visualization.</p>
-                            <a href="https://github.com/JeremyT21/Technology_Time_and_Your_Mental_Health_Summative/blob/main/notebook_assignment.ipynb" target="_blank" rel="noreferrer">Go to GitHub Repo →</a>
-                        </div>
-
-                        <div class="tile">
-                            <h3>Farm Animal Population Simulation</h3>
-                            <p>Using C++, I tested my understanding of pointers, vectors, addresses, modulation, and encapsulation to develop an iterative simulation reflective of how farm animals grow in numbers.</p>
-                            <a href="https://github.com/JeremyT21/Bunny_Population_Farm_Simulation/blob/main/README.md" target="_blank" rel="noreferrer">Go to GitHub Repo →</a>
-                        </div>
-
+                <aside class="hero__profile reveal" aria-label="Jeremy at a glance">
+                    <div class="portrait-frame">
+                        <img src="images/avatar.png" alt="Portrait of Jeremy Thummel">
+                        <span class="portrait-frame__corner portrait-frame__corner--one"></span>
+                        <span class="portrait-frame__corner portrait-frame__corner--two"></span>
                     </div>
-
-                    <div class="resumeBar">
-                        <span>Download my resume:</span>
-                        <a class="btn" href="pdfs/JeremyThummel_Resume_2026_January.pdf" target="_blank" rel="noreferrer">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L11 13.6V4a1 1 0 0 1 1-1z">
-                                <path d="M5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z">
-                            </svg>
-                            Resume (PDF)
-                        </a>
-                    </div>
-                </section>
-
-                <section class="hidden" id="resume" role="tabpanel">
-   
-                    <b>Download for my full resume:</b>
-                    <br>
-                    <a class="btn" href="pdfs/JeremyThummel_Resume_2026_January.pdf" target="_blank" rel="noreferrer">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L11 13.6V4a1 1 0 0 1 1-1z">
-                            <path d="M5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z">
-                        </svg>
-                        Resume (PDF)
-                    </a>
-  
-                    <br>
-                    <br>
-
-                    <h2 class="sectionTitle">Education</h2>
-
-                    <div class="tile" style="margin-top:12px;">
-                        <h3>Ontario Tech University - 4.06 GPA - BSc (Hons)</h3>
-                        <p class="muted">
-                            In my final year of a Computer Science Bachelor's with Honours Co-op program.
-                            <br>
-                            Member of the 2022/2023/2024/2026 President's List (meaning a GPA of 3.8 or higher was achieved).
-                            <br>
-                            Working on my honours thesis, specialized in facial recognition and object detection using ML architecture.
-                            <br>
-                        </p>
-                    </div>
-
-                    <br>
-
-                    <h2 class="sectionTitle">Experience</h2>
-
-                    <div class="tile" style="margin-top:12px;">
-                        <h3>AI Systems Developer - AFM Industries</h3>
-                        <p class="muted">
-                            Developing an AI system to fulfill employee requests and questions.
-                            <br>
-                            Multiple agents being developed (e.g. for answering deterministic questions versus knowledge-based questions).
-                            <br>
-                            Implementing RAG architecture for accurate knowledge output.
-                            <br>
-                            Constructing the system using an infrastructure built on Microsoft Azure services.
-                        </p>
-                    </div>
-
-                    <div class="tile" style="margin-top:12px;">
-                        <h3>Computer Science Co-op - Teknion</h3>
-                        <p class="muted">
-                            I spent 1 year with Teknion developing software, and overseeing cybersecurity / networking operations.
-                            <br>
-                            I created shell scripts to clean and compare company data.
-                            <br>
-                            Engineered a factory label printing program using a JavaScript backend, with a HTML/CSS user interface.
-                            <br>
-                            Coded API tests for company security.
-                        </p>
-                    </div>
-
-                    <div class="tile" style="margin-top:12px;">
-                        <h3>Technical Director - Google Developer Student Club</h3>
-                        <p class="muted">
-                            Conducted workshops sharing useful software concepts with the Ontario Tech University campus.
-                            <br>
-                            Developed lectures focused on using Cohere's AI platform through REST API calls in Python.
-                            <br>
-                            Hosted on-campus demonstrations focused on current technologies including Google's NotebookLM and Gemini toolset.
-                        </p>
-                    </div>
-
-                    <div class="resumeBar">
-                        <span>Download my resume:</span>
-                        <a class="btn" href="pdfs/JeremyThummel_Resume_2026_January.pdf" target="_blank" rel="noreferrer">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L11 13.6V4a1 1 0 0 1 1-1z">
-                                <path d="M5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z">
-                            </svg>
-                            Resume (PDF)
-                        </a>
-                    </div>
-                </section>
-
-                <section class="hidden" id="contact" role="tabpanel">
-                    <h2 class="sectionTitle">Contact</h2>
-                    <p class="muted">Feel free to reach out with any questions or requests!</p>
-                    
-                    <!-- Check if https://www.pythonanywhere.com/pricing/ works-->
-                    <form onsubmit="return openMail(event)">
-                        <div class="formRow">
-                            <div>
-                                <input id="cname" placeholder="Your name:" required />
-                            </div>
-                            <div>
-                                <input id="cemail" type="email" placeholder="Your email:" required />
-                            </div>
+                    <div class="profile-meta">
+                        <div>
+                            <span>Based in</span>
+                            <strong>Ontario, Canada</strong>
                         </div>
-                        <textarea id="cmsg" placeholder="Whatever you wish to inquire..." required></textarea>
-                        <button class="btn" id ="sendBtn" type="submit">
-                            Send Message!
-                        </button>
-                    </form>
-
-                    <div class="resumeBar">
-                        <span>Download my resume:</span>
-                        <a class="btn" href="pdfs/JeremyThummel_Resume_2026_January.pdf" target="_blank" rel="noreferrer">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L11 13.6V4a1 1 0 0 1 1-1z">
-                                <path d="M5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z">
-                            </svg>
-                            Resume (PDF)
-                        </a>
-                    </div>
-                </section>
-
-                <section class="hidden" id="awards" role="tabpanel">
-                    <h2 class="sectionTitle">Awards</h2>
-                    <p class="muted">Here is where I display my awards!</p>
-
-                    <div class="grid" style="margin-top:12px;">
-                        <div class="tile">
-                            <h3>President's List 2024</h3>
-                            <p>Achieved a GPA of 3.8 or higher.</p>
-                            <a href="certificatesAndAwards/Award_Fall2024.pdf" target="_blank" rel="noreferrer">View award →</a>
-                        </div>
-
-                        <div class="tile">
-                            <h3>President's List 2023</h3>
-                            <p>Achieved a GPA of 3.8 or higher.</p>
-                            <a href="certificatesAndAwards/Award_Winter2023.pdf" target="_blank" rel="noreferrer">View award →</a>
-                        </div>
-
-                        <div class="tile">
-                            <h3>President's List 2022</h3>
-                            <p>Achieved a GPA of 3.8 or higher.</p>
-                            <a href="certificatesAndAwards/Award_Fall2022.pdf" target="_blank" rel="noreferrer">View award →</a>
+                        <div>
+                            <span>Focus</span>
+                            <strong>AI and software systems</strong>
                         </div>
                     </div>
-
-                    <div class="resumeBar">
-                        <span>Download my resume:</span>
-                        <a class="btn" href="pdfs/JeremyThummel_Resume_2026_January.pdf" target="_blank" rel="noreferrer">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L11 13.6V4a1 1 0 0 1 1-1z">
-                                <path d="M5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z">
-                            </svg>
-                            Resume (PDF)
-                        </a>
-                    </div>
-                </section>
-
+                </aside>
             </div>
-        </main>
-    </div>
+
+            <a class="scroll-cue" href="#about">
+                <span>Scroll to explore</span>
+                <span class="scroll-cue__line" aria-hidden="true"></span>
+            </a>
+        </section>
+
+        <section class="section profile" id="about" data-section>
+            <div class="section-heading reveal">
+                <p class="kicker">01 / Profile</p>
+                <h2>Curiosity backed by execution.</h2>
+            </div>
+
+            <div class="profile__layout">
+                <p class="profile__statement reveal">
+                    I build at the intersection of <em>software engineering</em>, machine learning, and product thinking.
+                </p>
+
+                <div class="profile__details reveal">
+                    <p>
+                        I’m in the final year of the Honours Computer Science Co-op program at Ontario Tech University. My work ranges from employee-facing agentic systems to machine learning research and full-stack applications.
+                    </p>
+                    <p>
+                        Most recently, I worked as an AI Systems Developer at AFM Industries, building tools that fulfill deterministic and knowledge-based employee requests through Azure infrastructure and retrieval-augmented generation.
+                    </p>
+
+                    <dl class="metrics">
+                        <div>
+                            <dt>4.06</dt>
+                            <dd>University GPA</dd>
+                        </div>
+                        <div>
+                            <dt>4×</dt>
+                            <dd>President’s List</dd>
+                        </div>
+                        <div>
+                            <dt>1 yr</dt>
+                            <dd>Teknion co-op</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="capabilities reveal" aria-label="Core capabilities">
+                <span>AI systems</span>
+                <span>Machine learning</span>
+                <span>Full-stack development</span>
+                <span>Cloud architecture</span>
+                <span>Developer education</span>
+            </div>
+        </section>
+
+        <section class="section work" id="work" data-section>
+            <div class="section-heading section-heading--split reveal">
+                <div>
+                    <p class="kicker">02 / Selected work</p>
+                    <h2>Built to solve something real.</h2>
+                </div>
+                <p>A selection of AI, software, and data projects, each developed with a practical outcome in mind.</p>
+            </div>
+
+            <div class="project-list">
+                <article class="project project--featured reveal">
+                    <div class="project__number">01</div>
+                    <div class="project__content">
+                        <div class="project__meta"><span>AI product</span><span>Python</span><span>Computer vision</span></div>
+                        <h3>M.A.G.E.</h3>
+                        <p class="project__subtitle">Masked and Generative Image Editor</p>
+                        <p>Edits specific image regions through automated masking or manual selection. The system brings together Stable Diffusion Inpainting, YOLO segmentation, T5 prompt enhancement, and CLIP and SSIM evaluation.</p>
+                        <a class="text-link" href="https://github.com/JeremyT21/AI_Image_Editing_Application" target="_blank" rel="noreferrer">View repository <span aria-hidden="true">↗</span></a>
+                    </div>
+                    <div class="project__visual" aria-hidden="true">
+                        <div class="visual-window">
+                            <div class="visual-window__bar"><i></i><i></i><i></i></div>
+                            <div class="visual-window__body">
+                                <span class="visual-window__label">Object mask</span>
+                                <div class="visual-window__scan"></div>
+                                <div class="visual-window__object"></div>
+                                <span class="visual-window__confidence">98.4%</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project reveal">
+                    <div class="project__number">02</div>
+                    <div class="project__content">
+                        <div class="project__meta"><span>Automation</span><span>Python</span><span>Selenium</span></div>
+                        <h3>In-Stock Tracker</h3>
+                        <p>An automated monitoring service that checks product availability and sends email alerts the moment an item returns to stock.</p>
+                        <a class="text-link" href="https://github.com/JeremyT21/Stock_Tracker_Notification_Application/blob/main/README.md" target="_blank" rel="noreferrer">View repository <span aria-hidden="true">↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project reveal">
+                    <div class="project__number">03</div>
+                    <div class="project__content">
+                        <div class="project__meta"><span>Generative AI</span><span>PyTorch</span><span>GAN</span></div>
+                        <h3>emoji~able</h3>
+                        <p>A generative adversarial network trained to produce original emoji-style images, with a browser experience that lets anyone generate a result.</p>
+                        <div class="project__links">
+                            <a class="text-link" href="webpages/emojiable/index.html" target="_blank" rel="noreferrer">Try the model <span aria-hidden="true">↗</span></a>
+                            <a class="text-link" href="https://github.com/JeremyT21/emojiable_Machine_Learning_Final_Project/blob/main/README.md" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project reveal">
+                    <div class="project__number">04</div>
+                    <div class="project__content">
+                        <div class="project__meta"><span>Real-time web</span><span>Java</span><span>WebSocket</span></div>
+                        <h3>Align 4</h3>
+                        <p>An online two-player strategy game built with Maven, Jakarta EE Servlets, WebSockets, JavaScript, HTML, and CSS.</p>
+                        <a class="text-link" href="https://github.com/JeremyT21/Align4_Video_Game/blob/main/README.md" target="_blank" rel="noreferrer">View repository <span aria-hidden="true">↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project reveal">
+                    <div class="project__number">05</div>
+                    <div class="project__content">
+                        <div class="project__meta"><span>Data science</span><span>Pandas</span><span>Visualization</span></div>
+                        <h3>Screen Time and Mental Health</h3>
+                        <p>A data analysis exploring global mental health trends alongside the growth of technology use, with cleaned datasets and purpose-built visualizations.</p>
+                        <a class="text-link" href="https://github.com/JeremyT21/Technology_Time_and_Your_Mental_Health_Summative/blob/main/notebook_assignment.ipynb" target="_blank" rel="noreferrer">View notebook <span aria-hidden="true">↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project reveal">
+                    <div class="project__number">06</div>
+                    <div class="project__content">
+                        <div class="project__meta"><span>Simulation</span><span>C++</span><span>Systems</span></div>
+                        <h3>Population Simulator</h3>
+                        <p>An iterative farm population simulation created to explore pointers, vectors, memory addresses, modularity, and encapsulation in C++.</p>
+                        <a class="text-link" href="https://github.com/JeremyT21/Bunny_Population_Farm_Simulation/blob/main/README.md" target="_blank" rel="noreferrer">View repository <span aria-hidden="true">↗</span></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section experience" id="experience" data-section>
+            <div class="section-heading reveal">
+                <p class="kicker">03 / Experience</p>
+                <h2>Applied engineering, end to end.</h2>
+            </div>
+
+            <div class="timeline">
+                <article class="timeline-item reveal">
+                    <div class="timeline-item__date">Most recent</div>
+                    <div class="timeline-item__body">
+                        <p class="timeline-item__type">Professional experience</p>
+                        <h3>AI Systems Developer</h3>
+                        <p class="timeline-item__org">AFM Industries</p>
+                        <p>Built employee-facing AI agents for deterministic and knowledge-based requests, implemented retrieval-augmented generation, and developed the system on Microsoft Azure services.</p>
+                    </div>
+                </article>
+
+                <article class="timeline-item reveal">
+                    <div class="timeline-item__date">1 year</div>
+                    <div class="timeline-item__body">
+                        <p class="timeline-item__type">Co-op experience</p>
+                        <h3>Computer Science Co-op</h3>
+                        <p class="timeline-item__org">Teknion</p>
+                        <p>Developed software and supported cybersecurity and networking operations. Created shell tools for company data, engineered a factory label-printing application, and wrote API security tests.</p>
+                    </div>
+                </article>
+
+                <article class="timeline-item reveal">
+                    <div class="timeline-item__date">Leadership</div>
+                    <div class="timeline-item__body">
+                        <p class="timeline-item__type">Community experience</p>
+                        <h3>Technical Director</h3>
+                        <p class="timeline-item__org">Google Developer Student Club</p>
+                        <p>Led campus workshops on practical software concepts, taught Cohere API integration in Python, and hosted demonstrations of emerging tools including NotebookLM and Gemini.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="education reveal">
+                <div>
+                    <p class="kicker">Education</p>
+                    <h3>Ontario Tech University</h3>
+                </div>
+                <div>
+                    <strong>BSc (Honours), Computer Science Co-op</strong>
+                    <p>Final-year student with a 4.06 GPA. Honours thesis focused on facial recognition and object detection using machine learning architecture.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section recognition" id="recognition" data-section>
+            <div class="section-heading section-heading--split reveal">
+                <div>
+                    <p class="kicker">04 / Recognition</p>
+                    <h2>Consistent academic excellence.</h2>
+                </div>
+                <p>President’s List recognition is awarded for achieving a GPA of 3.8 or higher.</p>
+            </div>
+
+            <div class="awards-grid">
+                <a class="award reveal" href="certificatesAndAwards/Award_Fall2024.pdf" target="_blank" rel="noreferrer">
+                    <span class="award__year">2024</span>
+                    <span class="award__title">President’s List</span>
+                    <span class="award__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="award reveal" href="certificatesAndAwards/Award_Winter2023.pdf" target="_blank" rel="noreferrer">
+                    <span class="award__year">2023</span>
+                    <span class="award__title">President’s List</span>
+                    <span class="award__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="award reveal" href="certificatesAndAwards/Award_Fall2022.pdf" target="_blank" rel="noreferrer">
+                    <span class="award__year">2022</span>
+                    <span class="award__title">President’s List</span>
+                    <span class="award__arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact" data-section>
+            <div class="contact__inner reveal">
+                <p class="kicker">05 / Contact</p>
+                <h2>Have a complex problem worth solving?</h2>
+                <p>I’m always interested in thoughtful engineering work, ambitious ideas, and conversations with good people.</p>
+                <div class="contact__actions">
+                    <a class="button button--light" href="mailto:thummeljeremy@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
+                    <a class="contact__email" href="mailto:thummeljeremy@gmail.com">thummeljeremy@gmail.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="brand" href="#intro" aria-label="Back to the top"><span class="brand__mark">JT</span></a>
+        <p>Designed and engineered by Jeremy Thummel</p>
+        <div class="footer-links">
+            <a href="https://github.com/JeremyT21" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/jeremy-thummel/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="pdfs/JeremyThummel_Resume_2026_January.pdf" target="_blank" rel="noreferrer">Résumé</a>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>

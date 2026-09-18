@@ -1,106 +1,91 @@
-// ******* FOR HAVING SMOOTH TRANSITIONING ON THE RIGHT PANEL OF WEBSITE:
-const tabs = document.querySelectorAll(".tab");
-const contentBox = document.getElementById("contentBox");
-const panelIds = ["home","portfolio","resume","contact","awards"];
-const panels = panelIds.map(id => document.getElementById(id));
+const root = document.documentElement;
+const header = document.querySelector(".site-header");
+const progress = document.getElementById("scrollProgress");
+const motionButton = document.getElementById("motionToggle");
+const motionLabel = motionButton.querySelector(".motion-toggle__label");
+const navLinks = [...document.querySelectorAll(".nav-link")];
+const sections = [...document.querySelectorAll("[data-section]")];
+const reveals = [...document.querySelectorAll(".reveal")];
 
-//this function sets the wrapper style height to match active panel
-function setBoxHeightTo(panel)
-{
-    const prevDisplay = panel.style.display;
-    panel.style.display = "block";
+const systemPrefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const savedMotionPreference = localStorage.getItem("reduceMotion");
 
-    const h = panel.scrollHeight;
-    contentBox.style.height = h + "px";
+function setReducedMotion(isReduced, shouldSave = true) {
+    root.classList.toggle("reduce-motion", isReduced);
+    motionButton.setAttribute("aria-pressed", String(isReduced));
+    motionLabel.textContent = isReduced ? "Enable motion" : "Reduce motion";
+    motionButton.setAttribute("aria-label", isReduced ? "Enable motion" : "Reduce motion");
 
-    panel.style.display = prevDisplay;
+    if (shouldSave) {
+        localStorage.setItem("reduceMotion", isReduced ? "1" : "0");
+    }
+
+    if (isReduced) {
+        reveals.forEach((element) => element.classList.add("is-visible"));
+    }
 }
 
-//Activates and initializes the right content on the webpage
-const first = panels.find(p => !p.classList.contains("hidden")) || panels[0];
-first.classList.add("is-active");
+const initialReducedMotion = savedMotionPreference === null
+    ? systemPrefersReducedMotion.matches
+    : savedMotionPreference === "1";
 
-//Set the height attribute
-requestAnimationFrame(() => setBoxHeightTo(first));
+setReducedMotion(initialReducedMotion, false);
 
-const mainEl = document.querySelector(".main");
+motionButton.addEventListener("click", () => {
+    setReducedMotion(!root.classList.contains("reduce-motion"));
+});
 
-//Depending on what the site loads on, use that as starting colour theme for right tab's content
-mainEl.dataset.theme = first.id;
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+    });
+}, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -8% 0px"
+});
 
-tabs.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const targetId = btn.dataset.tab;
-        const next = document.getElementById(targetId);
-        const current = panels.find(p => p.classList.contains("is-active"));
+if (!initialReducedMotion) {
+    reveals.forEach((element) => revealObserver.observe(element));
+} else {
+    reveals.forEach((element) => element.classList.add("is-visible"));
+}
 
-        if (!next || current === next) return;
-
-        //Change the background theme when button clicked on right tab
-        mainEl.dataset.theme = targetId;
-
-        //Update tab to show which button is selected
-        tabs.forEach(b => b.setAttribute("aria-selected", String(b === btn)));
-        contentBox.style.height = current.scrollHeight + "px";
-        current.classList.remove("is-active");
-
-        requestAnimationFrame(() => {
-            current.classList.add("hidden");
-            next.classList.remove("hidden");
-
-            //Animate and transition in the new content
-            void contentBox.offsetHeight;
-            next.classList.add("is-active");
-            contentBox.style.height = next.scrollHeight + "px";
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+            link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
         });
     });
+}, {
+    rootMargin: "-38% 0px -52% 0px",
+    threshold: 0
 });
 
+sections.forEach((section) => sectionObserver.observe(section));
 
-//Ensure proper height attribute for right content on webpage if window is changed
-window.addEventListener("resize", () => {
-    const active = panels.find(p => p.classList.contains("is-active"));
-    if (active) setBoxHeightTo(active);
-});
+let frameRequested = false;
 
-// ******* FOR DOING JEREMYs IN BACKGROUND:
-document.querySelectorAll(".ticker-track").forEach(track => {
-    const duration = parseFloat(
-        getComputedStyle(track).animationDuration
-    );
-
-    //Have position of background JEREMYs in each line be randomized when webpage is loaded
-    const randomOffset = Math.random() * duration;
-    track.style.animationDelay = '-' + randomOffset + 's';
-});
-
-// ******* FOR REDUCING MOTION:
-const motionBtn = document.getElementById("motionToggle");
-
-function setReducedMotion(on){
-    document.documentElement.classList.toggle("reduce-motion", on);
-    motionBtn.setAttribute("aria-pressed", String(on));
-
-    if(on)
-    {
-        motionBtn.textContent = "Resume Motion";
-        localStorage.setItem("reduceMotion", "1");
-    }
-    
-    else
-    {
-        motionBtn.textContent = "Reduce Motion";
-        localStorage.setItem("reduceMotion", "0");
-    }
+function updateScrollInterface() {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+    progress.style.transform = `scaleX(${Math.min(Math.max(ratio, 0), 1)})`;
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
+    frameRequested = false;
 }
 
-//If reduced motion was requested previously, remember user's choice, else have motion on
-const saved = localStorage.getItem("reduceMotion") === "1";
-setReducedMotion(saved);
+window.addEventListener("scroll", () => {
+    if (frameRequested) return;
+    frameRequested = true;
+    requestAnimationFrame(updateScrollInterface);
+}, { passive: true });
 
-motionBtn.addEventListener("click", () => {
-    const isOn = document.documentElement.classList.contains("reduce-motion");
-    setReducedMotion(!isOn);
-});
+window.addEventListener("pointermove", (event) => {
+    if (root.classList.contains("reduce-motion")) return;
+    root.style.setProperty("--pointer-x", `${event.clientX}px`);
+    root.style.setProperty("--pointer-y", `${event.clientY}px`);
+}, { passive: true });
 
-// ******* FOR USING CONTACT ME FUNCTION
+updateScrollInterface();
