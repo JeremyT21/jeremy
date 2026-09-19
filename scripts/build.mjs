@@ -16,6 +16,7 @@ await mkdir(client, { recursive: true });
 
 const files = [
     "index.html",
+    "JeremyThummel_Resume.pdf",
     "css",
     "js",
     "pdfs",

@@ -317,7 +317,6 @@ a:focus-visible {
 
 .hero__eyebrow,
 .kicker,
-.hero__index,
 .project__meta,
 .timeline-item__type {
     color: var(--accent);
@@ -345,14 +344,9 @@ a:focus-visible {
 
 .hero__layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.45fr);
-    align-items: end;
-    gap: clamp(52px, 8vw, 140px);
-}
-
-.hero__index {
-    margin: 0 0 18px;
-    color: var(--muted);
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+    align-items: center;
+    gap: clamp(40px, 6vw, 100px);
 }
 
 .hero h1 {
@@ -424,76 +418,17 @@ a:focus-visible {
 
 .hero__profile {
     align-self: center;
+    display: flex;
+    justify-content: center;
 }
 
 .portrait-frame {
-    position: relative;
-    padding: 11px;
-    border: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.025);
-}
-
-.portrait-frame::after {
-    position: absolute;
-    inset: 11px;
-    content: "";
-    background: linear-gradient(to top, rgba(9, 11, 13, 0.28), transparent 42%);
-    pointer-events: none;
+    width: min(100%, 560px);
 }
 
 .portrait-frame img {
     display: block;
     width: 100%;
-    aspect-ratio: 0.88;
-    object-fit: cover;
-    filter: saturate(0.72) contrast(1.06);
-}
-
-.portrait-frame__corner {
-    position: absolute;
-    z-index: 2;
-    width: 20px;
-    height: 20px;
-    border-color: var(--accent);
-}
-
-.portrait-frame__corner--one {
-    top: 5px;
-    left: 5px;
-    border-top: 1px solid;
-    border-left: 1px solid;
-}
-
-.portrait-frame__corner--two {
-    right: 5px;
-    bottom: 5px;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-}
-
-.profile-meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    padding: 18px 0 0;
-}
-
-.profile-meta span,
-.profile-meta strong {
-    display: block;
-}
-
-.profile-meta span {
-    margin-bottom: 4px;
-    color: var(--muted);
-    font-size: 9px;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-}
-
-.profile-meta strong {
-    font-size: 12px;
-    font-weight: 600;
 }
 
 .scroll-cue {
@@ -1118,7 +1053,7 @@ a:focus-visible {
     }
 
     .hero__layout {
-        grid-template-columns: 1fr 260px;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr);
         gap: 46px;
     }
 
@@ -1207,20 +1142,7 @@ a:focus-visible {
     }
 
     .hero__profile {
-        display: grid;
-        grid-template-columns: minmax(0, 0.75fr) 1fr;
-        align-items: end;
-        gap: 18px;
-        margin-top: 20px;
-    }
-
-    .portrait-frame img {
-        aspect-ratio: 1;
-    }
-
-    .profile-meta {
-        grid-template-columns: 1fr;
-        padding: 0 0 4px;
+        margin-top: 34px;
     }
 
     .scroll-cue {
