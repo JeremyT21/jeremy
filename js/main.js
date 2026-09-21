@@ -6,9 +6,79 @@ const motionLabel = motionButton.querySelector(".motion-toggle__label");
 const navLinks = [...document.querySelectorAll(".nav-link")];
 const sections = [...document.querySelectorAll("[data-section]")];
 const reveals = [...document.querySelectorAll(".reveal")];
+const typewriter = document.querySelector("[data-typewriter]");
+const typewriterLines = typewriter
+    ? [...typewriter.querySelectorAll("[data-type-text]")]
+    : [];
+const typewriterCursor = document.createElement("span");
+
+typewriterCursor.className = "hero__type-cursor";
+typewriterCursor.setAttribute("aria-hidden", "true");
+
+let typewriterTimer;
+let typewriterLineIndex = 0;
+let typewriterCharacterIndex = 0;
+let typewriterPrepared = false;
+let typewriterComplete = false;
 
 const systemPrefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const savedMotionPreference = localStorage.getItem("reduceMotion");
+
+function completeTypewriter() {
+    if (!typewriter) return;
+
+    window.clearTimeout(typewriterTimer);
+    typewriterLines.forEach((line) => {
+        line.textContent = line.dataset.typeText;
+    });
+    typewriterCursor.remove();
+    typewriter.classList.remove("is-typing");
+    typewriter.classList.add("is-complete");
+    typewriterComplete = true;
+}
+
+function typeNextCharacter() {
+    if (root.classList.contains("reduce-motion")) {
+        completeTypewriter();
+        return;
+    }
+
+    const line = typewriterLines[typewriterLineIndex];
+    const text = line.dataset.typeText;
+
+    typewriterCharacterIndex += 1;
+    line.textContent = text.slice(0, typewriterCharacterIndex);
+    line.append(typewriterCursor);
+
+    if (typewriterCharacterIndex < text.length) {
+        const typedCharacter = text[typewriterCharacterIndex - 1];
+        typewriterTimer = window.setTimeout(typeNextCharacter, typedCharacter === " " ? 45 : 72);
+        return;
+    }
+
+    if (typewriterLineIndex < typewriterLines.length - 1) {
+        typewriterLineIndex += 1;
+        typewriterCharacterIndex = 0;
+        typewriterTimer = window.setTimeout(typeNextCharacter, 190);
+        return;
+    }
+
+    typewriter.classList.remove("is-typing");
+    typewriter.classList.add("is-complete");
+    typewriterComplete = true;
+}
+
+function prepareTypewriter() {
+    if (!typewriter || typewriterPrepared) return;
+
+    typewriterLines.forEach((line) => {
+        line.textContent = "";
+    });
+    typewriterLines[0].append(typewriterCursor);
+    typewriter.classList.add("is-typing");
+    typewriterPrepared = true;
+    typewriterTimer = window.setTimeout(typeNextCharacter, 650);
+}
 
 function setReducedMotion(isReduced, shouldSave = true) {
     root.classList.toggle("reduce-motion", isReduced);
@@ -28,6 +98,10 @@ function setReducedMotion(isReduced, shouldSave = true) {
 const initialReducedMotion = savedMotionPreference === null
     ? systemPrefersReducedMotion.matches
     : savedMotionPreference === "1";
+
+if (!initialReducedMotion) {
+    prepareTypewriter();
+}
 
 setReducedMotion(initialReducedMotion, false);
 

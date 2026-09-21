@@ -359,10 +359,25 @@ a:focus-visible {
     line-height: 0.84;
 }
 
-.hero h1 span {
+.hero__type-line {
     display: block;
+    min-height: 0.84em;
+}
+
+.hero__type-line--accent {
     color: var(--accent);
     font-style: italic;
+}
+
+.hero__type-cursor {
+    display: inline-block;
+    width: 0.045em;
+    height: 0.78em;
+    margin-left: 0.07em;
+    vertical-align: -0.04em;
+    background: currentColor;
+    box-shadow: 0 0 0.18em currentColor;
+    animation: type-cursor 0.85s steps(1, end) infinite;
 }
 
 .hero__lede {
@@ -1066,6 +1081,11 @@ a:focus-visible {
     to { transform: translate3d(8%, 7%, 0) scale(1.08); }
 }
 
+@keyframes type-cursor {
+    0%, 45% { opacity: 1; }
+    46%, 100% { opacity: 0; }
+}
+
 @keyframes grain {
     0% { transform: translate(0, 0); }
     25% { transform: translate(2%, -3%); }
@@ -1312,5 +1332,9 @@ a:focus-visible {
 }
 
 .reduce-motion .ambient__spotlight {
+    display: none;
+}
+
+.reduce-motion .hero__type-cursor {
     display: none;
 }
