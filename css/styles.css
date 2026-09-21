@@ -846,62 +846,120 @@ a:focus-visible {
 
 .awards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
 }
 
 .award {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 300px;
-    padding: 28px;
+    min-height: 230px;
+    padding: 30px;
     overflow: hidden;
     border: 1px solid var(--line);
+    border-radius: 4px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
     text-decoration: none;
-    transition: color 350ms ease, border-color 350ms ease, transform 350ms var(--ease);
+    transition: color 350ms ease, border-color 350ms ease, background-color 350ms ease, transform 350ms var(--ease), box-shadow 350ms ease;
 }
 
 .award::before {
     position: absolute;
-    inset: auto -20% -45% 20%;
-    height: 85%;
+    inset: auto -15% -65% 35%;
+    height: 120%;
+    aspect-ratio: 1;
     border-radius: 50%;
     content: "";
     background: var(--accent);
-    opacity: 0;
-    filter: blur(70px);
+    opacity: 0.05;
+    filter: blur(75px);
     transition: opacity 350ms ease;
 }
 
 .award:hover {
     color: var(--accent);
-    border-color: rgba(120, 246, 207, 0.45);
-    transform: translateY(-6px);
+    border-color: rgba(120, 246, 207, 0.55);
+    background-color: rgba(120, 246, 207, 0.025);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+    transform: translateY(-5px);
 }
 
 .award:hover::before {
-    opacity: 0.17;
+    opacity: 0.14;
 }
 
-.award__year {
+.award--latest {
+    border-color: rgba(120, 246, 207, 0.3);
+}
+
+.award--latest .award__term::after {
+    margin-left: 10px;
+    padding: 4px 7px;
+    color: var(--ink);
+    border-radius: 999px;
+    content: "Latest";
+    background: var(--accent);
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    vertical-align: 1px;
+}
+
+.award__term {
+    position: relative;
+    z-index: 1;
     color: var(--muted);
     font-size: 11px;
     letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
 .award__title {
-    margin: auto 0 0;
+    position: relative;
+    z-index: 1;
+    margin: auto 0 24px;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 31px;
+    font-size: clamp(28px, 3vw, 38px);
     letter-spacing: -0.03em;
     line-height: 1.1;
 }
 
+.award__action {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: color 350ms ease, border-color 350ms ease;
+}
+
+.award:hover .award__action {
+    color: var(--accent);
+    border-color: rgba(120, 246, 207, 0.25);
+}
+
 .award__arrow {
-    position: absolute;
-    top: 26px;
-    right: 26px;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    font-size: 13px;
+    transition: color 350ms ease, border-color 350ms ease, transform 350ms var(--ease);
+}
+
+.award:hover .award__arrow {
+    color: var(--accent);
+    border-color: rgba(120, 246, 207, 0.55);
+    transform: rotate(8deg);
 }
 
 .contact {
@@ -1208,7 +1266,8 @@ a:focus-visible {
     }
 
     .award {
-        min-height: 190px;
+        min-height: 210px;
+        padding: 24px;
     }
 
     .contact {
