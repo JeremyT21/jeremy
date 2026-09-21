@@ -360,8 +360,20 @@ a:focus-visible {
 }
 
 .hero__type-line {
+    position: relative;
     display: block;
     min-height: 0.84em;
+}
+
+.hero__type-line::before {
+    display: block;
+    content: attr(data-type-text);
+    visibility: hidden;
+}
+
+.hero__type-value {
+    position: absolute;
+    inset: 0 0 auto;
 }
 
 .hero__type-line--accent {

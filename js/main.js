@@ -10,6 +10,7 @@ const typewriter = document.querySelector("[data-typewriter]");
 const typewriterLines = typewriter
     ? [...typewriter.querySelectorAll("[data-type-text]")]
     : [];
+const typewriterValues = typewriterLines.map((line) => line.querySelector(".hero__type-value"));
 const typewriterCursor = document.createElement("span");
 
 typewriterCursor.className = "hero__type-cursor";
@@ -28,8 +29,8 @@ function completeTypewriter() {
     if (!typewriter) return;
 
     window.clearTimeout(typewriterTimer);
-    typewriterLines.forEach((line) => {
-        line.textContent = line.dataset.typeText;
+    typewriterLines.forEach((line, index) => {
+        typewriterValues[index].textContent = line.dataset.typeText;
     });
     typewriterCursor.remove();
     typewriter.classList.remove("is-typing");
@@ -44,11 +45,12 @@ function typeNextCharacter() {
     }
 
     const line = typewriterLines[typewriterLineIndex];
+    const value = typewriterValues[typewriterLineIndex];
     const text = line.dataset.typeText;
 
     typewriterCharacterIndex += 1;
-    line.textContent = text.slice(0, typewriterCharacterIndex);
-    line.append(typewriterCursor);
+    value.textContent = text.slice(0, typewriterCharacterIndex);
+    value.append(typewriterCursor);
 
     if (typewriterCharacterIndex < text.length) {
         const typedCharacter = text[typewriterCharacterIndex - 1];
@@ -71,10 +73,10 @@ function typeNextCharacter() {
 function prepareTypewriter() {
     if (!typewriter || typewriterPrepared) return;
 
-    typewriterLines.forEach((line) => {
-        line.textContent = "";
+    typewriterValues.forEach((value) => {
+        value.textContent = "";
     });
-    typewriterLines[0].append(typewriterCursor);
+    typewriterValues[0].append(typewriterCursor);
     typewriter.classList.add("is-typing");
     typewriterPrepared = true;
     typewriterTimer = window.setTimeout(typeNextCharacter, 650);
