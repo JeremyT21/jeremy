@@ -601,13 +601,39 @@ a:focus-visible {
     gap: 24px;
     padding: 48px 0;
     border-bottom: 1px solid var(--line);
-    transition: padding 400ms var(--ease), background 300ms ease;
+    transition: background-color 400ms ease, border-color 400ms ease;
 }
 
-.project:not(.project--featured):hover {
-    padding-right: 24px;
-    padding-left: 24px;
+.project.reveal {
+    transition: opacity 850ms var(--ease), transform 550ms var(--ease), background-color 400ms ease, border-color 400ms ease;
+}
+
+.project--clickable {
+    cursor: pointer;
+}
+
+.project__primary-link {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+}
+
+.project .text-link {
+    position: relative;
+    z-index: 3;
+}
+
+@media (hover: hover) {
+    .project.project--clickable.is-visible:hover {
+        border-color: rgba(120, 246, 207, 0.32);
+        background: rgba(255, 255, 255, 0.025);
+        transform: translate3d(6px, 0, 0);
+    }
+}
+
+.project.project--clickable.is-visible:has(.project__primary-link:focus-visible) {
     background: rgba(255, 255, 255, 0.025);
+    transform: translate3d(6px, 0, 0);
 }
 
 .project--featured {
@@ -1268,12 +1294,6 @@ a:focus-visible {
         grid-template-columns: 35px minmax(0, 1fr);
         gap: 12px;
         padding: 38px 0;
-    }
-
-    .project:not(.project--featured):hover {
-        padding-right: 0;
-        padding-left: 0;
-        background: transparent;
     }
 
     .timeline {

@@ -6,6 +6,7 @@ const motionLabel = motionButton.querySelector(".motion-toggle__label");
 const navLinks = [...document.querySelectorAll(".nav-link")];
 const sections = [...document.querySelectorAll("[data-section]")];
 const reveals = [...document.querySelectorAll(".reveal")];
+const projects = [...document.querySelectorAll(".project")];
 const typewriter = document.querySelector("[data-typewriter]");
 const typewriterLines = typewriter
     ? [...typewriter.querySelectorAll("[data-type-text]")]
@@ -109,6 +110,29 @@ setReducedMotion(initialReducedMotion, false);
 
 motionButton.addEventListener("click", () => {
     setReducedMotion(!root.classList.contains("reduce-motion"));
+});
+
+projects.forEach((project) => {
+    const links = [...project.querySelectorAll("a[href]")];
+
+    // Project navigation rule: single-link projects open that repository or notebook; multi-link projects open their live website instead of GitHub.
+    const destination = links.length > 1
+        ? links.find((link) => !link.href.includes("github.com")) || links[0]
+        : links[0];
+
+    if (!destination) return;
+
+    const title = project.querySelector("h3")?.textContent.trim() || "project";
+    const primaryLink = document.createElement("a");
+
+    primaryLink.className = "project__primary-link";
+    primaryLink.href = destination.getAttribute("href");
+    primaryLink.target = destination.target;
+    primaryLink.rel = destination.rel;
+    primaryLink.setAttribute("aria-label", `Open ${title}`);
+
+    project.classList.add("project--clickable");
+    project.prepend(primaryLink);
 });
 
 const revealObserver = new IntersectionObserver((entries, observer) => {
