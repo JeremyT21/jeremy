@@ -163,7 +163,7 @@ async function generate(selected) {
     var completed = 0;
     try {
         if (session === null) {
-            setStatus('Warming up the emoji machine…', 'Loading the model for the first time. Your browser will reuse it for the next batch.');
+            setStatus('Loading model…', 'This is only needed for the first batch.');
             if (typeof ort === 'undefined') {
                 throw new Error('The generator library could not load. Check your connection and reload the page.');
             }
@@ -195,14 +195,14 @@ async function generate(selected) {
             if (stop_requested) {
                 break;
             }
-            setStatus('Creating emoji ' + (completed + 1) + ' of ' + queue.length + '…', 'Finished faces appear as they are ready. Try the finishing touches while you wait.');
+            setStatus('Creating emoji ' + (completed + 1) + ' of ' + queue.length + '…', 'You can adjust colors while generation runs.');
             await new Promise(function(resolve) { setTimeout(resolve, 20); });
             await fillCanvas(session, item.emoji, item.seed);
             item.emoji.card.classList.remove('pending');
             progress.value = ++completed;
             updateCount();
         }
-        setStatus(stop_requested ? 'Generation stopped. Your finished emojis are ready.' : 'Fresh faces, just for you.', 'Save a favorite as PNG, remix a single face, or adjust the colors live.');
+        setStatus(stop_requested ? 'Generation stopped.' : 'Generation complete.', 'Save a PNG or remix an emoji.');
     } catch (error) {
         console.error(error);
         setStatus('We couldn’t finish this batch.', 'Your completed emojis are still available. Check your connection and try Generate again.');

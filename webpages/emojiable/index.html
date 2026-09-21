@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Create a little unexpected. Generate and customize your own experimental AI emojis.">
+        <meta name="description" content="Generate, customize, and download emojis with Emojiable.">
         <title>Emojiable — Emoji studio</title>
         <script defer src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
         <script defer src="files/main.js"></script>
@@ -13,42 +13,33 @@
     <body>
         <header>
             <a href="./" aria-label="Emojiable home"><img src="files/emojiable.png" class="title_image" alt="Emojiable"></a>
-            <span class="badge">THE EMOJI EXPERIMENT</span>
         </header>
         <main>
             <div class="hero">
-                <section class="intro">
-                    <p class="eyebrow">SMALL FACES. ENDLESS POSSIBILITIES.</p>
-                    <h1>A little weird.<br>A lot <em>you.</em></h1>
-                    <p>Turn a spark of randomness into your next favorite emoji. Explore, remix, and make it your own.</p>
-                </section>
-                <section class="timelapse" aria-labelledby="timelapse_title">
+                <figure class="timelapse">
                     <img src="files/progress.gif" alt="Timelapse of generated emoji faces taking shape during model training" width="400" height="400" decoding="async">
-                    <div>
-                        <p class="eyebrow">WATCH THE LEARNING HAPPEN</p>
-                        <h2 id="timelapse_title">How faces take shape</h2>
-                        <p class="timelapse-description">This timelapse shows the model learning to create emojis during training. Colors and shapes gradually form eyes, mouths, and faces.</p>
-                    </div>
+                    <figcaption>This timelapse shows the model learning to form emoji faces during training.</figcaption>
+                </figure>
+                <section class="intro">
+                    <h1>Create your<br>own emojis.</h1>
+                    <p>Generate a batch, adjust the colors, and save your favorites.</p>
                 </section>
             </div>
             <div class="studio">
                 <aside class="panel">
-                    <div class="section-heading"><h2>Your recipe</h2><span>01 / CREATE</span></div>
+                    <div class="section-heading"><h2>Generation</h2></div>
                     <fieldset id="generation_controls">
                         <legend class="sr-only">Generation settings</legend>
                         <label for="count_input">Emojis per batch</label>
                         <select id="count_input"><option>4</option><option>8</option><option selected>14</option><option>24</option></select>
-                        <label for="seed_input">Seed <span>Repeat a discovery</span></label>
+                        <label for="seed_input">Seed</label>
                         <div class="seed-row"><input id="seed_input" type="number" min="0" max="4294967295" step="1" value="42"><button id="shuffle_button" type="button" aria-label="Choose a random seed">↻</button></div>
                         <label for="deviation_input">Noise standard deviation <output id="deviation_value">1.0</output></label>
                         <input type="range" id="deviation_input" min="0.1" max="2" step="0.1" value="1">
-                        <p class="hint">Lower for subtle variation. Higher for wilder experiments.</p>
                         <label for="mean_input">Noise mean <output id="mean_value">0.0</output></label>
                         <input type="range" id="mean_input" min="-1" max="1" step="0.1" value="0">
-                        <p class="hint">Shift the starting point to explore different faces.</p>
                     </fieldset>
-                    <div class="section-heading finish-heading"><h2>The finishing touch</h2><span>02 / REMIX</span></div>
-                    <p class="hint">Updates your generated emojis instantly, including downloads.</p>
+                    <div class="section-heading finish-heading"><h2>Appearance</h2></div>
                     <label for="hue_input">Color shift <output id="hue_value">0°</output></label>
                     <input type="range" id="hue_input" min="-180" max="180" value="0">
                     <label for="saturation_input">Saturation <output id="saturation_value">100%</output></label>
@@ -56,19 +47,18 @@
                     <label for="contrast_input">Contrast <output id="contrast_value">100%</output></label>
                     <input type="range" id="contrast_input" min="50" max="150" value="100">
                     <label class="check-label"><input type="checkbox" id="pixel_input"> Crisp pixel finish</label>
-                    <button id="reset_button" class="text-button" type="button">Reset finishing touches</button>
+                    <button id="reset_button" class="text-button" type="button">Reset appearance</button>
                     <button id="generate_button" class="primary" type="button">Generate emojis <span>↗</span></button>
                     <button id="stop_button" class="secondary" type="button" hidden>Stop after this emoji</button>
                 </aside>
                 <section class="results" aria-labelledby="results_title">
-                    <div class="section-heading"><div><p class="eyebrow">FRESH FROM YOUR IMAGINATION</p><h2 id="results_title">Your emoji collection</h2></div><span id="count_label" class="badge">0 CREATED</span></div>
-                    <div class="status-box"><span id="status_icon" aria-hidden="true">✦</span><div><p id="status" role="status" aria-live="polite">Your next favorite face is one click away.</p><p id="status_detail" class="hint">Choose your recipe, then hit generate. The first batch takes a little longer to load.</p></div></div>
+                    <div class="section-heading"><h2 id="results_title">Your emojis</h2><span id="count_label" class="badge">0 CREATED</span></div>
+                    <div class="status-box"><div><p id="status" role="status" aria-live="polite">Ready to generate.</p><p id="status_detail" class="hint">The first batch includes model loading.</p></div></div>
                     <progress id="progress" max="14" value="0" aria-label="Emoji generation progress" hidden></progress>
                     <div id="canvases" aria-busy="false"></div>
-                    <p class="collection-note">Made by an experimental GAN. Every result is a discovery — some more unexpected than others.</p>
                 </section>
             </div>
         </main>
-        <footer><span>Made of pixels &amp; possibility.</span><span>64 × 64 originals · Generated in your browser</span></footer>
+        <footer><span>64 × 64 originals · Generated in your browser</span></footer>
     </body>
 </html>
