@@ -11,7 +11,8 @@ header, main, footer { max-width: 1320px; margin: auto; padding: 0 40px; }
 header { display: flex; justify-content: space-between; align-items: center; min-height: 110px; border-bottom: 1px solid #ffffff12; }
 .title_image { width: 245px; height: auto; display: block; }
 .badge { font-size: 10px; letter-spacing: 1.5px; border: 1px solid #ffffff24; padding: 9px 12px; border-radius: 30px; white-space: nowrap; }
-.intro { padding: 48px 0 38px; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); align-items: center; gap: 32px; padding: 48px 0 38px; }
+.intro { min-width: 0; }
 .eyebrow { color: #b7a0ff; font-size: 10px; font-weight: 700; letter-spacing: 2px; margin: 0 0 14px; }
 h1 { font-size: clamp(44px, 6vw, 76px); line-height: 1.04; letter-spacing: -3px; margin: 0 0 20px; font-weight: 750; }
 h1 em { color: #c7b5ff; font-style: normal; }
@@ -58,15 +59,15 @@ canvas { width: 100%; height: auto; max-width: 128px; border-radius: 8px; }
 .card-actions button { padding: 7px; font-size: 10px; flex: 1; }
 .collection-note { font-size: 11px; line-height: 1.7; color: #948c9f; margin-top: 24px; }
 footer { display: flex; justify-content: space-between; gap: 15px; color: #948c9f; font-size: 11px; padding-top: 40px; padding-bottom: 28px; }
-.timelapse { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); align-items: center; gap: 32px; margin-top: 48px; padding: 28px; border: 1px solid #ffffff12; border-radius: 22px; background: #1c1924; }
-.timelapse h2 { font-size: 28px; }
-.timelapse-description { max-width: 420px; color: #b0acbf; font-size: 14px; line-height: 1.7; margin: 16px 0 0; }
-.timelapse img { display: block; width: 100%; max-width: 400px; height: auto; border-radius: 14px; justify-self: center; }
+.timelapse { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 20px; padding: 22px; border: 1px solid #ffffff12; border-radius: 22px; background: #1c1924; }
+.timelapse h2 { font-size: 24px; }
+.timelapse-description { color: #b0acbf; font-size: 13px; line-height: 1.7; margin: 12px 0 0; }
+.timelapse img { display: block; width: 100%; height: auto; border-radius: 14px; }
 [hidden] { display: none !important; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 @keyframes shimmer { to { background-position: -200% 0; } }
 @keyframes breathe { 50% { opacity: .35; transform: scale(.85); } }
-@media (max-width: 1050px) { #canvases { grid-template-columns: repeat(3, minmax(0, 1fr)); } .studio { gap: 22px; grid-template-columns: 275px minmax(0, 1fr); } }
-@media (max-width: 740px) { header, main, footer { padding-left: 20px; padding-right: 20px; } header { min-height: 85px; } header .badge { display: none; } .title_image { width: 210px; } .studio { grid-template-columns: 1fr; } .intro { padding-top: 32px; } .results { margin-top: 12px; } footer { flex-direction: column; } }
+@media (max-width: 1050px) { #canvases { grid-template-columns: repeat(3, minmax(0, 1fr)); } .studio { gap: 22px; grid-template-columns: 275px minmax(0, 1fr); } .timelapse { grid-template-columns: 1fr; } .timelapse img { max-width: 200px; justify-self: center; } }
+@media (max-width: 740px) { header, main, footer { padding-left: 20px; padding-right: 20px; } header { min-height: 85px; } header .badge { display: none; } .title_image { width: 210px; } .studio { grid-template-columns: 1fr; } .hero { grid-template-columns: 1fr; padding-top: 32px; } .results { margin-top: 12px; } footer { flex-direction: column; } }
 @media (max-width: 400px) { #canvases { grid-template-columns: repeat(2, minmax(0, 1fr)); } .results .section-heading { align-items: flex-start; } .results h2 { font-size: 21px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

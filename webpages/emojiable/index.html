@@ -16,11 +16,21 @@
             <span class="badge">THE EMOJI EXPERIMENT</span>
         </header>
         <main>
-            <section class="intro">
-                <p class="eyebrow">SMALL FACES. ENDLESS POSSIBILITIES.</p>
-                <h1>A little weird.<br>A lot <em>you.</em></h1>
-                <p>Turn a spark of randomness into your next favorite emoji. Explore, remix, and make it your own.</p>
-            </section>
+            <div class="hero">
+                <section class="intro">
+                    <p class="eyebrow">SMALL FACES. ENDLESS POSSIBILITIES.</p>
+                    <h1>A little weird.<br>A lot <em>you.</em></h1>
+                    <p>Turn a spark of randomness into your next favorite emoji. Explore, remix, and make it your own.</p>
+                </section>
+                <section class="timelapse" aria-labelledby="timelapse_title">
+                    <img src="files/progress.gif" alt="Timelapse of generated emoji faces taking shape during model training" width="400" height="400" decoding="async">
+                    <div>
+                        <p class="eyebrow">WATCH THE LEARNING HAPPEN</p>
+                        <h2 id="timelapse_title">How faces take shape</h2>
+                        <p class="timelapse-description">This timelapse shows the model learning to create emojis during training. Colors and shapes gradually form eyes, mouths, and faces.</p>
+                    </div>
+                </section>
+            </div>
             <div class="studio">
                 <aside class="panel">
                     <div class="section-heading"><h2>Your recipe</h2><span>01 / CREATE</span></div>
@@ -58,14 +68,6 @@
                     <p class="collection-note">Made by an experimental GAN. Every result is a discovery — some more unexpected than others.</p>
                 </section>
             </div>
-            <section class="timelapse" aria-labelledby="timelapse_title">
-                <div>
-                    <p class="eyebrow">WATCH THE LEARNING HAPPEN</p>
-                    <h2 id="timelapse_title">How faces take shape</h2>
-                    <p class="timelapse-description">This timelapse shows the model learning to create emojis during training. Colors and shapes gradually form eyes, mouths, and faces.</p>
-                </div>
-                <img src="files/progress.gif" alt="Timelapse of generated emoji faces taking shape during model training" width="400" height="400" loading="lazy" decoding="async">
-            </section>
         </main>
         <footer><span>Made of pixels &amp; possibility.</span><span>64 × 64 originals · Generated in your browser</span></footer>
     </body>
