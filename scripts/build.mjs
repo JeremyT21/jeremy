@@ -22,7 +22,7 @@ const files = [
     "pdfs",
     "certificatesAndAwards",
     "webpages/emojiable",
-    "images/avatar.png",
+    "images/avatar2.jpg",
     "images/jLetterFav.ico",
     "images/og.png"
 ];

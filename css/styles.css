@@ -444,18 +444,145 @@ a:focus-visible {
 }
 
 .hero__profile {
-    align-self: center;
+    align-self: start;
+    translate: 0 calc(var(--headline-center, 160px) - 50%);
     display: flex;
     justify-content: center;
 }
 
 .portrait-frame {
+    position: relative;
+    isolation: isolate;
     width: min(100%, 560px);
+    aspect-ratio: 1;
+}
+
+.portrait-button {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.portrait-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 7px;
+}
+
+.portrait-hint {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 0;
+    width: 100%;
+    margin: 0;
+    color: var(--accent);
+    font-family: "Segoe Print", "Bradley Hand", "Chalkboard SE", cursive;
+    font-size: clamp(19px, 2vw, 28px);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.035em;
+    text-align: center;
+    transform: rotate(-5deg);
+    text-shadow: 0.5px 0.4px 0 rgba(120, 246, 207, 0.25);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.portrait-hint::after {
+    content: "";
+    display: block;
+    width: 58%;
+    height: 5px;
+    margin: -3px auto 0;
+    border-bottom: 1px solid currentColor;
+    border-radius: 50%;
+    transform: rotate(-1deg);
+    opacity: 0.65;
 }
 
 .portrait-frame img {
     display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 6px solid var(--accent);
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.portrait-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.portrait-particle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background: var(--accent);
+    will-change: transform, opacity;
+}
+
+.burst-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.burst-layer .portrait-particle {
+    top: 0;
+    left: 0;
+}
+
+.burst-layer .is-floating {
+    pointer-events: auto;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.reduce-motion .burst-layer {
+    display: none;
+}
+
+.hero__profile.reveal {
+    transition: none;
+}
+
+.hero__profile.reveal.is-visible {
+    animation: portrait-arrive 1.3s both;
+}
+
+@keyframes portrait-arrive {
+    0% {
+        opacity: 0;
+        transform: translateY(42px);
+        animation-timing-function: cubic-bezier(0.22, 0.7, 0.3, 1);
+    }
+    72% {
+        opacity: 1;
+        transform: translateY(-9px);
+        animation-timing-function: ease-in-out;
+    }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.reduce-motion .portrait-particles {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portrait-particles { display: none; }
 }
 
 .scroll-cue {
@@ -1259,6 +1386,7 @@ a:focus-visible {
 
     .hero__profile {
         margin-top: 34px;
+        translate: none;
     }
 
     .scroll-cue {
