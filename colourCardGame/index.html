@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102b27">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Colour Card Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="engine.js"></script>
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <div class="sparkles" aria-hidden="true"></div>
+  <main>
+    <header><div class="brand"><div class="brand-mark" aria-hidden="true"><span>♦</span><span>♣</span><span>♠</span><span>♥</span></div><h1><span class="brand-name">Colour</span><span class="brand-subtitle">Card Game</span></h1></div><button class="help" id="help" aria-label="How to play">?</button></header>
+    <div class="scoreboard"><div><span>YOU</span><strong id="you-score">0</strong></div><div class="trump"><span>FIRST TO 7 CARD PAIRS</span><strong id="trump">Shape not chosen yet</strong></div><div><span>OPPONENT</span><strong id="bot-score">0</strong></div></div>
+    <section class="table" aria-label="Card table">
+      <div class="opponent"><span class="avatar">♟</span><span>Opponent <small id="bot-count"></small></span><div class="backs" aria-hidden="true"><i></i><i></i><i></i></div></div>
+      <div class="stage"><span class="eyebrow" id="phase">READY TO PLAY</span><h2 id="message" aria-live="polite">Ready to play?</h2><p id="hint">Win 7 card pairs to win the round.</p><div id="arena"></div><div id="actions"></div></div>
+      <div id="last" class="last"></div>
+    </section>
+    <section class="hand-section" aria-label="Your cards"><div class="hand-heading"><span>YOUR HAND <small id="hand-count"></small></span><span id="hand-tip">Your cards will appear here.</span></div><div id="hand" class="hand"></div></section>
+    <footer><span id="record">52 cards · 2 players</span></footer>
+    <nav class="themes" aria-label="Background colour"><span>Background colour</span><div id="theme-buttons"></div></nav>
+  </main>
+  <dialog id="rules"><button id="close-help" class="help" aria-label="Close rules">×</button><span class="eyebrow">THE TABLE RULES</span><h2>How to play</h2><ol><li>A coin flip decides who chooses the first chosen shape. See your five cards before choosing.</li><li>If you picked the shape, select two cards to keep. Otherwise, select three. The other cards are put aside.</li><li>Take turns building a 13-card hand. Keep the offered card (and see the next card discarded), or pass and take the next card unseen.</li><li>The person who picked the shape plays first. Match the shape of the first card if you can; otherwise play any card. The chosen shape beats other shapes. Card order from lowest to highest: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), King (K), Ace (A). Ace is the highest card.</li><li>The higher card of the shape played first wins unless a card of the chosen shape is played. Each pair winner plays first next. First to 7 card pairs wins!</li><li>Tap Play again for a new round. The winner chooses the next chosen shape.</li></ol><p>Your opponent cannot see your cards.</p></dialog>
+</body>
+</html>
