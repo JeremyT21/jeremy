@@ -19,3 +19,7 @@ h1{font-size:34px;font-weight:700;margin-top:0}h2{font-size:32px;font-weight:700
 @media(max-width:540px){.hand .number-pips{width:54%;left:23%;height:70%;top:15%;font-size:18px}.hand .face-card{inset:23% 24%}.hand .face-card b{font-size:23px}.hand .face-card>span{font-size:18px}}
 .face-letter{position:absolute;inset:0;display:grid;place-items:center;font:700 38px/1 Georgia,serif;pointer-events:none}
 @media(max-width:540px){.hand .face-letter{font-size:30px}}
+/* Fill Safari's expanding viewport and keep the backdrop still while scrolling. */
+html{min-height:100%;background-color:#102b27}
+body{min-height:100vh;min-height:100dvh;isolation:isolate;background:var(--bg)}
+body::before{content:'';position:fixed;z-index:-1;top:0;left:0;right:0;bottom:0;min-height:100vh;min-height:100lvh;background:radial-gradient(ellipse at 50% 20%,var(--glow),transparent 65%),linear-gradient(130deg,var(--bg),var(--deep));pointer-events:none}

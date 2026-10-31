@@ -116,6 +116,7 @@ for(const [name,colour] of Object.entries(themeColours)) {
   b.style.setProperty('--swatch',colour);b.setAttribute('aria-pressed',String(name==='green'));
   b.onclick=()=>{
     document.body.dataset.theme=name;
+    document.documentElement.style.backgroundColor=colour;
     document.querySelector('meta[name="theme-color"]').setAttribute('content',colour);
     for(const other of $('theme-buttons').children)other.setAttribute('aria-pressed',String(other===b));
   };
