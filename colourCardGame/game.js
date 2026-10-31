@@ -37,6 +37,7 @@ function start(chooser) {
 function choose(suit) { state.trump=suit;state.phase='discard';render(); }
 function discard() {
   state.hands[0]=state.hands[0].filter(c=>state.selected.has(c.id));
+  state.selected.clear();
   const count=state.chooser===1?3:2;
   state.hands[1].sort((a,b)=>E.value(b,state.trump)-E.value(a,state.trump));state.hands[1].splice(-count);
   state.drawTurn=state.chooser;nextDraw();
